@@ -1,0 +1,607 @@
+body, html {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00ff9d;
+    transition: width 0.3s ease;
+}
+nav ul li a:hover {
+    color: #00ff9d;
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+.hire-me, .contact-btn {
+    background-color: #00ff9d;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+.hire-me:hover, .contact-btn:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transform: scale(1.05);
+}
+.hero, .about-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+.hero-text, .about-text {
+    flex: 1;
+    padding-right: 30px;
+}
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.hero-text h2 {
+    font-size: 36px;
+    color: #00ff9d;
+    margin-bottom: 20px;
+    min-height: 44px;
+}
+.hero-text p, .about-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.social-icons a {
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #00ff9d;
+}
+.profile-image, .about-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+}
+.profile-image img, .about-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.rotating-circle {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border: 2px dashed #00ff9d;
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.stat-item {
+    text-align: center;
+}
+.stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00ff9d;
+}
+.stat-label {
+    font-size: 18px;
+}
+.burger {
+    display: none;
+    cursor: pointer;
+}
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffffff;
+    border-top: 5px solid #00ff9d;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@media screen and (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+    nav {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        opacity: 0;
+    }
+    .nav-active {
+        transform: translateX(0%);
+    }
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px,6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px,-6px);
+    }
+    .hero, .about-me {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-image, .about-image {
+        margin-top: 30px;
+    }
+    .stats {
+        flex-wrap: wrap;
+    }
+    .stat-item {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 20px;
+    }
+    .hire-me {
+        margin-top: 20px;
+    }
+    .stat-item {
+        width: 100%;
+    }
+}
+
+.about-text h2 {
+    position: relative;
+    text-align: center;
+}
+
+.about-text h2::before, .about-text h2::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 2px;
+    background-color: #00ff9d;
+}
+
+.about-text h2::before {
+    left: 0;
+}
+
+.about-text h2::after {
+    right: 0;
+}
+
+.about-image {
+    animation: fadeIn 2s ease-in-out 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+/* moje usluge */
+
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.service-card {
+    background-color: #00ff9d;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+}
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000000;
+}
+.service-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.service-description {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.read-more {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+.read-more:hover {
+    background-color: #1cc282;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* skills */
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.skill-item {
+    background-color: #00ff9d;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #000000;
+}
+.skill-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #000000
+}
+.progress-bar {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+.progress {
+    background-color: #000000;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+
+
+
+
+
+/* projekti */ 
+
+
+/* Opšti stil stranice */
+
+
+
+
+
+
+/* Stil za filtere */
+.filteri {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filteri button {
+    background-color: #eee; /* Svetlo siva pozadina dugmeta */
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Tranzicija boje pozadine */
+}
+
+.filteri button:hover,
+.filteri button.aktivan {
+    background-color: #4CAF50; /* Zelena pozadina aktivnog dugmeta */
+    color: white;
+}
+
+/* Stil za mrežu projekata */
+.mreza-projekata {
+    display: grid; /* Koristimo grid za raspored */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responzivan broj kolona */
+    gap: 20px;
+}
+
+/* Stil za pojedinačni projekat */
+.projekat {
+    background-color: #00ff9d; /* Bela pozadina projekta */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Senka */
+    transition: transform 0.3s; /* Tranzicija transformacije */
+}
+
+.projekat:hover {
+    transform: translateY(-5px); /* Pomeranje projekta na gore prilikom prelaska mišem */
+}
+
+.projekat img {
+    width: 100%;
+    height: 200px; /* Visina slike projekta */
+    object-fit: cover; /* Skaliranje slike da popuni prostor */
+}
+
+.projekat a {
+    text-decoration: none; /* Uklanjanje podvlačenja linka */
+    color: inherit; /* Nasleđivanje boje teksta od roditelja */
+    display: block; /* Link zauzima celu površinu projekta */
+    padding: 15px;
+}
+
+.projekat h3 {
+    margin-top: 0;
+    color: #000000
+}
+
+.projekat p {
+    color: #000000; /* Tamno siva boja za opis */
+}
+
+
+
+
+/* back to topp */
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00ff9d;
+    color: rgb(0, 0, 0);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(100px);
+    font-size: 24px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background-color: #1cc282;
+}
+
+
+
+/* footer */
+
+footer {
+    padding: 20px 0;
+    text-align: center; /* Centriranje teksta */
+}
+
+
+.footer-nav a {
+    display: inline-block;
+    margin: 10px 20px;
+    text-decoration: none;
+    color: #ffffff; /* Tamno siva boja linkova */
+}
+
+.footer-nav a:hover {
+    color: #00ff9d; /* Tamnija siva prilikom prelaska mišem */
+}
+
+.copyright {
+    font-size: 14px;
+    color: #ffffff; /* Svetlo siva boja za copyright */
+    margin-top: 20px;
+}
+
+
+
+
+/* kontakt */
+
+/* Osnovni stil sekcije */
+#contact {
+    background-color: #1a1a1a; /* Zelena pozadina */
+    color: white;
+    padding: 40px;
+    display: flex; /* Flexbox za raspored */
+    justify-content: space-around; /* Razmak između elemenata */
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Stil za sadržaj */
+.contact-content {
+    flex: 1; /* Zauzima deo prostora */
+    margin-right: 20px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 5px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Stil za formu */
+.contact-form {
+    flex: 1;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

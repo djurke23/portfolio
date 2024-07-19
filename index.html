@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luka Đurić - Portfolija</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">Djurke23</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Početna</a></li>
+                    <li><a href="#o-meni">O meni</a></li>
+                    <li><a href="#usluge">Usluge</a></li>
+                    <li><a href="#vestine">Veštine</a></li>
+                    <li><a href="#moji-projekti">Projekti</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <a href="#kontakt" class="hire-me">Kontaktirajte Me</a>
+        </header>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Zdravo, Zovem se:</h1>
+                <h2 id="typed-name"></h2>
+                <p>Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/djurke23" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/djurke23/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/djurke23/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <!-- pocetna slika -->
+            <div class="profile-image">
+                <img src="slike/profilna.jpeg" alt="Profile Image">
+                <div class="rotating-circle"></div>
+            </div> 
+        </section>
+        
+
+        <!-- statistika -->
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="years">0</div>
+                <div class="stat-label">Godine iskustva</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="projects">0</div>
+                <div class="stat-label">Završenih projekata</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="technologies">0</div>
+                <div class="stat-label">Savladanih tehnologija</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="commits">0</div>
+                <div class="stat-label">Zadovoljnih klijenata</div>
+            </div>
+        </section>
+
+        <br><br>
+        
+
+        <!-- o meni -->
+
+
+        <section class="about-me" id="o-meni">
+            <div class="about-text">
+                <h2>O meni</h2>
+                <p>Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.</p>
+                <p>Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.</p>
+                <p>Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.</p>
+                <a href="#kontakt" class="contact-btn">Kontaktirajte me</a>
+            </div>
+            <div class="about-image">
+                <img src="slike/omeni.png" alt="About Me Image">
+            </div>
+        </section>
+    </div>
+
+
+    <!-- moje usluge -->
+
+    <div class="services-container" id="usluge">
+        <h2>Moje Usluge</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">&#60;/&#62;</div>
+                <h2 class="service-title">Web Development</h2>
+                <p class="service-description">Prilagođena veb rešenja prilagođena vašim potrebama. Od responzivnog dizajna do složenih veb aplikacija.</p>
+                <a href="#" class="read-more">Pročitaj Više</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#127912;</div>
+                <h2 class="service-title">UI/UX Dizajn</h2>
+                <p class="service-description">Kreiranje intuitivnih i vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
+                <a href="#" class="read-more">Pročitaj Više</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#128241;</div>
+                <h2 class="service-title">Razvoj Aplikacija</h2>
+                <p class="service-description">Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme.</p>
+                <a href="#" class="read-more">Pročitaj Više</a>
+            </div>
+        </div>
+    </div>
+
+<!--- skills -->
+
+    <div class="skills-container" id="vestine">
+        <h2>Moje Veštine</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-html5 skill-icon"></i>
+                <div class="skill-name">HTML</div>
+                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt skill-icon"></i>
+                <div class="skill-name">CSS</div>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js skill-icon"></i>
+                <div class="skill-name">JavaScript</div>
+                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-bootstrap skill-icon"></i>
+                <div class="skill-name">Bootstrap</div>
+                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+            </div>
+    
+            <div class="skill-item">
+                <i class="fas fa-exchange-alt skill-icon"></i>
+                <div class="skill-name">AJAX</div>
+                <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-php skill-icon"></i>
+                <div class="skill-name">PHP</div>
+                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database skill-icon"></i>
+                <div class="skill-name">MySQL</div>
+                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-figma skill-icon"></i>
+                <div class="skill-name">Figma</div>
+                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-wordpress skill-icon"></i>
+                <div class="skill-name">WordPress</div>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+        
+            <div class="skill-item">
+                <i class="fas fa-video skill-icon"></i>
+                <div class="skill-name">CapCut</div>
+                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="far fa-file-word skill-icon"></i>
+                <div class="skill-name">Word</div>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <i class="far fa-file-powerpoint skill-icon"></i>
+                <div class="skill-name">PowerPoint</div>
+                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+    </div>
+
+
+
+    <br><br> <br><br> 
+
+
+        <!-- moji projekti -->
+
+    <div id="moji-projekti">
+        <h2>Moji Projekti</h2>
+        <div class="filteri">
+            <button class="aktivan" data-filter="svi">Svi</button>
+            <button data-filter="web-dizajn">Web Dizajn</button>
+            <button data-filter="figma">Figma</button>
+            <button data-filter="wordpress">WordPress</button>
+            <button data-filter="android">Android</button>
+            <button data-filter="ios">IOS</button>
+
+
+        </div>
+        <div class="mreza-projekata">
+            </div>
+    </div>
+
+
+    <br><br> <br><br> 
+
+
+
+    <h2>Kontaktirajte Me</h2>
+    <!-- kontakt -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Ostavite poruku</h2>
+            <p>"Imate pitanja, predloge ili želite da sarađujemo? 
+                <br>
+                    Slobodno nam se javite! 
+                <br>
+                Pošaljite nam poruku i javićemo vam se u najkraćem roku"</p>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Beograd, Zemun, Nova Galenika, SRBIJA</p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <p>Luka.djuric9@gmail.com</p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                <p>064/686-0616</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h2>Kontaktirajte Me</h2>
+            <form>
+                <input type="text" id="username" name="username" placeholder="Ime" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Broj Telefona">
+                <textarea id="message" name="message" placeholder="Poruka" rows="5" required></textarea>
+                <button type="submit">Pošalji</button>
+            </form>
+        </div>
+    </section>
+
+    <br> <br>
+
+
+        <!-- strelica -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Povratak na vrh stranice">↑</a>
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+
+        <br>
+    
+        <nav class="footer-nav">
+            <a href="#pocetna">Početna</a>
+            <a href="#o-meni">O Meni</a>
+            <a href="#usluge">Usluge</a>
+            <a href="#vestine">Veštine</a>
+            <a href="#moji-projekti">Projekti</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    
+        <p class="copyright">Copyright © 2024 Made by Djurke23. Sva prava zadržana.</p>
+    </footer>
+    
+
+
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/21f2a2b597.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
