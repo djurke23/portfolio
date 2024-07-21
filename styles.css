@@ -1,3 +1,5 @@
+
+
 body, html {
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a1a;
@@ -5,21 +7,37 @@ body, html {
     margin: 0;
     padding: 0;
 }
+
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
 }
+
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: white; /* Postavljamo boju teksta na belu */
+    transition: all 0.3s ease; /* Dodajemo tranziciju za sve osobine */
+    text-decoration: none; /* Uklanja podvlačenje */
 }
+
+.logo:hover {
+    color: white; /* Osiguravamo da tekst ostane beo prilikom prelaska mišem */
+    transform: scale(1.2); /* Povećavamo veličinu za 20% */
+}
+
+
+
 nav ul {
     list-style-type: none;
     display: flex;
@@ -49,6 +67,8 @@ nav ul li a:hover {
 nav ul li a:hover::after {
     width: 100%;
 }
+
+
 .hire-me, .contact-btn {
     background-color: #00ff9d;
     color: #1a1a1a;
@@ -63,6 +83,8 @@ nav ul li a:hover::after {
     color: #1a1a1a;
     transform: scale(1.05);
 }
+
+
 .hero, .about-me {
     display: flex;
     justify-content: space-between;
@@ -88,6 +110,8 @@ nav ul li a:hover::after {
     margin-bottom: 30px;
     line-height: 1.6;
 }
+
+
 .social-icons a {
     color: #ffffff;
     font-size: 24px;
@@ -98,6 +122,29 @@ nav ul li a:hover::after {
 .social-icons a:hover {
     color: #00ff9d;
 }
+
+ /* dugme za CV */ 
+.download-cv {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00ff9d; /* Adjust the color as needed */
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.download-cv:hover {
+    background-color: #00cc00; /* Adjust the hover color as needed */
+}
+
+
+
+
 .profile-image, .about-image {
     position: relative;
     width: 300px;
@@ -110,6 +157,8 @@ nav ul li a:hover::after {
     border-radius: 50%;
     object-fit: cover;
 }
+
+
 .rotating-circle {
     position: absolute;
     top: -20px;
@@ -124,6 +173,8 @@ nav ul li a:hover::after {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
 .stats {
     display: flex;
     justify-content: space-between;
@@ -151,6 +202,9 @@ nav ul li a:hover::after {
     margin: 5px;
     transition: all 0.3s ease;
 }
+
+
+
 #loading-screen {
     position: fixed;
     top: 0;
@@ -163,6 +217,7 @@ nav ul li a:hover::after {
     align-items: center;
     z-index: 9999;
 }
+
 .loader {
     width: 50px;
     height: 50px;
@@ -171,10 +226,13 @@ nav ul li a:hover::after {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
 @media screen and (max-width: 768px) {
     .burger {
         display: block;
@@ -249,6 +307,9 @@ nav ul li a:hover::after {
         width: 100%;
     }
 }
+
+
+
 
 .about-text h2 {
     position: relative;
@@ -346,11 +407,73 @@ nav ul li a:hover::after {
     }
 }
 
+/* prozorcic */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%;
+    max-width: 600px;
+    position: relative;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: #000000;
+}
+
+.modal ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.modal li::before {
+    content: "✓ ";
+    color: #00ff9d;
+}
 
 
 /* skills */
 
-.skills-container {
+.skills-container1 {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -396,7 +519,49 @@ h2 {
 
 
 
+/* skills v2 */ 
 
+.container2 {
+    width: 800px;
+    padding: 20px;
+}
+h1, h2 {
+    text-align: center;
+}
+
+
+.skills-container2 {
+    display: flex;
+    justify-content: space-between;
+}
+.technical-skills, .professional-skills {
+    width: 48%;
+}
+.skill {
+    margin-bottom: 20px;
+}
+.skill-name {
+    margin-bottom: 5px;
+}
+.skill-bar {
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.skill-progress {
+    height: 100%;
+    background-color: #00ff9d;
+}
+.circular-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.circular-skill {
+    width: 45%;
+    margin-bottom: 20px;
+}
 
 
 /* projekti */ 
@@ -473,6 +638,76 @@ h2 {
 }
 
 
+
+/* radno iskustvo */
+
+.container3 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.experience-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.experience-card {
+    background-color: #00ff9d;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+.job-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000000;
+}
+.job-details {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+}
+.company {
+    display: inline-block;
+    background-color: #6c5ce7;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+.company:hover {
+    background-color: #5649c9;
+}
+.job-description {
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.experience-card:nth-child(1) { animation-delay: 0.2s; }
+.experience-card:nth-child(2) { animation-delay: 0.4s; }
+.experience-card:nth-child(3) { animation-delay: 0.6s; }
 
 
 /* back to topp */
