@@ -6,6 +6,7 @@ body, html {
     color: #ffffff;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth; /* Glatko skrolovanje za celu stranicu */
 }
 
 
@@ -23,6 +24,9 @@ header {
     padding: 20px 0;
 }
 
+
+/* djurke23. */
+
 .logo {
     font-size: 24px;
     font-weight: bold;
@@ -37,6 +41,8 @@ header {
 }
 
 
+
+/* nav bar */
 
 nav ul {
     list-style-type: none;
@@ -69,6 +75,12 @@ nav ul li a:hover::after {
 }
 
 
+
+
+
+/* tekst pocetni */ 
+
+
 .hire-me, .contact-btn {
     background-color: #00ff9d;
     color: #1a1a1a;
@@ -83,6 +95,11 @@ nav ul li a:hover::after {
     color: #1a1a1a;
     transform: scale(1.05);
 }
+
+
+
+
+/*  pocetna recenica */
 
 
 .hero, .about-me {
@@ -112,6 +129,11 @@ nav ul li a:hover::after {
 }
 
 
+
+
+/* drustvene mreze */
+
+
 .social-icons a {
     color: #ffffff;
     font-size: 24px;
@@ -123,7 +145,12 @@ nav ul li a:hover::after {
     color: #00ff9d;
 }
 
- /* dugme za CV */ 
+
+
+
+/* dugme za CV */ 
+
+
 .download-cv {
     display: inline-block;
     margin-top: 20px;
@@ -145,13 +172,13 @@ nav ul li a:hover::after {
 
 
 
-.profile-image, .about-image {
+.profile-image  {
     position: relative;
     width: 300px;
     height: 300px;
     flex-shrink: 0;
 }
-.profile-image img, .about-image img {
+.profile-image img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -173,6 +200,11 @@ nav ul li a:hover::after {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+
+
+/* statistika */
 
 
 .stats {
@@ -205,6 +237,11 @@ nav ul li a:hover::after {
 
 
 
+
+
+/* loading screen */ 
+
+
 #loading-screen {
     position: fixed;
     top: 0;
@@ -231,6 +268,13 @@ nav ul li a:hover::after {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+
+
+
+/* responzivnost */
+
 
 
 @media screen and (max-width: 768px) {
@@ -311,6 +355,9 @@ nav ul li a:hover::after {
 
 
 
+/* o meni */
+
+
 .about-text h2 {
     position: relative;
     text-align: center;
@@ -334,9 +381,23 @@ nav ul li a:hover::after {
 }
 
 .about-image {
-    animation: fadeIn 2s ease-in-out 1;
+    width: 40%; /* Širina slike */
+    overflow: hidden; /* Sakrivanje delova slike koji prelaze okvir */
+    border-radius: 10px; /* Zaobljeni uglovi slike */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Senka za sliku */
+    animation: fadeIn 5s ease-in-out 1;
 }
 
+.about-image img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.1); /* Blago uvećanje slike */
+    transition: transform 0.5s ease; /* Animacija uvećanja slike */
+}
+
+.about-image:hover img {
+    transform: scale(1); /* Vraćanje na originalnu veličinu na hover */
+}
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -407,6 +468,9 @@ nav ul li a:hover::after {
     }
 }
 
+
+
+
 /* prozorcic */
 
 .modal {
@@ -471,6 +535,8 @@ nav ul li a:hover::after {
 }
 
 
+
+
 /* skills */
 
 .skills-container1 {
@@ -492,86 +558,46 @@ h2 {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodate tranzicije za glatke animacije */
 }
+
+.skill-item:hover {
+    transform: translateY(-5px); /* Pomeranje nagore na hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Dodavanje senke na hover */
+}
+
+.skill-item:hover .progress {
+    width: 100%; /* Popunjavanje progress bara na hover */
+}
+
 .skill-icon {
     font-size: 3rem;
     margin-bottom: 15px;
     color: #000000;
+    transition: transform 0.3s ease; /* Dodata tranzicija za ikonu */
+}
+
+.skill-item:hover .skill-icon {
+    transform: rotate(360deg); /* Rotacija ikone za 360 stepeni na hover */
 }
 .skill-name {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: #000000
 }
-.progress-bar {
-    background-color: #ffffff;
-    border-radius: 10px;
-    height: 10px;
-    width: 100%;
-    margin-top: 10px;
-}
-.progress {
-    background-color: #000000;
-    height: 100%;
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-}
 
 
 
-/* skills v2 */ 
-
-.container2 {
-    width: 800px;
-    padding: 20px;
-}
-h1, h2 {
-    text-align: center;
-}
 
 
-.skills-container2 {
-    display: flex;
-    justify-content: space-between;
-}
-.technical-skills, .professional-skills {
-    width: 48%;
-}
-.skill {
-    margin-bottom: 20px;
-}
-.skill-name {
-    margin-bottom: 5px;
-}
-.skill-bar {
-    height: 10px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
-}
-.skill-progress {
-    height: 100%;
-    background-color: #00ff9d;
-}
-.circular-skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.circular-skill {
-    width: 45%;
-    margin-bottom: 20px;
-}
+
+
 
 
 /* projekti */ 
 
 
 /* Opšti stil stranice */
-
-
-
-
 
 
 /* Stil za filtere */
@@ -581,19 +607,21 @@ h1, h2 {
 }
 
 .filteri button {
-    background-color: #eee; /* Svetlo siva pozadina dugmeta */
+    background-color: #00ff9d;
+    color: white;
     border: none;
     padding: 10px 15px;
     margin: 0 5px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Tranzicija boje pozadine */
-}
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-.filteri button:hover,
-.filteri button.aktivan {
-    background-color: #4CAF50; /* Zelena pozadina aktivnog dugmeta */
-    color: white;
-}
+  .filteri button:hover {
+    background-color: #00cc80; /* Tamnija zelena na hover */
+    color: #000000; /* Bela boja teksta na hover */
+  }
+
 
 /* Stil za mrežu projekata */
 .mreza-projekata {
@@ -637,6 +665,41 @@ h1, h2 {
     color: #000000; /* Tamno siva boja za opis */
 }
 
+/* ... (prethodni CSS kod) ... */
+
+/* Responzivnost za manje uređaje */
+@media (max-width: 768px) {
+    .filteri {
+      display: flex; /* Raspored dugmadi u jednom redu */
+      flex-wrap: wrap; /* Omogućavanje preloma reda ako je potrebno */
+      justify-content: center; /* Centriranje dugmadi */
+    }
+  
+    .filteri button {
+      margin: 5px; /* Manji razmak između dugmadi */
+      font-size: 14px; /* Smanjivanje veličine fonta dugmadi */
+    }
+  
+    .mreza-projekata {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Prilagođavanje širine kolona */
+    }
+  
+    .projekat img {
+      height: 150px; /* Smanjivanje visine slika */
+    }
+  
+    .projekat h3 {
+      font-size: 16px; /* Smanjivanje veličine naslova projekta */
+    }
+  
+    .projekat p {
+      font-size: 12px; /* Smanjivanje veličine opisa projekta */
+    }
+  }
+  
+
+
+
 
 
 /* radno iskustvo */
@@ -660,7 +723,12 @@ h1, h2 {
     box-sizing: border-box;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.5s ease-out forwards;
+    animation: fadeInUp 5s ease-out forwards;
+    transition: transform 1s ease, box-shadow 1s ease;
+}
+.experience-card:hover {
+    transform: translateY(-5px); /* Pomeranje nagore na hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Jača senka na hover */
 }
 .job-title {
     font-size: 18px;
@@ -675,39 +743,85 @@ h1, h2 {
 }
 .company {
     display: inline-block;
-    background-color: #6c5ce7;
+    background-color: #ffffff;
     color: black;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 12px;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 1.5s ease;
+    animation: pulse 5s ease-in-out infinite;
 }
 .company:hover {
-    background-color: #5649c9;
+    background-color: #5649c9; /* Ljubičasta boja na hover */
+    color: white; /* Bela boja teksta na hover */
 }
 .job-description {
     font-size: 14px;
     color: black;
     line-height: 1.4;
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Animacije */
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+
+
 @keyframes fadeInUp {
-    from { 
-        opacity: 0;
-        transform: translateY(20px);
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-.experience-card:nth-child(1) { animation-delay: 0.2s; }
-.experience-card:nth-child(2) { animation-delay: 0.4s; }
-.experience-card:nth-child(3) { animation-delay: 0.6s; }
+  }
+  
+  .experience-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .experience-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .experience-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+
+
+/* ... (prethodni CSS kod) ... */
+
+/* Responzivnost za manje uređaje */
+@media (max-width: 768px) { 
+    .experience-container {
+      flex-direction: column; /* Raspored kartica u jednom stupcu */
+    }
+  
+    .experience-card {
+      width: 100%; /* Kartice zauzimaju punu širinu */
+      margin-bottom: 20px;
+    }
+  
+    h1 {
+      font-size: 24px; /* Smanjivanje veličine naslova */
+    }
+  
+    .job-title {
+      font-size: 16px; /* Smanjivanje veličine naslova posla */
+    }
+  
+    .job-details, .job-description {
+      font-size: 12px; /* Smanjivanje veličine detalja i opisa */
+    }
+  }
+  
+
+
+
 
 
 /* back to topp */
@@ -840,3 +954,30 @@ footer {
     border-radius: 3px;
     cursor: pointer;
 }
+
+
+
+/* Responzivnost za manje uređaje */
+@media (max-width: 768px) {
+    #contact {
+      flex-direction: column; /* Raspored sadržaja u jednom stupcu */
+      padding: 20px; /* Smanjivanje padding-a */
+    }
+  
+    .contact-content,
+    .contact-form {
+      flex: 1;
+      width: 100%; /* Širina 100% za oba dela */
+      margin: 0; /* Uklanjanje margina */
+    }
+  
+    .contact-content {
+      margin-bottom: 20px; /* Razmak između sadržaja i forme */
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 14px; /* Smanjivanje veličine fonta u formi */
+    }
+  }
+  
