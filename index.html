@@ -13,8 +13,11 @@
     </div>
 
     <div class="container">
+
+
+
         <header>
-            <div class="logo">Djurke23</div>
+            <a href="index.html" class="logo">Djurke23.</a> 
             <nav>
                 <ul>
                     <li><a href="#">Početna</a></li>
@@ -32,12 +35,18 @@
             </div>
             <a href="#kontakt" class="hire-me">Kontaktirajte Me</a>
         </header>
+
+        
         
         <section class="hero">
             <div class="hero-content">
                 <h1>Zdravo, Zovem se:</h1>
                 <h2 id="typed-name"></h2>
                 <p>Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.</p>
+                
+                
+                <!-- drustvene mreze -->
+                
                 <div class="social-icons">
                     <a href="https://github.com/djurke23" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i>
@@ -49,6 +58,9 @@
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
+
+                <a href="cv/CV.pdf" class="download-cv" download>Download CV</a>
+
             </div>
         
             <!-- pocetna slika -->
@@ -109,26 +121,69 @@
                 <div class="service-icon">&#60;/&#62;</div>
                 <h2 class="service-title">Web Development</h2>
                 <p class="service-description">Prilagođena veb rešenja prilagođena vašim potrebama. Od responzivnog dizajna do složenih veb aplikacija.</p>
-                <a href="#" class="read-more">Pročitaj Više</a>
+                <a href="#" class="read-more" onclick="openModal('web-dev'); return false;">Pročitaj Više</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">&#127912;</div>
                 <h2 class="service-title">UI/UX Dizajn</h2>
                 <p class="service-description">Kreiranje intuitivnih i vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
-                <a href="#" class="read-more">Pročitaj Više</a>
+                <a href="#" class="read-more" onclick="openModal('ui-ux'); return false;">Pročitaj Više</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">&#128241;</div>
                 <h2 class="service-title">Razvoj Aplikacija</h2>
                 <p class="service-description">Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme.</p>
-                <a href="#" class="read-more">Pročitaj Više</a>
+                <a href="#" class="read-more" onclick="openModal('app-dev'); return false;">Pročitaj Više</a>
             </div>
+        </div>
+    </div>
+    
+    <!-- Modalni prozori -->
+    <div id="web-dev-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('web-dev')">&times;</span>
+            <h2>Web Development</h2>
+            <p>Web Development obuhvata kreiranje i održavanje web stranica i aplikacija. Ova usluga uključuje:</p>
+            <ul>
+                <li>Responsive Web Design</li>
+                <li>Front-end Development</li>
+                <li>Back-end Development</li>
+                <li>E-commerce Solutions</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="ui-ux-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ui-ux')">&times;</span>
+            <h2>UI/UX Dizajn</h2>
+            <p>UI/UX Dizajn se fokusira na poboljšanje korisničkog iskustva kroz intuitivne i estetski privlačne interfejse. Usluge uključuju:</p>
+            <ul>
+                <li>Wireframing i Prototyping</li>
+                <li>User Research</li>
+                <li>Visual Design</li>
+                <li>Interaction Design</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="app-dev-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('app-dev')">&times;</span>
+            <h2>Razvoj Aplikacija</h2>
+            <p>Razvoj Aplikacija podrazumeva kreiranje softvera za mobilne i desktop platforme. Naše usluge uključuju:</p>
+            <ul>
+                <li>iOS App Development</li>
+                <li>Android App Development</li>
+                <li>Cross-platform Development</li>
+                <li>App Maintenance and Support</li>
+            </ul>
         </div>
     </div>
 
 <!--- skills -->
 
-    <div class="skills-container" id="vestine">
+    <div class="skills-container1" id="vestine">
         <h2>Moje Veštine</h2>
         <div class="skills-grid">
             <div class="skill-item">
@@ -197,7 +252,51 @@
 
 
 
+
+
+
     <br><br> <br><br> 
+
+
+<!-- skills v2 -->
+
+    <div class="container2">
+        <h1>My Skills</h1>
+        <div class="skills-container2">
+            <div class="technical-skills">
+                <h2>Technical Skills</h2>
+                <div class="skill">
+                    <div class="skill-name">HTML</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 72%;"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Figma</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">CSS</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 62%;"></div></div>
+                </div>
+            </div>
+            <div class="professional-skills">
+                <h2>Professional Skills</h2>
+                <div class="circular-skills">
+                    <div class="circular-skill" id="teamwork"></div>
+                    <div class="circular-skill" id="creativity"></div>
+                    <div class="circular-skill" id="project-management"></div>
+                    <div class="circular-skill" id="communication"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 
         <!-- moji projekti -->
@@ -220,6 +319,58 @@
 
 
     <br><br> <br><br> 
+
+
+
+    <!-- radno iskustvo -->
+
+    <div class="container3">
+        <h1>Work & Experience</h1>
+        <div class="experience-container">
+            <div class="experience-card">
+                <div class="job-title">Kompjuterista</div>
+                <div class="job-details">Part Time | Režija</div>
+                <div class="job-details">2020 - 2021</div>
+                <div class="company">Pink Media Group</div>
+                <p class="job-description">Dok sam radio na projektu „Zadruga“, 
+                    bio sam odgovoran za kreiranje grafike i komentara, 
+                    kao i za upravljanje tehničkim aspektima emisije kao što su osvetljenje, 
+                    zvuk i video. 
+                    Moje iskustvo u grafičkom dizajnu i tehnička podrška doprineli
+                    su uspešnoj realizaciji emisije i stvaranju 
+                    dinamičnog vizuelnog doživljaja za gledaoce.</p>
+            </div>
+            <div class="experience-card">
+                <div class="job-title">Video Editor</div>
+                <div class="job-details">Part Time | Kancelarija </div>
+                <div class="job-details">2019 - 2020</div>
+                <div class="company">Pink Media Group</div>
+                <p class="job-description">Kao iskusan video montažer, 
+                    koristio sam Adobe After Effects i Premiere Pro za uređivanje, 
+                    uređivanje i kreiranje vizuelno privlačnih video klipova za emisiju „Zadruga“. 
+                    Moje veštine uključuju precizno uređivanje, dodavanje efekata, 
+                    korekciju boja i zvuka i kreiranje dinamičkih vizuelnih elemenata 
+                    koji doprinose celokupnom raspoloženju emisije.
+                </p>
+            </div>
+            <div class="experience-card">
+                <div class="job-title">Remote Control Operator - RCO</div>
+                <div class="job-details">Part Time | Režija i Studio</div>
+                <div class="job-details">2018 - 2019</div>
+                <div class="company">Pink Media Group</div>
+                <p class="job-description">Kao iskusan RCO operater, 
+                    rukovodio sam kamerama i tehničkim sistemima tokom snimanja emisija „Zadruga“,
+                    „Elita“ i „Pinkove zvezdice“. 
+                    Moja odgovornost je bila da obezbedim dinamične i zanimljive kadrove, 
+                    da blagovremeno odgovorim na uputstva reditelja 
+                    i da obezbedim tehničku ispravnost svih sistema kako bi snimanje proteklo 
+                    bez problema.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
 
 
 
@@ -276,15 +427,12 @@
     <!-- footer -->
     <footer>
         <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://www.instagram.com/djurke23/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/djurke23" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/djurke23/?locale=sr_RS" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://github.com/djurke23" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/djurke23/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@djurke23" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
 
         <br>

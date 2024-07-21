@@ -81,6 +81,31 @@ const navSlide = () => {
 navSlide();
 
 
+// prozorcic
+
+function openModal(id) {
+    var modal = document.getElementById(id + '-modal');
+    modal.style.display = 'block';
+    // Dodajemo mali timeout da bismo omogućili CSS tranziciju
+    setTimeout(function() {
+        modal.classList.add('show');
+    }, 10);
+}
+
+function closeModal(id) {
+    var modal = document.getElementById(id + '-modal');
+    modal.classList.remove('show');
+    // Čekamo da se završi fade-out animacija pre nego što sakrijemo modal
+    setTimeout(function() {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        closeModal(event.target.id.replace('-modal', ''));
+    }
+}
 
 
 
@@ -116,9 +141,44 @@ backToTopButton.addEventListener('click', scrollToTop);
 
 
 
+// skills v2
 
+function createCircularProgress(elementId, percentage, color) {
+    var circle = new ProgressBar.Circle('#' + elementId, {
+        color: color,
+        trailColor: '#4a4a4a',
+        trailWidth: 5,
+        duration: 2000,
+        easing: 'easeInOut',
+        strokeWidth: 5,
+        text: {
+            value: elementId.replace('-', ' '),
+            className: 'progress-text',
+            style: {
+                color: '#ffffff',
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                padding: 0,
+                margin: 0,
+                transform: {
+                    prefix: true,
+                    value: 'translate(-50%, -50%)'
+                }
+            }
+        },
+        step: function(state, circle) {
+            circle.setText(elementId.replace('-', ' ') + '\n' + Math.round(circle.value() * 100) + '%');
+        }
+    });
 
+    circle.animate(percentage / 100);
+}
 
+createCircularProgress('teamwork', 90, '#00ffff');
+createCircularProgress('creativity', 80, '#00ffff');
+createCircularProgress('project-management', 55, '#00ffff');
+createCircularProgress('communication', 70, '#00ffff');
 
 
 
