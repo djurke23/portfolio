@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     setTimeout(function() {
         document.getElementById('loading-screen').style.display = 'none';
         
-        animateValue("years", 0, 12, 2000, function() {
-            animateValue("projects", 0, 26, 2000, function() {
-                animateValue("technologies", 0, 8, 2000, function() {
-                    animateValue("commits", 0, 500, 2000, function() {
+        animateValue("years", 0, 5, 2000, function() {
+            animateValue("projects", 0, 30, 2000, function() {
+                animateValue("technologies", 0, 12, 2000, function() {
+                    animateValue("commits", 0, 10, 2000, function() {
                         document.querySelector('.container').style.opacity = 1;
                         startTextAnimation(0);
                     });
@@ -163,6 +163,41 @@ const projektiData = [
         opis: 'Sajt za firmu BGD CARS Detailing',
         link: 'https://djurke23.github.io/BGD-Cars-Detailing/'
     },
+    {
+        kategorija: 'web-app',
+        slika: 'slike/projekti/calculator.png',
+        naslov: 'Kalkulator',
+        opis: 'Scientific kalkulator',
+        link: 'https://djurke23.github.io/calculator/'
+    },
+    {
+        kategorija: 'web-app',
+        slika: 'slike/projekti/qrkodgenerator.png',
+        naslov: 'QR Code Generator',
+        opis: 'QR Code Generator',
+        link: 'https://djurke23.github.io/qr-code-generator/'
+    },
+    {
+        kategorija: 'web-app',
+        slika: 'slike/projekti/todolist.png',
+        naslov: 'To-Do List',
+        opis: 'To do lista',
+        link: 'https://djurke23.github.io/to_do_list/'
+    },
+    {
+        kategorija: 'web-dizajn',
+        slika: 'slike/projekti/rqg.png',
+        naslov: 'Random Quote Generator',
+        opis: 'Random Quote Generator',
+        link: 'https://djurke23.github.io/random-quote-generator/'
+    },
+    {
+        kategorija: 'web-dizajn',
+        slika: 'slike/projekti/rng.png',
+        naslov: 'Random Number Generator',
+        opis: 'Random Number Generator',
+        link: 'https://djurke23.github.io/random_number_generator/'
+    },
     // ... ostali projekti
 ];
 
@@ -204,5 +239,26 @@ filterButtons.forEach(button => {
                 projekat.style.display = 'none';
             }
         });
+    });
+});
+
+
+
+
+
+
+
+
+document.querySelectorAll('.info-column a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault();
+        const textToCopy = event.target.innerText;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                alert(`${textToCopy} Uspešno kopirano!`);
+            })
+            .catch(err => {
+                console.error('Kopiranje je neuspešno: ', err);
+            });
     });
 });

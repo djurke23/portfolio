@@ -1,0 +1,288 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #c3ec52 0%, #0ba29d 100%);
+}
+
+#game-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 300px;
+}
+
+#tamagotchi img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+#tamagotchi-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+#status p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+#status p span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#controls button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+#controls button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#controls button:nth-child(4) {
+    background-color: #28a745;
+}
+
+#controls button:nth-child(4):hover {
+    background-color: #218838;
+}
+
+#difficulty {
+    margin-top: 20px;
+}
+
+#difficulty label {
+    font-size: 16px;
+    color: #333;
+}
+
+#difficulty select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+#daily-challenges {
+    margin-top: 20px;
+}
+
+#daily-challenges h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#daily-challenges p {
+    font-size: 16px;
+    color: #555;
+}
+
+#daily-challenges button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffc107;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#daily-challenges button:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+#name-change {
+    margin-top: 20px;
+}
+
+#name-change h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#name-change input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+#name-change button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#name-change button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#game-stats {
+    margin-top: 20px;
+}
+
+#game-stats h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#game-stats p {
+    font-size: 16px;
+    color: #555;
+}
+
+#missions {
+    margin-top: 20px;
+}
+
+#missions h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#missions p {
+    font-size: 16px;
+    color: #555;
+}
+
+#missions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#missions button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#customize {
+    margin-top: 20px;
+}
+
+#customize h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#customize label {
+    font-size: 16px;
+    color: #333;
+}
+
+#customize select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+#emotions {
+    margin-top: 20px;
+}
+
+#emotions h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#emotions p {
+    font-size: 16px;
+    color: #555;
+}
+#rewards {
+    margin-top: 20px;
+}
+
+#rewards h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#rewards p {
+    font-size: 16px;
+    color: #555;
+}
+#music-controls {
+    margin-top: 20px;
+}
+
+#music-controls h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+#music-controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#music-controls button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+@keyframes feedAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes playAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes sleepAnimation {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

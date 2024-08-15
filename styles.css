@@ -409,6 +409,35 @@ nav ul li a:hover::after {
 
 
 
+/* godina mejl itd  */
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    background-color: #121212; /* Boja pozadine */
+    color: #ffffff; /* Boja teksta */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info-column {
+    width: 45%;
+}
+
+.info-column p {
+    margin: 5px 0;
+}
+
+.info-column a {
+    color: #fff; /* Boja linkova */
+    text-decoration: none;
+}
+
+.info-column a:hover {
+    text-decoration: underline; /* Efekat pri hover-u */
+}
+
+
 
 /* moje usluge */
 
@@ -608,7 +637,7 @@ h2 {
 
 .filteri button {
     background-color: #00ff9d;
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 15px;
     margin: 0 5px;

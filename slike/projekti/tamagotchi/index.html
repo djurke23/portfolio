@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagotchi Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Tamagotchi Game</h1>
+        <div id="tamagotchi">
+            <img id="tamagotchi-image" src="https://static.wikia.nocookie.net/tamagotchi/images/0/01/KuchipatchiFrontFacing.png/revision/latest/scale-to-width/360?cb=20221213050856" alt="Tamagotchi">
+        </div>
+        <p id="tamagotchi-name">Tamagotchi</p>
+        <div id="status">
+            <p>Hunger: <span id="hunger">100</span></p>
+            <p>Happiness: <span id="happiness">100</span></p>
+            <p>Energy: <span id="energy">100</span></p>
+            <p>Health: <span id="health">100</span></p>
+        </div>
+        <div id="controls">
+            <button onclick="feed()">Feed</button>
+            <button onclick="play()">Play</button>
+            <button onclick="sleep()">Sleep</button>
+            <button onclick="heal()">Heal</button>
+        </div>
+        <div id="difficulty">
+            <label for="difficulty-select">Choose difficulty:</label>
+            <select id="difficulty-select" onchange="setDifficulty()">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <div id="customize">
+            <h2>Customize Tamagotchi</h2>
+            <label for="color-select">Choose color:</label>
+            <select id="color-select" onchange="changeColor()">
+                <option value="default">Default</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+        </div>
+        <div id="emotions">
+            <h2>Emotions</h2>
+            <p id="emotion-text">Tamagotchi is feeling great!</p>
+        </div>
+        <div id="daily-challenges">
+            <h2>Daily Challenge</h2>
+            <p id="challenge-text">Complete a challenge to earn rewards!</p>
+            <button onclick="completeChallenge()">Complete Challenge</button>
+        </div>
+        <div id="name-change">
+            <h2>Change Tamagotchi Name</h2>
+            <input type="text" id="name-input" placeholder="Enter new name">
+            <button onclick="changeName()">Change Name</button>
+        </div>
+        <div id="game-stats">
+            <h2>Game Statistics</h2>
+            <p id="stats-text">No stats available yet.</p>
+        </div>
+        <div id="missions">
+            <h2>Missions</h2>
+            <p id="mission-text">Complete missions to gain rewards!</p>
+            <button onclick="completeMission()">Complete Mission</button>
+        </div>
+        <div id="rewards">
+            <h2>Rewards</h2>
+            <p id="reward-text">Earn rewards by completing tasks!</p>
+        </div>
+        <div id="music-controls">
+            <h2>Music Controls</h2>
+            <button onclick="toggleMusic()">Play/Pause Music</button>
+        </div>
+        <audio id="background-music" src="background-music.mp3" loop></audio>
+                
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
