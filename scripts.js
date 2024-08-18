@@ -81,6 +81,11 @@ const navSlide = () => {
 navSlide();
 
 
+
+
+
+
+
 // prozorcic
 
 function openModal(id) {
@@ -109,9 +114,12 @@ window.onclick = function(event) {
 
 
 
+
+
+
+
+
 // back to top
-
-
 
 const backToTopButton = document.getElementById('backToTop');
 
@@ -136,6 +144,12 @@ function scrollToTop(e) {
 // Event listeneri
 window.addEventListener('scroll', toggleBackToTopButton);
 backToTopButton.addEventListener('click', scrollToTop);
+
+
+
+
+
+
 
 
 
@@ -249,6 +263,8 @@ filterButtons.forEach(button => {
 
 
 
+// o meni kopoiranje linkova
+
 document.querySelectorAll('.info-column a').forEach(item => {
     item.addEventListener('click', event => {
         event.preventDefault();
@@ -262,3 +278,174 @@ document.querySelectorAll('.info-column a').forEach(item => {
             });
     });
 });
+
+
+
+
+
+
+
+
+// recenzije
+
+
+let currentIndex = 0;
+const intervalTime = 5000; // 5 sekundi
+
+const testimonials = document.querySelector('.testimonials');
+const testimonialItems = document.querySelectorAll('.testimonial');
+const totalItems = testimonialItems.length;
+
+function updateSlider() {
+    const offset = -currentIndex * 100;
+    testimonials.style.transform = `translateX(${offset}%)`;
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+    if (currentIndex < totalItems - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateSlider();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalItems - 1;
+    }
+    updateSlider();
+});
+
+// Automatski prelazak na sledeću recenziju
+setInterval(() => {
+    if (currentIndex < totalItems - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateSlider();
+}, intervalTime);
+
+
+
+
+
+
+
+// Language toggle functionality
+const translations = {
+    "sr": {
+        "greeting": "Zdravo, Zovem se:",
+        "description": "Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.",
+        "home": "Početna",
+        "about": "O meni",
+        "services": "Usluge",
+        "skills": "Veštine",
+        "projects": "Projekti",
+        "contact": "Kontakt",
+        "hireMe": "Kontaktirajte Me"
+    },
+    "en": {
+        "greeting": "Hello, My name is:",
+        "description": "I excel at creating elegant digital experiences and am skilled in various programming languages and technologies.",
+        "home": "Home",
+        "about": "About Me",
+        "services": "Services",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact",
+        "hireMe": "Hire Me"
+    }
+};
+
+
+
+const languageToggle = document.getElementById('languageToggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+let currentLanguage = "sr";
+
+// Funkcija za prikaz/sakrivanje padajućeg menija
+languageToggle.addEventListener('click', () => {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('show');
+});
+
+// Funkcija za promenu jezika
+function switchLanguage() {
+    if (currentLanguage === "sr") {
+        currentLanguage = "en";
+        translatePage(currentLanguage);
+        // Ažuriraj dugme i opciju u meniju
+        languageToggle.innerHTML = '<span class="flag-icon flag-icon-gb"></span> English';
+        dropdownMenu.innerHTML = '<a href="#" id="lang-sr"><span class="flag-icon flag-icon-rs"></span> Српски</a>';
+    } else {
+        currentLanguage = "sr";
+        translatePage(currentLanguage);
+        // Ažuriraj dugme i opciju u meniju
+        languageToggle.innerHTML = '<span class="flag-icon flag-icon-rs"></span> Српски';
+        dropdownMenu.innerHTML = '<a href="#" id="lang-en"><span class="flag-icon flag-icon-gb"></span> English</a>';
+    }
+
+    // Dodaj novi event listener za klik na ažuriranu opciju
+    dropdownMenu.querySelector('a').addEventListener('click', (e) => {
+        e.preventDefault();
+        switchLanguage();
+    });
+
+    // Sakrij meni nakon izbora
+    document.querySelector('.dropdown').classList.remove('show');
+}
+
+// Dodaj inicijalni event listener za klik na engleski jezik
+dropdownMenu.querySelector('#lang-en').addEventListener('click', (e) => {
+    e.preventDefault();
+    switchLanguage();
+});
+
+// Funkcija za prevod stranice
+function translatePage(language) {
+    document.querySelector('h1').textContent = translations[language]["greeting"];
+    document.querySelector('.hero-content p').textContent = translations[language]["description"];
+    document.querySelector('nav ul li:nth-child(1) a').textContent = translations[language]["home"];
+    document.querySelector('nav ul li:nth-child(2) a').textContent = translations[language]["about"];
+    document.querySelector('nav ul li:nth-child(3) a').textContent = translations[language]["services"];
+    document.querySelector('nav ul li:nth-child(4) a').textContent = translations[language]["skills"];
+    document.querySelector('nav ul li:nth-child(5) a').textContent = translations[language]["projects"];
+    document.querySelector('nav ul li:nth-child(6) a').textContent = translations[language]["contact"];
+    document.querySelector('.hire-me').textContent = translations[language]["hireMe"];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+const modeToggle = document.getElementById('modeToggle');
+const sunIcon = document.getElementById('sunIcon');
+const moonIcon = document.getElementById('moonIcon');
+let isDarkMode = false; // Postavi na false jer svetli režim (sunce) treba da bude početni
+
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    isDarkMode = !isDarkMode;
+
+    // Promeni prikaz ikonica
+    if (isDarkMode) {
+        sunIcon.style.display = "none";
+        moonIcon.style.display = "block";
+    } else {
+        sunIcon.style.display = "block";
+        moonIcon.style.display = "none";
+    }
+});
+

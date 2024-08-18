@@ -6,6 +6,9 @@
     <title>Luka Đurić - Portfolija</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
 </head>
 <body>
     <div id="loading-screen">
@@ -28,6 +31,29 @@
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
+
+
+             <!-- jezik -->
+            
+             <div class="dropdown">
+                <button class="language-toggle dropdown-toggle" id="languageToggle">
+                    <span class="flag-icon flag-icon-rs"></span> Српски
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#" id="lang-en"><span class="flag-icon flag-icon-gb"></span> English</a>
+                </div>
+            </div>
+            
+
+            <div id="modeToggle" class="mode-icon">
+                <span id="sunIcon">☀️</span>
+                <span id="moonIcon" style="display:none;">🌙</span>
+            </div>
+            
+            
+
+
+
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -116,7 +142,7 @@
                     </div>
                     <div class="info-column">
                         <p><strong>Age:</strong> 22</p>
-                        <p><strong>Email:</strong> <a href="mailto:info@gmail.com">info@gmail.com</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:info@gmail.com">luka.djuric9@gmail.com</a></p>
                         <p><strong>Phone:</strong> +381646860616</p>
                         <p><strong>Freelance:</strong> Available</p>
                     </div>
@@ -125,7 +151,7 @@
                 <br>
 
 
-                <a href="#kontakt" class="contact-btn">Kontaktirajte me</a>
+                <a href="#contact" class="contact-btn">Kontaktirajte me</a>
             </div>
             <div class="about-image">
                 <img src="slike/omeni.png" alt="About Me Image">
@@ -156,6 +182,15 @@
                 <h2 class="service-title">Razvoj Aplikacija</h2>
                 <p class="service-description">Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme.
                     Brzo i efikasno pravljneje po zelji.</p>
+                <a href="#" class="read-more" onclick="openModal('app-dev'); return false;">Pročitaj Više</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#128269;</div>
+                <h2 class="service-title">SEO Optimizacija</h2>
+                <p class="service-description">Unapređenje vidljivosti vašeg sajta na pretraživačima 
+                    kroz strategije optimizacije sadržaja, 
+                    tehničke SEO i izgradnju relevantnih povratnih linkova. 
+                   </p>
                 <a href="#" class="read-more" onclick="openModal('app-dev'); return false;">Pročitaj Više</a>
             </div>
         </div>
@@ -322,7 +357,7 @@
             <div class="experience-card">
                 <div class="job-title">Kompjuterista</div>
                 <div class="job-details">Part Time | Režija</div>
-                <div class="job-details">2020 - 2021</div>
+                <div class="job-details">2019 - 2020</div>
                 <div class="company">Pink Media Group</div>
                 <p class="job-description">Dok sam radio na projektu „Zadruga“, 
                     bio sam odgovoran za kreiranje grafike i komentara, 
@@ -335,7 +370,7 @@
             <div class="experience-card">
                 <div class="job-title">Video Editor</div>
                 <div class="job-details">Part Time | Kancelarija </div>
-                <div class="job-details">2021 - 2022</div>
+                <div class="job-details">2020 - 2021</div>
                 <div class="company">Pink Media Group</div>
                 <p class="job-description">Kao iskusan video montažer, 
                     koristio sam Adobe After Effects i Premiere Pro za uređivanje, 
@@ -348,7 +383,7 @@
             <div class="experience-card">
                 <div class="job-title">Remote Control Operator - RCO</div>
                 <div class="job-details">Part Time | Režija i Studio</div>
-                <div class="job-details">2022 - 2024</div>
+                <div class="job-details">2021 - 2022</div>
                 <div class="company">Pink Media Group</div>
                 <p class="job-description">Kao iskusan RCO operater, 
                     rukovodio sam kamerama i tehničkim sistemima tokom snimanja emisija „Zadruga“,
@@ -359,11 +394,60 @@
                     bez problema.
                 </p>
             </div>
+            <div class="experience-card">
+                <div class="job-title">Video Mixer </div>
+                <div class="job-details">Part Time | Režija </div>
+                <div class="job-details">2022 - 2024</div>
+                <div class="company">Pink Media Group</div>
+                <p class="job-description">Kao video mikser na projektima rijaliti emisija „Zadruga“ i „Elita“, 
+                    bio sam zadužen za upravljanje video signalima i obezbeđivanje neometanog prenosa uživo. 
+                    Moje odgovornosti uključivale su koordinaciju sa režijom, 
+                    pravovremeno prebacivanje između različitih kamera i izvora, 
+                    kao i održavanje visokog kvaliteta slike tokom emitovanja. 
+                    Takođe sam bio odgovoran za rešavanje tehničkih problema u realnom vremenu, 
+                    kako bi produkcija protekla bez zastoja.
+                </p>
+            </div>
         </div>
     </div>
 
+<br>
 
-
+    <div class="testimonials-slider">
+        <h1>Recenzije </h1>
+        <div class="testimonials">
+            <div class="testimonial">
+                <img src="slike/1.png" alt="Client 1 Photo" class="client-photo">
+                <h3 class="client-name">Client 1</h3>
+                <p class="client-review">This is a fantastic service! Highly recommended.</p>
+                <div class="star-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="client2.jpg" alt="Client 2 Photo" class="client-photo">
+                <h3 class="client-name">Client 2</h3>
+                <p class="client-review">Amazing work! Will definitely come back.</p>
+                <div class="star-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </div>
+    
+    
+    
 
 
     <h2>Kontaktirajte Me</h2>
@@ -445,6 +529,8 @@
 
     <script src="scripts.js"></script>
     <script src="https://kit.fontawesome.com/21f2a2b597.js" crossorigin="anonymous"></script>
+
+    
 
 </body>
 </html>

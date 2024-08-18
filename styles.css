@@ -1010,3 +1010,222 @@ footer {
     }
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .testimonials-slider {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #00ff9d;
+    text-align: center;
+}
+
+.client-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.client-name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.client-review {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    color: #f7d106;
+    font-size: 1.5em;
+    margin: 0 2px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5em;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Stilovi za dugme */
+.language-toggle {
+    cursor: pointer;
+    border: none;
+    background: #00ff9d;
+    color: #333;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+/* Stilovi za padajući meni */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #00ff9d;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.dropdown-menu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+/* Prikaz padajućeg menija kada je dugme aktivno */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --button-background-color: #333333;
+    --button-text-color: #ffffff;
+}
+
+/* Stilovi za svetli režim */
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --button-background-color: #f0f0f0;
+    --button-text-color: #000000;
+}
+
+/* Generalni stilovi */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button, .language-toggle {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover, .language-toggle:hover {
+    background-color: var(--button-text-color);
+    color: var(--button-background-color);
+}
+
+
+
+.mode-icon {
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mode-icon:hover {
+    background-color: var(--button-text-color);
+    color: var(--button-background-color);
+}
+
+#sunIcon, #moonIcon {
+    transition: opacity 0.3s ease;
+}
