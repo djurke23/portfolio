@@ -1229,3 +1229,26 @@ button:hover, .language-toggle:hover {
 #sunIcon, #moonIcon {
     transition: opacity 0.3s ease;
 }
+
+
+
+
+
+
+
+
+#particles-js {
+    position: fixed; /* Ensure it covers the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Make sure it's behind all other content */
+    overflow: hidden; /* Hide overflow to keep the effect clean */
+    pointer-events: none; /* Allows clicks and interactions to pass through */
+}
+
+
+
+
+
