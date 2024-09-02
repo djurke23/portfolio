@@ -1249,6 +1249,23 @@ button:hover, .language-toggle:hover {
 }
 
 
+/* Media queries for responsiveness */
+
+/* Tablets */
+@media (max-width: 768px) {
+    #particles-js {
+        /* Adjust the height if needed for smaller tablets */
+        height: 100%;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    #particles-js {
+        /* Adjust the height if needed for small phones */
+        height: 100%;
+    }
+}
 
 
 
