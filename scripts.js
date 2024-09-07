@@ -168,12 +168,12 @@ const projektiData = [
         slika: 'slike/projekti/ibg.png',
         naslov: 'Projekat 1',
         opis: 'Sajt za firmu Inno Build Group',
-        link: 'https://djurke23.github.io/Inno-Build-Group/'
+        link: 'https://innobuildgroup.rs/'
     },
     {
         kategorija: 'web-dizajn',
         slika: 'slike/projekti/bgdcars.png',
-        naslov: 'Projekat 2',
+        naslov: 'Projekat u izradi',
         opis: 'Sajt za firmu BGD CARS Detailing',
         link: 'https://djurke23.github.io/BGD-Cars-Detailing/'
     },
