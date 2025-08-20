@@ -461,3 +461,180 @@ modeToggle.addEventListener('click', () => {
 
 
 
+
+
+// recenzije
+
+
+class ReviewsCarousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 5;
+                this.autoPlayInterval = 4000; // 4 sekunde
+                this.autoPlayTimer = null;
+                this.progressInterval = null;
+                
+                this.carouselWrapper = document.getElementById('carouselWrapper-R');
+                this.prevBtn = document.getElementById('prevBtn-R');
+                this.nextBtn = document.getElementById('nextBtn-R');
+                this.indicators = document.querySelectorAll('.indicator-R');
+                this.progressBar = document.getElementById('progressBar-R');
+                
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.startAutoPlay();
+            }
+
+            bindEvents() {
+                // Dugmad za navigaciju
+                this.prevBtn.addEventListener('click', () => {
+                    this.goToPrevSlide();
+                    this.resetAutoPlay();
+                });
+
+                this.nextBtn.addEventListener('click', () => {
+                    this.goToNextSlide();
+                    this.resetAutoPlay();
+                });
+
+                // Indikatori
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                        this.resetAutoPlay();
+                    });
+                });
+
+                // Pause auto-play na hover
+                const reviewsSection = document.querySelector('.reviews-section-R');
+                reviewsSection.addEventListener('mouseenter', () => {
+                    this.stopAutoPlay();
+                });
+
+                reviewsSection.addEventListener('mouseleave', () => {
+                    this.startAutoPlay();
+                });
+
+                // Touch/swipe podrška
+                let startX = 0;
+                let endX = 0;
+
+                this.carouselWrapper.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                this.carouselWrapper.addEventListener('touchmove', (e) => {
+                    endX = e.touches[0].clientX;
+                });
+
+                this.carouselWrapper.addEventListener('touchend', () => {
+                    const threshold = 50;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0) {
+                            this.goToNextSlide();
+                        } else {
+                            this.goToPrevSlide();
+                        }
+                        this.resetAutoPlay();
+                    }
+                });
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                const translateX = -slideIndex * 100;
+                
+                this.carouselWrapper.style.transform = `translateX(${translateX}%)`;
+                this.updateIndicators();
+                this.animateSlideEntry();
+            }
+
+            goToNextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+
+            goToPrevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            animateSlideEntry() {
+                const currentCard = document.querySelectorAll('.review-card-R')[this.currentSlide];
+                currentCard.style.animation = 'none';
+                setTimeout(() => {
+                    currentCard.style.animation = 'slideInFromRight-R 0.6s ease-out';
+                }, 10);
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay(); // Očisti postojeći timer
+                
+                // Resetuj progress bar sa smooth transition
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.width = '0%';
+                
+                // Forsiraj reflow da se reset odmah primeni
+                this.progressBar.offsetHeight;
+                
+                // Dodeli smooth transition i animiraj do 100%
+                this.progressBar.style.transition = `width ${this.autoPlayInterval}ms linear`;
+                this.progressBar.style.width = '100%';
+                
+                this.autoPlayTimer = setTimeout(() => {
+                    this.goToNextSlide();
+                    this.startAutoPlay(); // Rekurzivno pozovi za sledeći slajd
+                }, this.autoPlayInterval);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayTimer) {
+                    clearTimeout(this.autoPlayTimer);
+                    this.autoPlayTimer = null;
+                }
+                // Zaustavi progress bar na trenutnoj poziciji
+                const currentWidth = this.progressBar.offsetWidth;
+                const containerWidth = this.progressBar.parentElement.offsetWidth;
+                const currentPercent = (currentWidth / containerWidth) * 100;
+                
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.width = currentPercent + '%';
+            }
+
+            resetAutoPlay() {
+                this.stopAutoPlay();
+                // Odmah pokreni ponovo bez delay-a za fluidnost
+                this.startAutoPlay();
+            }
+
+            resetProgressBar() {
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.width = '0%';
+                this.progressBar.offsetHeight; // Force reflow
+            }
+        }
+
+        // Pokreni carousel kada se stranica učita
+        document.addEventListener('DOMContentLoaded', () => {
+            new ReviewsCarousel();
+        });
+
+        // Dodaj keyboard navigaciju
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                document.getElementById('prevBtn-R').click();
+            } else if (e.key === 'ArrowRight') {
+                document.getElementById('nextBtn-R').click();
+            }
+        });
