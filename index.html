@@ -12,7 +12,7 @@
 
 <body>
 
-
+index.html
 <!-- Particles Container  -->
 <div id="particles-js"></div>
    
@@ -23,40 +23,55 @@
     </div>
 
 
+ <header>
+
 
     <div class="container">
 
-
-
-        <header>
+       
             <a href="index.html" class="logo">Djurke23.</a> 
             <nav>
                 <ul>
-                    <li><a href="#">Početna</a></li>
-                    <li><a href="#o-meni">O meni</a></li>
-                    <li><a href="#usluge">Usluge</a></li>
-                    <li><a href="#vestine">Veštine</a></li>
-                    <li><a href="#moji-projekti">Projekti</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#" data-translate-key="nav_home">Početna</a></li>
+                    <li><a href="#o-meni" data-translate-key="nav_about">O meni</a></li>
+                    <li><a href="#usluge" data-translate-key="nav_services">Usluge</a></li>
+                    <li><a href="#vestine" data-translate-key="nav_skills">Veštine</a></li>
+                    <li><a href="#moji-projekti" data-translate-key="nav_projects">Projekti</a></li>
+                    <li><a href="#contact" data-translate-key="nav_contact">Kontakt</a></li>
                 </ul>
             </nav>
 
 <!--jezik  -->
              <div class="dropdown">
                 <button class="language-toggle dropdown-toggle" id="languageToggle">
-                    <span class="flag-icon flag-icon-rs"></span> Српски
+                    <span class="flag-icon flag-icon-rs"></span> Srpski
                 </button>
-                <div class="dropdown-menu">
-                    <a href="#" id="lang-en"><span class="flag-icon flag-icon-gb"></span> English</a>
+                <div class="dropdown-menu" id="language-menu">
+                    <a href="#" class="lang-option" data-lang="en"><span class="flag-icon flag-icon-gb"></span> English</a>
                 </div>
             </div>
             
-<!-- dark mode  -->
-            <div id="modeToggle" class="mode-icon">
-                <span id="sunIcon">☀️</span>
-                <span id="moonIcon" style="display:none;">🌙</span>
-            </div>
-            
+<!-- dark mode  
+            <button class="theme-toggle" id="modeToggle" title="Toggle theme" aria-label="Toggle theme">
+    <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+        <mask class="moon" id="moon-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="white" />
+            <circle cx="24" cy="10" r="6" fill="black" />
+        </mask>
+        <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+        <g class="sun-rays" stroke="currentColor">
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </g>
+    </svg>
+</button>
+   -->         
             
         <!-- za telefon burger -->
             <div class="burger">
@@ -64,18 +79,23 @@
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
-            <a href="#kontakt" class="hire-me">Kontaktirajte Me</a>
-        </header>
+            <a href="#kontakt" class="hire-me" data-translate-key="hire_me">Kontaktirajte Me</a>
 
 
+            </div>
+ </header>
+
+<div class="container">
     <!-- pocetni tekst-->
         
         <section class="hero">
             <div class="hero-content">
-                <h1>Zdravo, Zovem se
+               <h1 data-translate-key="hero_greeting">Zdravo, Zovem se
                     <br> Luka Đurić</h1>
                 
-                <p>Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.</p>
+                <p data-translate-key="hero_description">
+                Odličan sam u stvaranju elegantnih digitalnih iskustava <br>
+                i vešt sam u raznim programskim jezicima i tehnologijama.</p>
                 
                 
                 <!-- drustvene mreze -->
@@ -92,8 +112,7 @@
                     </a>
                 </div>
 
-                <a href="cv/CV.pdf" class="download-cv" download>Download CV</a>
-                
+                 <a href="cv/CV.pdf" class="download-cv" download data-translate-key="download_cv">Download CV</a>
 
             </div>
         
@@ -105,23 +124,23 @@
         </section>
         
 
-        <!-- statistika -->
+       <!-- statistika -->
         <section class="stats">
             <div class="stat-item">
                 <div class="stat-number" id="years">0</div>
-                <div class="stat-label">Godine iskustva</div>
+                <div class="stat-label" data-translate-key="stats_experience">Godine iskustva</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" id="projects">0</div>
-                <div class="stat-label">Završenih projekata</div>
+                <div class="stat-label" data-translate-key="stats_projects">Završenih projekata</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" id="technologies">0</div>
-                <div class="stat-label">Savladanih tehnologija</div>
+                <div class="stat-label" data-translate-key="stats_technologies">Savladanih tehnologija</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" id="commits">0</div>
-                <div class="stat-label">Zadovoljnih klijenata</div>
+                <div class="stat-label" data-translate-key="stats_clients">Zadovoljnih klijenata</div>
             </div>
         </section>
 
@@ -133,31 +152,31 @@
 
         <section class="about-me" id="o-meni">
             <div class="about-text">
-                <h2>O meni</h2>
-                <p>Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.</p>
-                <p>Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.</p>
-                <p>Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.</p>
+                <h2 data-translate-key="about_title">O meni</h2>
+                <p data-translate-key="about_p1">Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.</p>
+                <p data-translate-key="about_p2">Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.</p>
+                <p data-translate-key="about_p3">Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.</p>
 
 
 
                 <div class="info-section">
                     <div class="info-column">
-                        <p><strong>Datum Rođenja:</strong> 4 Nov 2001</p>
-                        <p><strong>Diploma:</strong> Student Mastera</p>
-                        <p><strong>Grad:</strong> Beograd</p>
-                        <p><strong>Freelance:</strong> Dostupan</p>
+                        <p><strong data-translate-key="info_birthdate_label">Datum Rođenja:</strong> </p>
+                        <p><strong data-translate-key="info_degree_label">Diploma:</strong> <span data-translate-key="info_degree_value">Student Mastera</span></p>
+                        <p><strong data-translate-key="info_city_label">Grad:</strong> <span data-translate-key="info_city_value">Beograd</span></p>
+                        <p><strong data-translate-key="info_freelance_label">Freelance:</strong> <span data-translate-key="info_freelance_value">Dostupan</span></p>
                     </div>
                     <div class="info-column">
-                        <p><strong>Godine:</strong> 23 </p>
+                        <p><strong data-translate-key="info_age_label">Godine:</strong>  </p>
                         <p><strong>E-mail:</strong> <a href="mailto:info@gmail.com">lukadjuricdjurke@pm.me</a></p>
-                        <p><strong>Telefon:</strong> +381677411001</p>
+                        <p><strong data-translate-key="info_phone_label">Telefon:</strong> </p>
                         
                     </div>
                 </div>
 
                 <br>
 
-                <a href="#contact" class="contact-btn">Kontaktirajte me</a>
+                <a href="#contact" class="contact-btn" data-translate-key="contact_me_btn">Kontaktirajte me</a>
             </div>
             <div class="about-image">
                 <img src="slike/22222.png" alt="About Me Image">
@@ -165,149 +184,125 @@
         </section>
     </div>
 
-
     <!-- moje usluge -->
 
-    <div class="services-container" id="usluge">
-        <h2>Moje Usluge</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">&#60;/&#62;</div>
-                <h2 class="service-title">Web Development</h2>
-                <p class="service-description">Prilagođena veb rešenja prilagođena vašim potrebama. Od responzivnog dizajna do složenih veb aplikacija.</p>
-                <a href="#" class="read-more" onclick="openModal('web-dev'); return false;">Pročitaj Više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#127912;</div>
-                <h2 class="service-title">UI/UX Dizajn</h2>
-                <p class="service-description">Kreiranje intuitivnih i vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
-                <a href="#" class="read-more" onclick="openModal('ui-ux'); return false;">Pročitaj Više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#128640; </div>
-                <h2 class="service-title">Digitalni Marketing</h2>
-                <p class="service-description">Korišćenje alata za analitiku kako bi se obezbedila maksimalna efikasnost.</p>
-                <a href="#" class="read-more" onclick="openModal('web-dev'); return false;">Pročitaj Više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"> &#128176;</div>
-                <h2 class="service-title">E-commerce Solutions</h2>
-                <p class="service-description">Razvoj prilagođenih e-commerce rešenja sa integracijom platnih sistema i upravljanjem proizvodima.</p>
-                <a href="#" class="read-more" onclick="openModal('web-dev'); return false;">Pročitaj Više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#128241;</div>
-                <h2 class="service-title">Razvoj Aplikacija</h2>
-                <p class="service-description">Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme.
-                    Brzo i efikasno pravljneje po zelji.</p>
-                <a href="#" class="read-more" onclick="openModal('app-dev'); return false;">Pročitaj Više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#128269;</div>
-                <h2 class="service-title">SEO Optimizacija</h2>
-                <p class="service-description">Unapređenje vidljivosti vašeg sajta na pretraživačima 
-                    kroz strategije optimizacije sadržaja, 
-                    tehničke SEO i izgradnju relevantnih povratnih linkova. 
-                   </p>
-                <a href="#" class="read-more" onclick="openModal('app-dev'); return false;">Pročitaj Više</a>
-            </div>
-        </div>
-    </div>
+
     
 
-    <!-- Modalni prozori -->
+    <!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Usluge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+<section class="services-section-ms">
+    <h2 class="section-title-ms">Naše Usluge</h2>
+    <div class="services-grid-ms">
+        <!-- Web Development Card -->
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-code"></i></div>
+            <h3 class="service-title-ms">Web Development</h3>
+            <p class="service-description-ms">Izrada prilagođenih veb rešenja po vašoj meri. Od responzivnog dizajna do kompleksnih veb aplikacija.</p>
+            <button class="btn-read-more-ms" 
+                    data-title="Web Development" 
+                    data-description="Web Development obuhvata kreiranje i održavanje veb stranica i aplikacija. Ova usluga uključuje:" 
+                    data-points="Responzivni Veb Dizajn,Front-end Development,Back-end Development,E-commerce Rešenja">
+                Saznaj Više
+            </button>
+        </div>
 
-    <div id="web-dev-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('web-dev')">&times;</span>
-            <h2>Web Development</h2>
-            <p>Web Development obuhvata kreiranje i održavanje web stranica i aplikacija. Ova usluga uključuje:</p>
-            <ul>
-                <li>Responsive Web Design</li>
-                <li>Front-end Development</li>
-                <li>Back-end Development</li>
-                <li>E-commerce Solutions</li>
-            </ul>
+        <!-- UI/UX Design Card -->
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="service-title-ms">UI/UX Dizajn</h3>
+            <p class="service-description-ms">Kreiranje intuitivnih i vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
+            <button class="btn-read-more-ms" 
+                    data-title="UI/UX Dizajn" 
+                    data-description="Naš proces dizajna se fokusira na korisnika kako bi se osigurala jednostavnost korišćenja i estetska privlačnost. Usluge uključuju:" 
+                    data-points="Istraživanje korisnika,Wireframing i Prototipovi,Dizajn interfejsa,Testiranje upotrebljivosti">
+                Saznaj Više
+            </button>
+        </div>
+
+        <!-- ... (ostale kartice takođe imaju '-ms' sufiks na svojim klasama) ... -->
+        
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-rocket"></i></div>
+            <h3 class="service-title-ms">Digitalni Marketing</h3>
+            <p class="service-description-ms">Korišćenje analitičkih alata kako bi se osigurala maksimalna efikasnost vaših marketinških kampanja.</p>
+            <button class="btn-read-more-ms"
+                    data-title="Digitalni Marketing"
+                    data-description="Povećajte svoju online prisutnost i dosegnete ciljnu publiku kroz naše strateške marketinške usluge:"
+                    data-points="Upravljanje društvenim mrežama,Plaćeno oglašavanje (PPC),Content Marketing,Email Marketing">
+                Saznaj Više
+            </button>
+        </div>
+        
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-shopping-cart"></i></div>
+            <h3 class="service-title-ms">E-commerce Rešenja</h3>
+            <p class="service-description-ms">Razvoj prilagođenih e-commerce rešenja sa integracijom plaćanja i upravljanjem proizvodima.</p>
+            <button class="btn-read-more-ms"
+                    data-title="E-commerce Rešenja"
+                    data-description="Nudimo kompletna rešenja za online prodavnice, od dizajna do implementacije i održavanja:"
+                    data-points="Dizajn online prodavnice,Integracija platnih sistema,Upravljanje zalihama,Optimizacija konverzija">
+                Saznaj Više
+            </button>
+        </div>
+
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-mobile-alt"></i></div>
+            <h3 class="service-title-ms">Razvoj Aplikacija</h3>
+            <p class="service-description-ms">Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme. Brz i efikasan razvoj.</p>
+            <button class="btn-read-more-ms"
+                    data-title="Razvoj Aplikacija"
+                    data-description="Transformišite svoje ideje u funkcionalne mobilne aplikacije. Naš proces uključuje:"
+                    data-points="Razvoj za iOS (Swift),Razvoj za Android (Kotlin),Hibridne aplikacije (React Native),Održavanje i podrška">
+                Saznaj Više
+            </button>
+        </div>
+
+        <div class="service-card-ms">
+            <div class="service-icon-ms"><i class="fas fa-search"></i></div>
+            <h3 class="service-title-ms">SEO Optimizacija</h3>
+            <p class="service-description-ms">Poboljšanje vidljivosti vašeg sajta na pretraživačima kroz optimizaciju sadržaja i tehnički SEO.</p>
+            <button class="btn-read-more-ms"
+                    data-title="SEO Optimizacija"
+                    data-description="Poboljšajte rangiranje na pretraživačima i privucite više organskog saobraćaja uz naše SEO strategije:"
+                    data-points="Analiza ključnih reči,On-Page SEO,Tehnički SEO,Link Building">
+                Saznaj Više
+            </button>
         </div>
     </div>
-    
-    <div id="ui-ux-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('ui-ux')">&times;</span>
-            <h2>UI/UX Dizajn</h2>
-            <p>UI/UX Dizajn se fokusira na poboljšanje korisničkog iskustva kroz intuitivne i estetski privlačne interfejse. Usluge uključuju:</p>
-            <ul>
-                <li>Wireframing i Prototyping</li>
-                <li>User Research</li>
-                <li>Visual Design</li>
-                <li>Interaction Design</li>
-            </ul>
-        </div>
-    </div>
+</section>
 
-<div id="digital-marketing-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('digital-marketing')">&times;</span>
-        <h2>Digitalni Marketing</h2>
-        <p>Digitalni marketing obuhvata korišćenje digitalnih kanala za promovisanje proizvoda i usluga. Ova usluga uključuje:</p>
-        <ul>
-            <li>SEO Optimizacija</li>
-            <li>Social Media Marketing</li>
-            <li>Email Marketing</li>
-            <li>Analiza podataka i izvještavanje</li>
-        </ul>
+<!-- Modal Structure -->
+<div class="modal-overlay-ms" id="service-modal-ms">
+    <div class="modal-content-ms">
+        <button class="modal-close-ms">&times;</button>
+        <h2 id="modal-title-ms"></h2>
+        <p id="modal-description-ms"></p>
+        <ul id="modal-points-ms"></ul>
     </div>
 </div>
 
-<div id="ecommerce-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('ecommerce')">&times;</span>
-        <h2>E-commerce Solutions</h2>
-        <p>E-commerce Solutions pruža prilagođena rešenja za online prodavnice i platforme. Ova usluga uključuje:</p>
-        <ul>
-            <li>Integracija platnih sistema</li>
-            <li>Upravljanje proizvodima i zalihama</li>
-            <li>Optimizacija korisničkog iskustva</li>
-            <li>SEO i digitalna analitika za povećanje konverzija</li>
-        </ul>
-    </div>
-</div>
-
-    <div id="app-dev-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('app-dev')">&times;</span>
-            <h2>Razvoj Aplikacija</h2>
-            <p>Razvoj Aplikacija podrazumeva kreiranje softvera za mobilne i desktop platforme. Naše usluge uključuju:</p>           
-            <ul>
-                <li>iOS App Development</li>
-                <li>Android App Development</li>
-                <li>Cross-platform Development</li>
-                <li>App Maintenance and Support</li>
-            </ul>
-        </div>
-    </div>
+<script src="script.js"></script>
+</body>
+</html>
 
 
-<div id="seo-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('seo')">&times;</span>
-        <h2>SEO Optimizacija</h2>
-        <p>SEO Optimizacija se fokusira na poboljšanje vidljivosti vašeg sajta na pretraživačima. Ova usluga uključuje:</p>
-        <ul>
-            <li>Optimizacija sadržaja i ključnih reči</li>
-            <li>Tehnička SEO optimizacija</li>
-            <li>Izgradnja povratnih linkova</li>
-            <li>Praćenje i analiza rangiranja na pretraživačima</li>
-        </ul>
-    </div>
-</div>
 
+<br><br><br><br>
 
 <!--- skills -->
 
     <div class="skills-container1" id="vestine">
-        <h2>Moje Veštine</h2>
+          <h2 data-translate-key="skills_title">Moje Veštine</h2>
         <div class="skills-grid">
             <div class="skill-item">
                 <i class="fab fa-html5 skill-icon"></i>
@@ -375,266 +370,525 @@
 
     <br><br> <br><br> 
 
-        <!-- moji projekti -->
-
-    <div id="moji-projekti">
-        <h1>Moji Projekti</h1>
-        <div class="filteri">
-            <button class="aktivan" data-filter="svi">Svi</button>
-            <button data-filter="web-dizajn">Web Dizajn</button>
-            <button data-filter="web-app">Web Aplikacija</button>
-            <button data-filter="figma">Figma</button>
-            <button data-filter="wordpress">WordPress</button>
-            <button data-filter="android">Android</button>
-            <button data-filter="ios">IOS</button>
-        </div>
-        <div class="mreza-projekata">
-            </div>
-    </div>
 
 
-    <br><br> <br><br> 
 
 
-    <!-- radno iskustvo -->
 
-    <div class="container3">
-        <h1>Work & Experience</h1>
-        <div class="experience-container">
+
+    <!-- Ceo odeljak je unutar ovog DIV-a sa jedinstvenim ID-jem -->
+<div id="work-experience-wrapper">
+    <section class="experience-section">
+        <h2 class="section-title">Work & Experience</h2>
+
+        <div class="experience-grid">
+            <!-- Iskustvo 1: Web Developer (Freelance) -->
             <div class="experience-card">
-                <div class="job-title">Kompjuterista</div>
-                <div class="job-details">Part Time | Režija</div>
-                <div class="job-details">2020 - 2021</div>
-                <div class="company">Pink Media Group</div>
-                <p class="job-description">Dok sam radio na projektu „Zadruga“, 
-                    bio sam odgovoran za kreiranje grafike i komentara, 
-                    kao i za upravljanje tehničkim aspektima emisije kao što su osvetljenje, 
-                    zvuk i video. 
-                    Moje iskustvo u grafičkom dizajnu i tehnička podrška doprineli
-                    su uspešnoj realizaciji emisije i stvaranju 
-                    dinamičnog vizuelnog doživljaja za gledaoce.</p>
-            </div>
-            <div class="experience-card">
-                <div class="job-title">Video Editor</div>
-                <div class="job-details">Part Time | Kancelarija </div>
-                <div class="job-details">2021 - 2022</div>
-                <div class="company">Pink Media Group</div>
-                <p class="job-description">Kao iskusan video montažer, 
-                    koristio sam Adobe After Effects i Premiere Pro za uređivanje, 
-                    uređivanje i kreiranje vizuelno privlačnih video klipova za emisiju „Zadruga“. 
-                    Moje veštine uključuju precizno uređivanje, dodavanje efekata, 
-                    korekciju boja i zvuka i kreiranje dinamičkih vizuelnih elemenata 
-                    koji doprinose celokupnom raspoloženju emisije.
-                </p>
-            </div>
-            <div class="experience-card">
-                <div class="job-title">Remote Control Operator - RCO</div>
-                <div class="job-details">Part Time | Režija i Reportažna kola</div>
-                <div class="job-details">2022 - 2023</div>
-                <div class="company">Pink Media Group</div>
-                <p class="job-description">Kao iskusan RCO operater, 
-                    rukovodio sam kamerama i tehničkim sistemima tokom snimanja emisija „Zadruga“,
-                    „Elita“ i „Pinkove zvezdice“. 
-                    Moja odgovornost je bila da obezbedim dinamične i zanimljive kadrove, 
-                    da blagovremeno odgovorim na uputstva reditelja 
-                    i da obezbedim tehničku ispravnost svih sistema kako bi snimanje proteklo 
-                    bez problema.
-                </p>
-            </div>
-            <div class="experience-card">
-                <div class="job-title">Video Mixer </div>
-                <div class="job-details">Part Time | Režija </div>
-                <div class="job-details">2023 - 2024</div>
-                <div class="company">Pink Media Group</div>
-                <p class="job-description">Kao video mikser na projektima rijaliti emisija „Zadruga“ i „Elita“, 
-                    bio sam zadužen za upravljanje video signalima i obezbeđivanje neometanog prenosa uživo. 
-                    Moje odgovornosti uključivale su koordinaciju sa režijom, 
-                    pravovremeno prebacivanje između različitih kamera i izvora, 
-                    kao i održavanje visokog kvaliteta slike tokom emitovanja. 
-                    Takođe sam bio odgovoran za rešavanje tehničkih problema u realnom vremenu, 
-                    kako bi produkcija protekla bez zastoja.
-                </p>
-            </div>
-
-            <div class="experience-card">
-                <div class="job-title">Web Developer </div>
-                <div class="job-details">Part Time | Remote </div>
-                <div class="job-details">2024 - 2025</div>
-                <div class="company">Digital Media Sistem</div>
-                <p class="job-description">
-                    Radio sam na različitim projektima koristeći Angular, Vue.js,
-JavaScript, HTML, SCSS, Bootstrap i Go za full-stack
-development.
-Imam iskustvo saradnje u timovima i upravljanja kodom
-koristeći alate kao što su Fork, Git i Bitbucket, kao i testiranje API-ja
-sa Postmanom.
-Pored toga, koristio sam Slack, Jira i Confluence za
-komunikacija i upravljanje projektima.
-                </p>
-            </div>
-
-            <div class="experience-card">
-                <div class="job-title">Web Developer </div>
-                <div class="job-details"> Freelance </div>
-                <div class="job-details">2020 - 2025</div>
-                <div class="company">Djurke23.</div>
-                <p class="job-description">
-                    Kao freelancer, radio sam na brojnim projektima, 
-                    a tokom studija na fakultetu stekao sam iskustvo kroz realizaciju različitih projekata koristeći 
-                    Javu, C, C++, C#, Python, PostgreSQL i ASP.NET. 
-                    Specijalizujem se za razvoj web aplikacija, 
-                    od jednostavnih sajtova do kompleksnih rešenja sa blogovima, 
-                    koristeći HTML, CSS, JavaScript, PHP, Bootstrap, Ajax, jQuery i Swifter. 
-                    Moje veštine uključuju rad sa bazama podataka, posebno PostgreSQL, 
-                    što mi omogućava efikasno upravljanje podacima. 
-                    Kombinacijom tehničkog znanja i praktičnog iskustva, 
-                    sposoban sam kreirati kvalitetna softverska rešenja prilagođena različitim potrebama.
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
-<br>
-
-
-<!-- recenzije 
- -->
-    <div class="testimonials-slider">
-        <h1>Recenzije </h1>
-        <div class="testimonials">
-            <div class="testimonial">
-                <img src="slike/1.png" alt="Client 1 Photo" class="client-photo">
-                <h3 class="client-name">Klijent 1</h3>
-                <p class="client-review">Ovo je fantastična usluga! Topla preporuka!</p>
-                <div class="star-rating">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
+                <div class="card-header">
+                    <span class="job-type">Freelance</span>
+                    <p class="date">2020 - 2025</p>
+                </div>
+                <div class="card-body">
+                    <h3>Web Developer</h3>
+                    <p class="company">Djurke23.</p>
+                    <p class="description">Kao freelancer, radio sam na brojnim projektima koristeći Javu, C, C++, C#, Python, PostgreSQL i ASP.NET. Specijalizovan sam za razvoj veb aplikacija.</p>
                 </div>
             </div>
-            <div class="testimonial">
-                <img src="slike/5.png" alt="Client 2 Photo" class="client-photo">
-                <h3 class="client-name">Klijent 2</h3>
-                <p class="client-review">Neverovatni posao! Definitivno ću više raditi sa njim.</p>
-                <div class="star-rating">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
+
+            <!-- Iskustvo 2: Web Developer (Remote) -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <span class="job-type">Remote</span>
+                    <p class="date">2024 - 2025</p>
+                </div>
+                <div class="card-body">
+                    <h3>Web Developer</h3>
+                    <p class="company">Digital Media Sistem</p>
+                    <p class="description">Radio sam na različitim projektima koristeći Angular, Vue.js, JavaScript, HTML, SCSS i Go, sa iskustvom u timskoj saradnji i korišćenju alata kao što su Git i Jira.</p>
                 </div>
             </div>
-            <!-- Add more testimonials as needed -->
+
+            <!-- Iskustvo 3: Video Mixer -->
+            <div class="experience-card">
+                 <div class="card-header">
+                    <span class="job-type">Part Time</span>
+                    <p class="date">2023 - 2024</p>
+                </div>
+                <div class="card-body">
+                    <h3>Video Mixer</h3>
+                    <p class="company">Pink Media Group</p>
+                    <p class="description">Na reality show-ovima "Zadruga" i "Elita", bio sam zadužen za upravljanje video signalima i osiguravanje besprekornog live prenosa.</p>
+                </div>
+            </div>
+
+            <!-- Iskustvo 4: RCO -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <span class="job-type">Part Time</span>
+                    <p class="date">2022 - 2023</p>
+                </div>
+                <div class="card-body">
+                    <h3>Remote Control Operator - RCO</h3>
+                    <p class="company">Pink Media Group</p>
+                    <p class="description">Upravljao sam kamerama i tehničkim sistemima tokom snimanja emisija "Zadruga", "Elita" i "Pinkove zvezdice", pružajući dinamične kadrove.</p>
+                </div>
+            </div>
+
+            <!-- Iskustvo 5: Video Editor -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <span class="job-type">Part Time</span>
+                    <p class="date">2021 - 2022</p>
+                </div>
+                <div class="card-body">
+                    <h3>Video Editor</h3>
+                    <p class="company">Pink Media Group</p>
+                    <p class="description">Koristio sam Adobe After Effects i Premiere Pro za editovanje i kreiranje vizuelno privlačnih video klipova za emisiju "Zadruga".</p>
+                </div>
+            </div>
+
+            <!-- Iskustvo 6: Computer Operator -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <span class="job-type">Part Time</span>
+                    <p class="date">2020 - 2021</p>
+                </div>
+                <div class="card-body">
+                    <h3>Computer Operator</h3>
+                    <p class="company">Pink Media Group</p>
+                    <p class="description">Bio sam odgovoran za kreiranje grafike, komentara i upravljanje tehničkim aspektima emisije "Zadruga" (osvetljenje, zvuk, video).</p>
+                </div>
+            </div>
         </div>
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
-    </div>
+    </section>
+</div><!-- Kraj #work-experience-wrapper -->
+
+
+
+
+<!-- infinite-->
+<section class="logos-section-infinite">
+        <h2 class="logos-title-infinite" data-translate-key="tools_title_1">Tehnologije i <span data-translate-key="tools_title_2">Alati</span></h2>
+        <p class="logos-subtitle-infinite" data-translate-key="tools_subtitle">Kolekcija alata i tehnologija koje svakodnevno koristim u radu.</p>
+        
+        <div class="logos-scroller-infinite">
+            <ul class="logos-list-infinite logos__inner-infinite">
+                <!-- Originalni set logotipa -->
+                <!-- NAPOMENA: Za "Lovable" je stavljen placeholder. Zamenite src atribut sa pravim logotipom. -->
+                <li><a href="#" title="Lovable"><img src="https://logolook.net/wp-content/uploads/2021/07/Tinder-Logo.png" alt="Lovable Logo"></a></li>
+                <li><a href="#" title="n8n"><img src="https://cdn.worldvectorlogo.com/logos/n8n.svg" alt="n8n Logo"></a></li>
+                <li><a href="#" title="Replit"><img src="https://cdn.worldvectorlogo.com/logos/replit.svg" alt="Replit Logo"></a></li>
+                <li><a href="#" title="Bolt"><img src="https://cdn.worldvectorlogo.com/logos/bolt-2.svg" alt="Bolt Logo"></a></li>
+                <li><a href="#" title="V0"><img src="https://cdn.worldvectorlogo.com/logos/vercel.svg" alt="V0 by Vercel Logo"></a></li>
+                <li><a href="#" title="Postman"><img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman Logo"></a></li>
+                <li><a href="#" title="Figma"><img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma Logo"></a></li>
+                <li><a href="#" title="Notion"><img src="https://cdn.worldvectorlogo.com/logos/notion-1.svg" alt="Notion Logo"></a></li>
+                <li><a href="#" title="Canva"><img src="https://cdn.worldvectorlogo.com/logos/canva.svg" alt="Canva Logo"></a></li>
+                <li><a href="#" title="Obsidian"><img src="https://cdn.worldvectorlogo.com/logos/obsidian-2.svg" alt="Obsidian Logo"></a></li>
+                <li><a href="#" title="Slack"><img src="https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg" alt="Slack Logo"></a></li>
+                <li><a href="#" title="Jira"><img src="https://cdn.worldvectorlogo.com/logos/jira-1.svg" alt="Jira Logo"></a></li>
+                <li><a href="#" title="Confluence"><img src="https://cdn.worldvectorlogo.com/logos/confluence-1.svg" alt="Confluence Logo"></a></li>
+                <li><a href="#" title="Fork"><img src="https://git-fork.com/images/logo-128.png" alt="Fork Logo"></a></li>
+                <li><a href="#" title="Docker"><img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker Logo"></a></li>
+                <li><a href="#" title="Git"><img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" alt="Git Logo"></a></li>
+                <li><a href="#" title="pgAdmin4"><img src="https://cdn.worldvectorlogo.com/logos/pgadmin.svg" alt="pgAdmin4 Logo"></a></li>
+                <li><a href="#" title="TeamViewer"><img src="https://cdn.worldvectorlogo.com/logos/teamviewer.svg" alt="TeamViewer Logo"></a></li>
+                <li><a href="#" title="Zoom"><img src="https://cdn.worldvectorlogo.com/logos/zoom-2.svg" alt="Zoom Logo"></a></li>
+            </ul>
+        </div>
+    </section>
+
+
     
     
+    <!-- projekti v2-->
+
+
+
+    <div class="network-bg-projekti"></div>
+    
+    <section class="sekcija-projekti">
+        <div class="dots-decoration-projekti dots-1-projekti"></div>
+        <div class="dots-decoration-projekti dots-2-projekti"></div>
+        
+        <h2 class="naslov-projekti"><span data-translate-key="my_projects_1">Moji</span> <span data-translate-key="my_projects_2">Projekti</span></h2>
+    <p class="podnaslov-projekti" data-translate-key="my_projects_subtitle">
+    Istražite kolekciju mojih radova iz različitih oblasti digitalne kreacije</p>
+        
+        <div class="filter-projekti">
+            <button class="filter-btn-projekti aktivan-projekti" data-filter="sve">Sve</button>
+            <button class="filter-btn-projekti" data-filter="web-sajt">Web Sajtovi</button>
+            <button class="filter-btn-projekti" data-filter="web-app">Web Aplikacije</button>
+            <button class="filter-btn-projekti" data-filter="video">Video Montaža</button>
+            <button class="filter-btn-projekti" data-filter="dizajn">Dizajn</button>
+        </div>
+
+        <div class="grid-projekti">
+            <!-- Web Sajtovi -->
+            <div class="kartica-projekti" data-category="web-sajt">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/portfolija.png" alt="portfolio" width="700" height="400">
+                        </svg>
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Sajt</span>
+                    <h3 class="naslov-kartice-projekti">Lični Portfolio</h3>
+                    <p class="opis-projekti">Moderni portfolio sajt sa interaktivnim animacijama, network pozadinom i potpuno responzivnim dizajnom.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/portfolio/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/portfolio" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-sajt">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/bgdcars-projekat.png" alt="bgd-cars-detailing" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Sajt</span>
+                    <h3 class="naslov-kartice-projekti">BGDCARS Detailing Sajt</h3>
+                    <p class="opis-projekti">Profesionalan sajt firme za detailing automobila.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/bgdcarsdetailing/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/bgdcarsdetailing" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-sajt">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/ibg.png" alt="inno-build-group" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Sajt</span>
+                    <h3 class="naslov-kartice-projekti">Inno Build Group Sajt</h3>
+                    <p class="opis-projekti">Profesionalan sajt firme za adapptaciju stanova.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://innobuildgroup.rs" class="link-projekti demo-link-projekti">Web Site</a>
+                        <a href="https://github.com/djurke23/Inno-Build-Group" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Aplikacije -->
+            <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/rng.png" alt="random" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">Random Number Generator</h3>
+                    <p class="opis-projekti">Basic aplikacija generisanja nasumicnog broja.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/random_number_generator/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/random_number_generator" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/rqg.png" alt="random quote" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">Random Quote Generator</h3>
+                    <p class="opis-projekti">Basic random quote generator.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/random-quote-generator/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/random-quote-generator" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/quiz.png" alt="random quote" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">Quiz</h3>
+                    <p class="opis-projekti">Basic quiz.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/quiz/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/quiz" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/calc.png" alt="calculator" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">Calculator</h3>
+                    <p class="opis-projekti">Basic calculator.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/calculator/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/calculator" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/qr.png" alt="qr" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">QR Code Generator</h3>
+                    <p class="opis-projekti">Basic qr code generator.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/qr-code-generator/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/qr-code-generator" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="web-app">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/todo.png" alt="todo" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
+                    <h3 class="naslov-kartice-projekti">To Do List </h3>
+                    <p class="opis-projekti">Basic to do list.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">HTML5</span>
+                        <span class="tech-tag-projekti">CSS3</span>
+                        <span class="tech-tag-projekti">JavaScript</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://djurke23.github.io/to_do_list/" class="link-projekti demo-link-projekti">Live Demo</a>
+                        <a href="https://github.com/djurke23/to_do_list" class="link-projekti github-link-projekti">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Video Montaža -->
+            <div class="kartica-projekti" data-category="video">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1" stroke-linecap="round">
+                            <polygon points="23 7 16 12 23 17 23 7"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2"/>
+                        </svg>
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Video Montaža</span>
+                    <h3 class="naslov-kartice-projekti">Korporativni Video</h3>
+                    <p class="opis-projekti">Profesionalni promotivni video sa motion graphics elementima i color gradingom.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">Premiere Pro</span>
+                        <span class="tech-tag-projekti">After Effects</span>
+                        <span class="tech-tag-projekti">DaVinci</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="#" class="link-projekti demo-link-projekti">Pogledaj</a>
+                        <a href="#" class="link-projekti github-link-projekti">Vimeo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="video">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1" stroke-linecap="round">
+                            <path d="M9 2v20l13-10z"/>
+                        </svg>
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Video Montaža</span>
+                    <h3 class="naslov-kartice-projekti">YouTube Intro</h3>
+                    <p class="opis-projekti">Dinamični intro sa 3D elementima i profesionalnim sound designom za YouTube kanal.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">After Effects</span>
+                        <span class="tech-tag-projekti">Cinema 4D</span>
+                        <span class="tech-tag-projekti">Audition</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="#" class="link-projekti demo-link-projekti">Pogledaj</a>
+                        <a href="#" class="link-projekti github-link-projekti">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dizajn -->
+            <div class="kartica-projekti" data-category="dizajn">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/figma ft.png" alt="qr" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Dizajn</span>
+                    <h3 class="naslov-kartice-projekti">Finance Tracker</h3>
+                    <p class="opis-projekti">Kompletan vizuelni identitet startup-a uključujući logo, tipografiju i brand guidelines.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">Figma</span>
+                        <span class="tech-tag-projekti">Illustrator</span>
+                        <span class="tech-tag-projekti">Photoshop</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="https://www.figma.com/make/pDJnGMgjp3XJGJ1i7eS8yC/Finance-Tracker-App?node-id=0-1&p=f&t=HUC5FjnMHuhoDLpB-0&fullscreen=1" class="link-projekti demo-link-projekti">Live Demo</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="kartica-projekti" data-category="dizajn">
+                <div class="slika-wrapper-projekti">
+                    <div class="slika-projekti">
+                        <img src="slike/figma ht.png" alt="qr" width="600" height="400">
+                    </div>
+                    <div class="slika-overlay-projekti"></div>
+                </div>
+                <div class="sadrzaj-projekti">
+                    <span class="kategorija-tag-projekti">Dizajn</span>
+                    <h3 class="naslov-kartice-projekti">Habit Tracker</h3>
+                    <p class="opis-projekti">Moderni UI dizajn za fitness aplikaciju sa dark temom i interaktivnim prototipom.</p>
+                    <div class="tehnologije-projekti">
+                        <span class="tech-tag-projekti">Figma</span>
+                        <span class="tech-tag-projekti">Principle</span>
+                        <span class="tech-tag-projekti">Maze</span>
+                    </div>
+                    <div class="dugmici-projekti">
+                        <a href="#" class="link-projekti demo-link-projekti">Live Demo</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
     
  <!-- recenzije-->
 
-<div class="reviews-section-R">
-        <div class="section-title-R">
-            <h2>Šta kažu klijenti</h2>
-            <p>Pročitajte iskustva onih koji su sarađivali sa mnom</p>
+<section class="testimonials-section">
+    <h2 class="section-title" data-translate-key="testimonials_title">Šta Kažu Naši Klijenti</h2>
+    <div class="testimonial-slider">
+        <!-- Recenzija 1 -->
+        <div class="testimonial-slide active">
+            <img src="URL_SLIKE_KLIJENTA_1.jpg" alt="Slika klijenta" class="client-image">
+            <blockquote class="review-text">
+                "Saradnja je bila izvanredna. Projekat je isporučen pre roka, a finalni proizvod je premašio sva naša očekivanja. Topla preporuka!"
+            </blockquote>
+            <cite class="client-info">
+                <span class="client-name">Petar Petrović</span>
+                <span class="client-title">CEO, Tech Kompanija</span>
+            </cite>
         </div>
 
-        <div class="carousel-container-R">
-            <div class="carousel-wrapper-R" id="carouselWrapper-R">
-                <div class="review-card-R">
-                    <div class="quote-icon-R">"</div>
-                    <div class="review-text-R">
-                        Izuzetno profesionalan pristup i kreativno rešavanje problema. Sajt je prevazišao sva moja očekivanja i rezultati su bili vidljivi odmah nakon lansiranja. Definitivno preporučujem!
-                    </div>
-                    <div class="reviewer-info-R">
-                        <div class="reviewer-avatar-R">MJ</div>
-                        <div class="reviewer-details-R">
-                            <h4>Marija Jovanović</h4>
-                            <p>CEO, TechStart</p>
-                            <div class="stars-R">★★★★★</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card-R">
-                    <div class="quote-icon-R">"</div>
-                    <div class="review-text-R">
-                        Sjajan rad na našem e-commerce projektu. Pažnja posvećena detaljima i korisničkom iskustvu je bila neverovatna. Prodaja nam se udvostručila nakon redizajna!
-                    </div>
-                    <div class="reviewer-info-R">
-                        <div class="reviewer-avatar-R">AP</div>
-                        <div class="reviewer-details-R">
-                            <h4>Ana Petrović</h4>
-                            <p>Osnivač, ShopOnline</p>
-                            <div class="stars-R">★★★★★</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card-R">
-                    <div class="quote-icon-R">"</div>
-                    <div class="review-text-R">
-                        Komunikacija tokom celog projekta je bila odlična. Sve izmene su rađene brzo i efikasno. Dobili smo tačno ono što smo zamislili, a čak i više od toga.
-                    </div>
-                    <div class="reviewer-info-R">
-                        <div class="reviewer-avatar-R">NM</div>
-                        <div class="reviewer-details-R">
-                            <h4>Nikola Milić</h4>
-                            <p>Marketing direktor, BrandCo</p>
-                            <div class="stars-R">★★★★★</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card-R">
-                    <div class="quote-icon-R">"</div>
-                    <div class="review-text-R">
-                        Moderan dizajn i perfektna funkcionalnost. Sajt radi besprekorno na svim uređajima. Naši klijenti su oduševljeni novim izgledom i lakoćom korišćenja.
-                    </div>
-                    <div class="reviewer-info-R">
-                        <div class="reviewer-avatar-R">ST</div>
-                        <div class="reviewer-details-R">
-                            <h4>Stefan Tomić</h4>
-                            <p>Vlasnik, DesignStudio</p>
-                            <div class="stars-R">★★★★★</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card-R">
-                    <div class="quote-icon-R">"</div>
-                    <div class="review-text-R">
-                        Vrhunska tehničku podršku i kreativnost u jednom paketu. Projekt je završen u roku i rezultat je bio bolji od očekivanog. Nastaviću saradnju i u budućnosti!
-                    </div>
-                    <div class="reviewer-info-R">
-                        <div class="reviewer-avatar-R">JR</div>
-                        <div class="reviewer-details-R">
-                            <h4>Jelena Radović</h4>
-                            <p>Direktor, InnovateLab</p>
-                            <div class="stars-R">★★★★★</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="progress-bar-R" id="progressBar-R"></div>
+        <!-- Recenzija 2 -->
+        <div class="testimonial-slide">
+            <img src="URL_SLIKE_KLIJENTA_2.jpg" alt="Slika klijenta" class="client-image">
+            <blockquote class="review-text">
+                "Moderan dizajn, brza izrada i odlična komunikacija. Veoma smo zadovoljni novim korporativnim sajtom koji nam je doneo nove klijente."
+            </blockquote>
+            <cite class="client-info">
+                <span class="client-name">Jovana Jovanović</span>
+                <span class="client-title">Marketing Menadžer, Dizajn Studio</span>
+            </cite>
         </div>
 
-        <div class="carousel-controls-R">
-            <button class="nav-button-R" id="prevBtn-R">‹</button>
-            <div class="indicators-R" id="indicators-R">
-                <div class="indicator-R active" data-slide="0"></div>
-                <div class="indicator-R" data-slide="1"></div>
-                <div class="indicator-R" data-slide="2"></div>
-                <div class="indicator-R" data-slide="3"></div>
-                <div class="indicator-R" data-slide="4"></div>
-            </div>
-            <button class="nav-button-R" id="nextBtn-R">›</button>
+        <!-- Recenzija 3 -->
+        <div class="testimonial-slide">
+            <img src="URL_SLIKE_KLIJENTA_3.jpg" alt="Slika klijenta" class="client-image">
+            <blockquote class="review-text">
+                "Fantastičan portfolio sajt koji savršeno odražava moj rad. Interaktivne animacije su ono što ga izdvaja od drugih. Svaka čast!"
+            </blockquote>
+            <cite class="client-info">
+                <span class="client-name">Marko Marković</span>
+                <span class="client-title">Fotograf</span>
+            </cite>
         </div>
+
+        <!-- Navigacione Strelice -->
+        <button class="slider-arrow prev" aria-label="Prethodna recenzija">&#10094;</button>
+        <button class="slider-arrow next" aria-label="Sledeća recenzija">&#10095;</button>
     </div>
+</section>
 
 
 
@@ -644,15 +898,13 @@ komunikacija i upravljanje projektima.
    
     <section id="contact">
         <div class="contact-content">
-            <h2>Ostavite poruku</h2>
-            <p>"Imate pitanja, predloge ili želite da sarađujemo? 
-                <br>
-                    Slobodno mi se javite! 
-                <br>
-                Pošaljite mi poruku i javiću Vam se u najkraćem roku."</p>
+           <h2 data-translate-key="contact_leave_message">Ostavite poruku</h2>
+            <p data-translate-key="contact_description">"Imate pitanja, predloge ili želite da sarađujemo? 
+                <br> Slobodno mi se javite! 
+                <br> Pošaljite mi poruku i javiću Vam se u najkraćem roku."</p>
             <div class="contact-info">
                 <i class="fas fa-map-marker-alt"></i>
-                <p>Beograd, Srbija</p>
+                <p data-translate-key="contact_location">Beograd, Srbija</p>
             </div>
             <div class="contact-info">
                 <i class="fas fa-envelope"></i>
@@ -668,13 +920,13 @@ komunikacija i upravljanje projektima.
             </div>
         </div>
         <div class="contact-form">
-            <h2>Kontaktirajte Me</h2>
+             <h2 data-translate-key="contact_form_title">Kontaktirajte Me</h2>
             <form>
-                <input type="text" id="username" name="username" placeholder="Ime" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="tel" id="phone" name="phone" placeholder="Broj Telefona">
-                <textarea id="message" name="message" placeholder="Poruka" rows="5" required></textarea>
-                <button type="submit">Pošalji</button>
+                <input type="text" id="username" name="username" placeholder="Ime" data-translate-key="form_placeholder_name" required>
+                <input type="email" id="email" name="email" placeholder="Email" data-translate-key="form_placeholder_email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Broj Telefona" data-translate-key="form_placeholder_phone">
+                <textarea id="message" name="message" placeholder="Poruka" rows="5" data-translate-key="form_placeholder_message" required></textarea>
+                <button type="submit" data-translate-key="form_button_send">Pošalji</button>
             </form>
         </div>
     </section>
@@ -706,7 +958,7 @@ komunikacija i upravljanje projektima.
             <a href="#contact">Kontakt</a>
         </nav>
     
-        <p class="copyright">Copyright © 2025 Made by Djurke23. Sva prava zadržana.</p>
+        <p class="copyright" data-translate-key="footer_copyright">Copyright © 2025 Made by Djurke23. Sva prava zadržana.</p>
     </footer>
     
 

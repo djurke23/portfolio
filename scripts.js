@@ -15,8 +15,10 @@ function animateValue(id, start, end, duration, callback) {
 }
 
 function typeWriter(text, i, fnCallback) {
-    if (i < (text.length)) {
-        document.getElementById("typed-name").innerHTML = text.substring(0, i+1) + '<span aria-hidden="true"></span>';
+    // Proveravamo da li element postoji pre nego što pokušamo da ga koristimo
+    const typedNameElement = document.getElementById("typed-name");
+    if (typedNameElement && i < (text.length)) {
+        typedNameElement.innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
         setTimeout(function() {
             typeWriter(text, i + 1, fnCallback)
         }, 100);
@@ -25,7 +27,9 @@ function typeWriter(text, i, fnCallback) {
     }
 }
 
+
 function startTextAnimation(i) {
+    const dataText = ["Luka Đurić", ""]; // Definisano unutar funkcije radi preglednosti
     if (typeof dataText[i] == 'undefined') {
         setTimeout(function() {
             startTextAnimation(0);
@@ -38,25 +42,91 @@ function startTextAnimation(i) {
     }
 }
 
-const dataText = ["Luka Đurić", ""];
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', function() {
+    //=================================================//
+    //============== LANGUAGE INITIALIZATION ==========//
+    //=================================================//
+    // Prvo inicijalizujemo jezik kako bi se tekst ispravno prikazao
+    const savedLang = localStorage.getItem('language') || 'sr-cyrillic';
+    setLanguage(savedLang);
+
+
+    //=================================================//
+    //============== LOADING & ANIMATIONS =============//
+    //=================================================//
     setTimeout(function() {
         document.getElementById('loading-screen').style.display = 'none';
-        
+
         animateValue("years", 0, 5, 2000, function() {
             animateValue("projects", 0, 30, 2000, function() {
                 animateValue("technologies", 0, 12, 2000, function() {
                     animateValue("commits", 0, 10, 2000, function() {
-                        document.querySelector('.container').style.opacity = 1;
-                        startTextAnimation(0);
+                        // Nema potrebe za startTextAnimation jer nemamo element "typed-name"
+                        // Ako ga dodate nazad, odkomentarišite sledeću liniju
+                        // startTextAnimation(0);
                     });
                 });
             });
         });
-
     }, 2000);
+
+
+    //=================================================//
+    //============== TESTIMONIALS SLIDER ==============//
+    //=================================================//
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevArrow = document.querySelector('.slider-arrow.prev');
+    const nextArrow = document.querySelector('.slider-arrow.next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 7000);
+    }
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        startSlideShow();
+    }
+
+    if (nextArrow && prevArrow) {
+        nextArrow.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        prevArrow.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+    }
+
+    if (slides.length > 0) {
+        showSlide(currentSlide);
+        startSlideShow();
+    }
 });
+
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');
@@ -81,17 +151,10 @@ const navSlide = () => {
 navSlide();
 
 
-
-
-
-
-
 // prozorcic
-
 function openModal(id) {
     var modal = document.getElementById(id + '-modal');
     modal.style.display = 'block';
-    // Dodajemo mali timeout da bismo omogućili CSS tranziciju
     setTimeout(function() {
         modal.classList.add('show');
     }, 10);
@@ -100,7 +163,6 @@ function openModal(id) {
 function closeModal(id) {
     var modal = document.getElementById(id + '-modal');
     modal.classList.remove('show');
-    // Čekamo da se završi fade-out animacija pre nego što sakrijemo modal
     setTimeout(function() {
         modal.style.display = 'none';
     }, 300);
@@ -113,17 +175,9 @@ window.onclick = function(event) {
 }
 
 
-
-
-
-
-
-
 // back to top
-
 const backToTopButton = document.getElementById('backToTop');
 
-// Funkcija za prikaz/sakrivanje dugmeta
 function toggleBackToTopButton() {
     if (window.pageYOffset > 300) {
         backToTopButton.classList.add('show');
@@ -132,7 +186,6 @@ function toggleBackToTopButton() {
     }
 }
 
-// Funkcija za animirano skrolovanje na vrh
 function scrollToTop(e) {
     e.preventDefault();
     window.scrollTo({
@@ -141,130 +194,11 @@ function scrollToTop(e) {
     });
 }
 
-// Event listeneri
 window.addEventListener('scroll', toggleBackToTopButton);
 backToTopButton.addEventListener('click', scrollToTop);
 
 
-
-
-
-
-
-
-
-
-
-// projekti
-
-
-const filterButtons = document.querySelectorAll('.filteri button');
-const projekti = document.querySelectorAll('.projekat');
-
-// Podaci o projektima (zameni sa svojim podacima)
-const projektiData = [
-    {
-        kategorija: 'web-dizajn',
-        slika: 'slike/projekti/ibg.png',
-        naslov: 'Projekat 1',
-        opis: 'Sajt za firmu Inno Build Group',
-        link: 'https://innobuildgroup.rs/'
-    },
-    {
-        kategorija: 'web-dizajn',
-        slika: 'slike/projekti/bgdcars.png',
-        naslov: 'Projekat u izradi',
-        opis: 'Sajt za firmu BGD CARS Detailing',
-        link: 'https://djurke23.github.io/BGD-Cars-Detailing/'
-    },
-    {
-        kategorija: 'web-app',
-        slika: 'slike/projekti/calculator.png',
-        naslov: 'Kalkulator',
-        opis: 'Scientific kalkulator',
-        link: 'https://djurke23.github.io/calculator/'
-    },
-    {
-        kategorija: 'web-app',
-        slika: 'slike/projekti/qrkodgenerator.png',
-        naslov: 'QR Code Generator',
-        opis: 'QR Code Generator',
-        link: 'https://djurke23.github.io/qr-code-generator/'
-    },
-    {
-        kategorija: 'web-app',
-        slika: 'slike/projekti/todolist.png',
-        naslov: 'To-Do List',
-        opis: 'To do lista',
-        link: 'https://djurke23.github.io/to_do_list/'
-    },
-    {
-        kategorija: 'web-dizajn',
-        slika: 'slike/projekti/rqg.png',
-        naslov: 'Random Quote Generator',
-        opis: 'Random Quote Generator',
-        link: 'https://djurke23.github.io/random-quote-generator/'
-    },
-    {
-        kategorija: 'web-dizajn',
-        slika: 'slike/projekti/rng.png',
-        naslov: 'Random Number Generator',
-        opis: 'Random Number Generator',
-        link: 'https://djurke23.github.io/random_number_generator/'
-    },
-    // ... ostali projekti
-];
-
-
-
-// Funkcija za kreiranje HTML-a projekta
-function kreirajProjekat(projekat) {
-    return `
-        <div class="projekat ${projekat.kategorija}">
-            <a href="${projekat.link}" target="_blank"> 
-                <img src="${projekat.slika}" alt="${projekat.naslov}">
-                <h3>${projekat.naslov}</h3>
-                <p>${projekat.opis}</p>
-            </a>
-        </div>
-    `;
-}
-
-// Prikaz svih projekata na početku
-projektiData.forEach(projekat => {
-    document.querySelector('.mreza-projekata').innerHTML += kreirajProjekat(projekat);
-});
-
-// Dodaj event listener za svako dugme filtera
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
-
-        // Ukloni klasu "aktivan" sa svih dugmadi
-        filterButtons.forEach(btn => btn.classList.remove('aktivan'));
-        // Dodaj klasu "aktivan" na kliknuto dugme
-        button.classList.add('aktivan');
-
-        // Filtriranje projekata
-        projekti.forEach(projekat => {
-            if (filter === 'svi' || projekat.classList.contains(filter)) {
-                projekat.style.display = 'block';
-            } else {
-                projekat.style.display = 'none';
-            }
-        });
-    });
-});
-
-
-
-
-
-
-
-
 // o meni kopoiranje linkova
-
 document.querySelectorAll('.info-column a').forEach(item => {
     item.addEventListener('click', event => {
         event.preventDefault();
@@ -280,361 +214,416 @@ document.querySelectorAll('.info-column a').forEach(item => {
 });
 
 
+// dark mode
+//=================================================//
+//================== THEME TOGGLE =================//
+//=================================================//
+const modeToggle = document.getElementById('modeToggle');
+const body = document.body;
 
+// Funkcija koja primenjuje temu na osnovu localStorage ili sistemskih podešavanja
+const applyTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-
-
-
-
-// recenzije
-
-
-let currentIndex = 0;
-const intervalTime = 5000; // 5 sekundi
-
-const testimonials = document.querySelector('.testimonials');
-const testimonialItems = document.querySelectorAll('.testimonial');
-const totalItems = testimonialItems.length;
-
-function updateSlider() {
-    const offset = -currentIndex * 100;
-    testimonials.style.transform = `translateX(${offset}%)`;
-}
-
-document.querySelector('.next').addEventListener('click', () => {
-    if (currentIndex < totalItems - 1) {
-        currentIndex++;
+    if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+        body.classList.add('light-mode');
     } else {
-        currentIndex = 0;
-    }
-    updateSlider();
-});
-
-document.querySelector('.prev').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = totalItems - 1;
-    }
-    updateSlider();
-});
-
-// Automatski prelazak na sledeću recenziju
-setInterval(() => {
-    if (currentIndex < totalItems - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0;
-    }
-    updateSlider();
-}, intervalTime);
-
-
-
-
-
-
-
-// Language toggle functionality
-const translations = {
-    "sr": {
-        "greeting": "Zdravo, Zovem se:",
-        "description": "Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.",
-        "home": "Početna",
-        "about": "O meni",
-        "services": "Usluge",
-        "skills": "Veštine",
-        "projects": "Projekti",
-        "contact": "Kontakt",
-        "hireMe": "Kontaktirajte Me"
-    },
-    "en": {
-        "greeting": "Hello, My name is:",
-        "description": "I excel at creating elegant digital experiences and am skilled in various programming languages and technologies.",
-        "home": "Home",
-        "about": "About Me",
-        "services": "Services",
-        "skills": "Skills",
-        "projects": "Projects",
-        "contact": "Contact",
-        "hireMe": "Hire Me"
+        body.classList.remove('light-mode');
     }
 };
 
+// Funkcija koja se poziva na klik
+const toggleTheme = () => {
+    body.classList.toggle('light-mode');
+    
+    // Sačuvaj izbor u localStorage
+    if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+};
 
+// Postavi temu odmah pri učitavanju stranice
+applyTheme();
+
+// Dodaj event listener na dugme
+if(modeToggle) {
+    modeToggle.addEventListener('click', toggleTheme);
+}
+
+
+// projekti
+const filterBtns = document.querySelectorAll('.filter-btn-projekti');
+const projekti = document.querySelectorAll('.kartica-projekti');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('aktivan-projekti'));
+        btn.classList.add('aktivan-projekti');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projekti.forEach((projekat, index) => {
+            projekat.style.animation = 'none';
+
+            setTimeout(() => {
+                if (filter === 'sve' || projekat.getAttribute('data-category') === filter) {
+                    projekat.classList.remove('sakriveno-projekti');
+                    projekat.style.animation = `fadeInUp 0.6s ease forwards`;
+                    projekat.style.animationDelay = `${index * 0.1}s`;
+                } else {
+                    projekat.classList.add('sakriveno-projekti');
+                }
+            }, 10);
+        });
+    });
+});
+
+
+// infinite logo scroller
+const scrollerInnerLogos = document.querySelector(".logos__inner-infinite");
+if (scrollerInnerLogos && !scrollerInnerLogos.getAttribute('data-cloned')) {
+    const scrollerContent = Array.from(scrollerInnerLogos.children);
+    scrollerContent.forEach(item => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInnerLogos.appendChild(duplicatedItem);
+    });
+    scrollerInnerLogos.setAttribute('data-cloned', 'true');
+}
+
+
+// header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+
+//=================================================//
+//============== LANGUAGE SWITCHER ==============//
+//=================================================//
+const translations = {
+    'sr-latin': {
+        'nav_home': 'Početna',
+        'nav_about': 'O meni',
+        'nav_services': 'Usluge',
+        'nav_skills': 'Veštine',
+        'nav_projects': 'Projekti',
+        'nav_contact': 'Kontakt',
+        'hire_me': 'Kontaktirajte Me',
+        'hero_greeting': 'Zdravo, Zovem se<br> Luka Đurić',
+        'hero_description': 'Odličan sam u stvaranju elegantnih digitalnih iskustava i vešt sam u raznim programskim jezicima i tehnologijama.',
+        'download_cv': 'Preuzmi CV',
+        'stats_experience': 'Godine iskustva',
+        'stats_projects': 'Završenih projekata',
+        'stats_technologies': 'Savladanih tehnologija',
+        'stats_clients': 'Zadovoljnih klijenata',
+        'about_title': 'O meni',
+        'about_p1': 'Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.',
+        'about_p2': 'Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.',
+        'about_p3': 'Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.',
+        'info_birthdate_label': '<strong>Datum Rođenja:</strong> 4 Nov 2001',
+        'info_degree_label': '<strong>Diploma:</strong>',
+        'info_degree_value': 'Student Mastera',
+        'info_city_label': '<strong>Grad:</strong>',
+        'info_city_value': 'Beograd',
+        'info_freelance_label': '<strong>Freelance:</strong>',
+        'info_freelance_value': 'Dostupan',
+        'info_age_label': '<strong>Godine:</strong> 23',
+        'info_phone_label': '<strong>Telefon:</strong> +381677411001',
+        'contact_me_btn': 'Kontaktirajte me',
+        'services_title': 'Moje Usluge',
+        'service1_title': 'Web Development',
+        'service1_desc': 'Prilagođena veb rešenja prilagođena vašim potrebama. Od responzivnog dizajna do složenih veb aplikacija.',
+        'service2_title': 'UI/UX Dizajn',
+        'service2_desc': 'Kreiranje intuitivnih i vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.',
+        'service3_title': 'Digitalni Marketing',
+        'service3_desc': 'Korišćenje alata za analitiku kako bi se obezbedila maksimalna efikasnost.',
+        'service4_title': 'E-commerce Rešenja',
+        'service4_desc': 'Razvoj prilagođenih e-commerce rešenja sa integracijom platnih sistema i upravljanjem proizvodima.',
+        'service5_title': 'Razvoj Aplikacija',
+        'service5_desc': 'Izrada robusnih i skalabilnih mobilnih aplikacija za iOS i Android platforme. Brzo i efikasno pravljenje po želji.',
+        'service6_title': 'SEO Optimizacija',
+        'service6_desc': 'Unapređenje vidljivosti vašeg sajta na pretraživačima kroz strategije optimizacije sadržaja, tehničke SEO i izgradnju relevantnih povratnih linkova.',
+        'read_more': 'Pročitaj Više',
+        'skills_title': 'Moje Veštine',
+        'work_experience_title': 'Work & Experience',
+        'job1_title': 'Kompjuterista',
+        'job1_details1': 'Part Time | Režija',
+        'job1_desc': 'Dok sam radio na projektu „Zadruga“, bio sam odgovoran za kreiranje grafike i komentara, kao i za upravljanje tehničkim aspektima emisije kao što su osvetljenje, zvuk i video. Moje iskustvo u grafičkom dizajnu i tehnička podrška doprineli su uspešnoj realizaciji emisije i stvaranju dinamičnog vizuelnog doživljaja za gledaoce.',
+        'job2_title': 'Video Editor',
+        'job2_details1': 'Part Time | Kancelarija',
+        'job2_desc': 'Kao iskusan video montažer, koristio sam Adobe After Effects i Premiere Pro za uređivanje i kreiranje vizuelno privlačnih video klipova za emisiju „Zadruga“. Moje veštine uključuju precizno uređivanje, dodavanje efekata, korekciju boja i zvuka i kreiranje dinamičkih vizuelnih elemenata koji doprinose celokupnom raspoloženju emisije.',
+        'job3_title': 'Remote Control Operator - RCO',
+        'job3_details1': 'Part Time | Režija i Reportažna kola',
+        'job3_desc': 'Kao iskusan RCO operater, rukovodio sam kamerama i tehničkim sistemima tokom snimanja emisija „Zadruga“, „Elita“ i „Pinkove zvezdice“. Moja odgovornost je bila da obezbedim dinamične i zanimljive kadrove, da blagovremeno odgovorim na uputstva reditelja i da obezbedim tehničku ispravnost svih sistema kako bi snimanje proteklo bez problema.',
+        'job4_title': 'Video Mikser',
+        'job4_details1': 'Part Time | Režija',
+        'job4_desc': 'Kao video mikser na projektima rijaliti emisija „Zadruga“ i „Elita“, bio sam zadužen za upravljanje video signalima i obezbeđivanje neometanog prenosa uživo. Moje odgovornosti uključivale su koordinaciju sa režijom, pravovremeno prebacivanje između različitih kamera i izvora, kao i održavanje visokog kvaliteta slike tokom emitovanja. Takođe sam bio odgovoran za rešavanje tehničkih problema u realnom vremenu, kako bi produkcija protekla bez zastoja.',
+        'job5_title': 'Web Developer',
+        'job5_details1': 'Part Time | Remote',
+        'job5_desc': 'Radio sam na različitim projektima koristeći Angular, Vue.js, JavaScript, HTML, SCSS, Bootstrap i Go za full-stack development. Imam iskustvo saradnje u timovima i upravljanja kodom koristeći alate kao što su Fork, Git i Bitbucket, kao i testiranje API-ja sa Postmanom. Pored toga, koristio sam Slack, Jira i Confluence za komunikaciju i upravljanje projektima.',
+        'job6_title': 'Web Developer',
+        'job6_desc': 'Kao freelancer, radio sam na brojnim projektima, a tokom studija na fakultetu stekao sam iskustvo kroz realizaciju različitih projekata koristeći Javu, C, C++, C#, Python, PostgreSQL i ASP.NET. Specijalizujem se za razvoj web aplikacija, od jednostavnih sajtova do kompleksnih rešenja sa blogovima, koristeći HTML, CSS, JavaScript, PHP, Bootstrap, Ajax, jQuery i Swifter. Moje veštine uključuju rad sa bazama podataka, posebno PostgreSQL, što mi omogućava efikasno upravljanje podacima. Kombinacijom tehničkog znanja i praktičnog iskustva, sposoban sam kreirati kvalitetna softverska rešenja prilagođena različitim potrebama.',
+        'tools_title_1': 'Tehnologije i',
+        'tools_title_2': '<span>Alati</span>',
+        'tools_subtitle': 'Kolekcija alata i tehnologija koje svakodnevno koristim u radu.',
+        'my_projects_1': 'Moji',
+        'my_projects_2': '<span>Projekti</span>',
+        'my_projects_subtitle': 'Istražite kolekciju mojih radova iz različitih oblasti digitalne kreacije',
+        'testimonials_title': 'Šta Kažu Naši Klijenti',
+        'contact_leave_message': 'Ostavite poruku',
+        'contact_description': '"Imate pitanja, predloge ili želite da sarađujemo? <br> Slobodno mi se javite! <br> Pošaljite mi poruku i javiću Vam se u najkraćem roku."',
+        'contact_location': 'Beograd, Srbija',
+        'contact_form_title': 'Kontaktirajte Me',
+        'form_placeholder_name': 'Ime',
+        'form_placeholder_email': 'Email',
+        'form_placeholder_phone': 'Broj Telefona',
+        'form_placeholder_message': 'Poruka',
+        'form_button_send': 'Pošalji',
+        'footer_copyright': 'Copyright © 2025 Made by Djurke23. Sva prava zadržana.',
+    },
+    'en': {
+        'nav_home': 'Home',
+        'nav_about': 'About Me',
+        'nav_services': 'Services',
+        'nav_skills': 'Skills',
+        'nav_projects': 'Projects',
+        'nav_contact': 'Contact',
+        'hire_me': 'Hire Me',
+        'hero_greeting': 'Hello, My name is<br> Luka Đurić',
+        'hero_description': 'I excel at creating elegant digital experiences and am skilled in various programming languages and technologies.',
+        'download_cv': 'Download CV',
+        'stats_experience': 'Years of experience',
+        'stats_projects': 'Completed projects',
+        'stats_technologies': 'Technologies mastered',
+        'stats_clients': 'Satisfied clients',
+        'about_title': 'About Me',
+        'about_p1': 'Hello, I am Luka Đurić, a passionate web developer with over 5 years of experience in creating modern and functional websites. I specialize in front-end development, but I also have experience with back-end technologies.',
+        'about_p2': 'My projects include e-commerce platforms, corporate websites, and web applications for various industries. I am always up to date with the latest trends in web development and continuously improve my skills.',
+        'about_p3': 'I believe in creating websites that are not only visually appealing but also intuitive to use and optimized for performance.',
+        'info_birthdate_label': '<strong>Birthdate:</strong> 4 Nov 2001',
+        'info_degree_label': '<strong>Degree:</strong>',
+        'info_degree_value': "Master's Student",
+        'info_city_label': '<strong>City:</strong>',
+        'info_city_value': 'Belgrade',
+        'info_freelance_label': '<strong>Freelance:</strong>',
+        'info_freelance_value': 'Available',
+        'info_age_label': '<strong>Age:</strong> 23',
+        'info_phone_label': '<strong>Phone:</strong> +381677411001',
+        'contact_me_btn': 'Contact Me',
+        'services_title': 'My Services',
+        'service1_title': 'Web Development',
+        'service1_desc': 'Custom web solutions tailored to your needs. From responsive design to complex web applications.',
+        'service2_title': 'UI/UX Design',
+        'service2_desc': 'Creating intuitive and visually appealing user interfaces for an enhanced user experience.',
+        'service3_title': 'Digital Marketing',
+        'service3_desc': 'Using analytics tools to ensure maximum efficiency.',
+        'service4_title': 'E-commerce Solutions',
+        'service4_desc': 'Development of custom e-commerce solutions with payment gateway integration and product management.',
+        'service5_title': 'Application Development',
+        'service5_desc': 'Building robust and scalable mobile applications for iOS and Android platforms. Fast and efficient custom development.',
+        'service6_title': 'SEO Optimization',
+        'service6_desc': 'Improving your site\'s visibility on search engines through content optimization strategies, technical SEO, and building relevant backlinks.',
+        'read_more': 'Read More',
+        'skills_title': 'My Skills',
+        'work_experience_title': 'Work & Experience',
+        'job1_title': 'Computer Operator',
+        'job1_details1': 'Part Time | Control Room',
+        'job1_desc': 'While working on the "Zadruga" project, I was responsible for creating graphics and comments, as well as managing the technical aspects of the show such as lighting, sound, and video. My experience in graphic design and technical support contributed to the successful execution of the show and the creation of a dynamic visual experience for the viewers.',
+        'job2_title': 'Video Editor',
+        'job2_details1': 'Part Time | Office',
+        'job2_desc': 'As an experienced video editor, I used Adobe After Effects and Premiere Pro to edit and create visually appealing video clips for the show "Zadruga". My skills include precise editing, adding effects, color and sound correction, and creating dynamic visual elements that contribute to the overall mood of the show.',
+        'job3_title': 'Remote Control Operator - RCO',
+        'job3_details1': 'Part Time | Control Room & Mobile Unit',
+        'job3_desc': 'As an experienced RCO operator, I handled cameras and technical systems during the filming of "Zadruga", "Elita", and "Pinkove zvezdice". My responsibility was to provide dynamic and interesting shots, respond promptly to the director\'s instructions, and ensure the technical integrity of all systems for a smooth filming process.',
+        'job4_title': 'Video Mixer',
+        'job4_details1': 'Part Time | Control Room',
+        'job4_desc': 'As a video mixer on the reality shows "Zadruga" and "Elita", I was in charge of managing video signals and ensuring a seamless live broadcast. My responsibilities included coordinating with the direction, timely switching between different cameras and sources, and maintaining high image quality during the broadcast. I was also responsible for resolving technical issues in real-time to ensure the production ran without interruption.',
+        'job5_title': 'Web Developer',
+        'job5_details1': 'Part Time | Remote',
+        'job5_desc': 'I worked on various projects using Angular, Vue.js, JavaScript, HTML, SCSS, Bootstrap, and Go for full-stack development. I have experience collaborating in teams and managing code using tools like Fork, Git, and Bitbucket, as well as testing APIs with Postman. Additionally, I used Slack, Jira, and Confluence for communication and project management.',
+        'job6_title': 'Web Developer',
+        'job6_desc': 'As a freelancer, I have worked on numerous projects, and during my university studies, I gained experience through the implementation of various projects using Java, C, C++, C#, Python, PostgreSQL, and ASP.NET. I specialize in web application development, from simple sites to complex solutions with blogs, using HTML, CSS, JavaScript, PHP, Bootstrap, Ajax, jQuery, and Swifter. My skills include working with databases, especially PostgreSQL, which allows me to manage data efficiently. By combining technical knowledge and practical experience, I am capable of creating quality software solutions tailored to various needs.',
+        'tools_title_1': 'Technologies and',
+        'tools_title_2': '<span>Tools</span>',
+        'tools_subtitle': 'A collection of tools and technologies I use in my daily work.',
+        'my_projects_1': 'My',
+        'my_projects_2': '<span>Projects</span>',
+        'my_projects_subtitle': 'Explore a collection of my works from various fields of digital creation',
+        'testimonials_title': 'What Our Clients Say',
+        'contact_leave_message': 'Leave a message',
+        'contact_description': '"Have questions, suggestions, or want to collaborate? <br> Feel free to contact me! <br> Send me a message and I will get back to you as soon as possible."',
+        'contact_location': 'Belgrade, Serbia',
+        'contact_form_title': 'Contact Me',
+        'form_placeholder_name': 'Name',
+        'form_placeholder_email': 'Email',
+        'form_placeholder_phone': 'Phone Number',
+        'form_placeholder_message': 'Message',
+        'form_button_send': 'Send',
+        'footer_copyright': 'Copyright © 2025 Made by Djurke23. All rights reserved.',
+    }
+};
+
+const languageOptions = {
+    'sr-latin': { text: 'Srpski', flag: 'rs' },
+    'en': { text: 'English', flag: 'gb' }
+};
 
 const languageToggle = document.getElementById('languageToggle');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-let currentLanguage = "sr";
+const languageMenu = document.getElementById('language-menu');
+const dropdown = document.querySelector('.dropdown');
 
-// Funkcija za prikaz/sakrivanje padajućeg menija
-languageToggle.addEventListener('click', () => {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.classList.toggle('show');
-});
-
-// Funkcija za promenu jezika
-function switchLanguage() {
-    if (currentLanguage === "sr") {
-        currentLanguage = "en";
-        translatePage(currentLanguage);
-        // Ažuriraj dugme i opciju u meniju
-        languageToggle.innerHTML = '<span class="flag-icon flag-icon-gb"></span> English';
-        dropdownMenu.innerHTML = '<a href="#" id="lang-sr"><span class="flag-icon flag-icon-rs"></span> Српски</a>';
-    } else {
-        currentLanguage = "sr";
-        translatePage(currentLanguage);
-        // Ažuriraj dugme i opciju u meniju
-        languageToggle.innerHTML = '<span class="flag-icon flag-icon-rs"></span> Српски';
-        dropdownMenu.innerHTML = '<a href="#" id="lang-en"><span class="flag-icon flag-icon-gb"></span> English</a>';
-    }
-
-    // Dodaj novi event listener za klik na ažuriranu opciju
-    dropdownMenu.querySelector('a').addEventListener('click', (e) => {
-        e.preventDefault();
-        switchLanguage();
+if (languageToggle && languageMenu && dropdown) {
+    languageToggle.addEventListener('click', () => {
+        dropdown.classList.toggle('show');
     });
 
-    // Sakrij meni nakon izbora
-    document.querySelector('.dropdown').classList.remove('show');
+    // Delegacija događaja za dinamički kreirane elemente
+    languageMenu.addEventListener('click', (e) => {
+        e.preventDefault();
+        const langOption = e.target.closest('.lang-option');
+        if (langOption) {
+            const lang = langOption.getAttribute('data-lang');
+            setLanguage(lang);
+            dropdown.classList.remove('show');
+        }
+    });
+
+    window.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
 }
 
-// Dodaj inicijalni event listener za klik na engleski jezik
-dropdownMenu.querySelector('#lang-en').addEventListener('click', (e) => {
-    e.preventDefault();
-    switchLanguage();
-});
-
-// Funkcija za prevod stranice
-function translatePage(language) {
-    document.querySelector('h1').textContent = translations[language]["greeting"];
-    document.querySelector('.hero-content p').textContent = translations[language]["description"];
-    document.querySelector('nav ul li:nth-child(1) a').textContent = translations[language]["home"];
-    document.querySelector('nav ul li:nth-child(2) a').textContent = translations[language]["about"];
-    document.querySelector('nav ul li:nth-child(3) a').textContent = translations[language]["services"];
-    document.querySelector('nav ul li:nth-child(4) a').textContent = translations[language]["skills"];
-    document.querySelector('nav ul li:nth-child(5) a').textContent = translations[language]["projects"];
-    document.querySelector('nav ul li:nth-child(6) a').textContent = translations[language]["contact"];
-    document.querySelector('.hire-me').textContent = translations[language]["hireMe"];
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-const modeToggle = document.getElementById('modeToggle');
-const sunIcon = document.getElementById('sunIcon');
-const moonIcon = document.getElementById('moonIcon');
-let isDarkMode = false; // Postavi na false jer svetli režim (sunce) treba da bude početni
-
-modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    isDarkMode = !isDarkMode;
-
-    // Promeni prikaz ikonica
-    if (isDarkMode) {
-        sunIcon.style.display = "none";
-        moonIcon.style.display = "block";
-    } else {
-        sunIcon.style.display = "block";
-        moonIcon.style.display = "none";
+function setLanguage(lang) {
+    if (!translations[lang] || !languageMenu) {
+        return;
     }
-});
+    localStorage.setItem('language', lang);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// recenzije
-
-
-class ReviewsCarousel {
-            constructor() {
-                this.currentSlide = 0;
-                this.totalSlides = 5;
-                this.autoPlayInterval = 4000; // 4 sekunde
-                this.autoPlayTimer = null;
-                this.progressInterval = null;
-                
-                this.carouselWrapper = document.getElementById('carouselWrapper-R');
-                this.prevBtn = document.getElementById('prevBtn-R');
-                this.nextBtn = document.getElementById('nextBtn-R');
-                this.indicators = document.querySelectorAll('.indicator-R');
-                this.progressBar = document.getElementById('progressBar-R');
-                
-                this.init();
-            }
-
-            init() {
-                this.bindEvents();
-                this.startAutoPlay();
-            }
-
-            bindEvents() {
-                // Dugmad za navigaciju
-                this.prevBtn.addEventListener('click', () => {
-                    this.goToPrevSlide();
-                    this.resetAutoPlay();
-                });
-
-                this.nextBtn.addEventListener('click', () => {
-                    this.goToNextSlide();
-                    this.resetAutoPlay();
-                });
-
-                // Indikatori
-                this.indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => {
-                        this.goToSlide(index);
-                        this.resetAutoPlay();
-                    });
-                });
-
-                // Pause auto-play na hover
-                const reviewsSection = document.querySelector('.reviews-section-R');
-                reviewsSection.addEventListener('mouseenter', () => {
-                    this.stopAutoPlay();
-                });
-
-                reviewsSection.addEventListener('mouseleave', () => {
-                    this.startAutoPlay();
-                });
-
-                // Touch/swipe podrška
-                let startX = 0;
-                let endX = 0;
-
-                this.carouselWrapper.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                });
-
-                this.carouselWrapper.addEventListener('touchmove', (e) => {
-                    endX = e.touches[0].clientX;
-                });
-
-                this.carouselWrapper.addEventListener('touchend', () => {
-                    const threshold = 50;
-                    const diff = startX - endX;
-
-                    if (Math.abs(diff) > threshold) {
-                        if (diff > 0) {
-                            this.goToNextSlide();
-                        } else {
-                            this.goToPrevSlide();
-                        }
-                        this.resetAutoPlay();
-                    }
-                });
-            }
-
-            goToSlide(slideIndex) {
-                this.currentSlide = slideIndex;
-                const translateX = -slideIndex * 100;
-                
-                this.carouselWrapper.style.transform = `translateX(${translateX}%)`;
-                this.updateIndicators();
-                this.animateSlideEntry();
-            }
-
-            goToNextSlide() {
-                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                this.goToSlide(this.currentSlide);
-            }
-
-            goToPrevSlide() {
-                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                this.goToSlide(this.currentSlide);
-            }
-
-            updateIndicators() {
-                this.indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === this.currentSlide);
-                });
-            }
-
-            animateSlideEntry() {
-                const currentCard = document.querySelectorAll('.review-card-R')[this.currentSlide];
-                currentCard.style.animation = 'none';
-                setTimeout(() => {
-                    currentCard.style.animation = 'slideInFromRight-R 0.6s ease-out';
-                }, 10);
-            }
-
-            startAutoPlay() {
-                this.stopAutoPlay(); // Očisti postojeći timer
-                
-                // Resetuj progress bar sa smooth transition
-                this.progressBar.style.transition = 'none';
-                this.progressBar.style.width = '0%';
-                
-                // Forsiraj reflow da se reset odmah primeni
-                this.progressBar.offsetHeight;
-                
-                // Dodeli smooth transition i animiraj do 100%
-                this.progressBar.style.transition = `width ${this.autoPlayInterval}ms linear`;
-                this.progressBar.style.width = '100%';
-                
-                this.autoPlayTimer = setTimeout(() => {
-                    this.goToNextSlide();
-                    this.startAutoPlay(); // Rekurzivno pozovi za sledeći slajd
-                }, this.autoPlayInterval);
-            }
-
-            stopAutoPlay() {
-                if (this.autoPlayTimer) {
-                    clearTimeout(this.autoPlayTimer);
-                    this.autoPlayTimer = null;
-                }
-                // Zaustavi progress bar na trenutnoj poziciji
-                const currentWidth = this.progressBar.offsetWidth;
-                const containerWidth = this.progressBar.parentElement.offsetWidth;
-                const currentPercent = (currentWidth / containerWidth) * 100;
-                
-                this.progressBar.style.transition = 'none';
-                this.progressBar.style.width = currentPercent + '%';
-            }
-
-            resetAutoPlay() {
-                this.stopAutoPlay();
-                // Odmah pokreni ponovo bez delay-a za fluidnost
-                this.startAutoPlay();
-            }
-
-            resetProgressBar() {
-                this.progressBar.style.transition = 'none';
-                this.progressBar.style.width = '0%';
-                this.progressBar.offsetHeight; // Force reflow
+    document.querySelectorAll('[data-translate-key]').forEach(el => {
+        const key = el.dataset.translateKey;
+        const translation = translations[lang][key];
+        if (translation) {
+            if (el.placeholder) {
+                el.placeholder = translation;
+            } else {
+                el.innerHTML = translation;
             }
         }
+    });
 
-        // Pokreni carousel kada se stranica učita
-        document.addEventListener('DOMContentLoaded', () => {
-            new ReviewsCarousel();
+    const currentLangOption = languageOptions[lang];
+    if (languageToggle && currentLangOption) {
+        languageToggle.innerHTML = `<span class="flag-icon flag-icon-${currentLangOption.flag}"></span> ${currentLangOption.text}`;
+    }
+
+    languageMenu.innerHTML = '';
+    for (const key in languageOptions) {
+        if (key !== lang) {
+            const option = languageOptions[key];
+            const a = document.createElement('a');
+            a.href = '#';
+            a.classList.add('lang-option');
+            a.setAttribute('data-lang', key);
+            a.innerHTML = `<span class="flag-icon flag-icon-${option.flag}"></span> ${option.text}`;
+            languageMenu.appendChild(a);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation for service cards
+    const cards = document.querySelectorAll('.service-card-ms');
+    if (cards.length > 0) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
         });
+    }
 
-        // Dodaj keyboard navigaciju
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                document.getElementById('prevBtn-R').click();
-            } else if (e.key === 'ArrowRight') {
-                document.getElementById('nextBtn-R').click();
+    // Modal functionality
+    const readMoreButtons = document.querySelectorAll('.btn-read-more-ms');
+    const modalOverlay = document.getElementById('service-modal-ms');
+    const modalCloseButton = modalOverlay.querySelector('.modal-close-ms');
+    const modalTitle = document.getElementById('modal-title-ms');
+    const modalDescription = document.getElementById('modal-description-ms');
+    const modalPoints = document.getElementById('modal-points-ms');
+    const body = document.body;
+
+    function openModal(title, description, points) {
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        
+        modalPoints.innerHTML = ''; 
+
+        points.forEach(point => {
+            if (point.trim() !== '') {
+                const li = document.createElement('li');
+                li.textContent = point;
+                modalPoints.appendChild(li);
             }
         });
+
+        modalOverlay.classList.add('active');
+        body.classList.add('body-no-scroll-ms');
+    }
+
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+        body.classList.remove('body-no-scroll-ms');
+    }
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const title = button.dataset.title;
+            const description = button.dataset.description;
+            const points = button.dataset.points.split(','); 
+            
+            openModal(title, description, points);
+        });
+    });
+
+    modalCloseButton.addEventListener('click', closeModal);
+
+    modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
+});
