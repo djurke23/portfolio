@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //============== LOADING & ANIMATIONS =============//
     //=================================================//
     setTimeout(function() {
-        document.getElementById('loading-screen').style.display = 'none';
+        
 
         animateValue("years", 0, 5, 2000, function() {
             animateValue("projects", 0, 30, 2000, function() {
@@ -626,4 +626,103 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+});
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonialsData = [
+        { name: "Mirjana Ivanović", handle: "", text: " Od prve skice do finalnog sajta, sve je teklo glatko. Ne samo da je rezultat estetski predivan, već je i sajt funkcionalan i brz. Dobili smo mnogo više nego što smo očekivali i naša onlajn prodaja je značajno porasla.", avatar: "https://i.pravatar.cc/50?u=1" },
+        { name: "Milovan Petrović", handle: "", text: "Tražili smo jedinstven i moderan sajt koji će privući našu ciljnu publiku. Razumeo je našu viziju u potpunosti i pretvorio je u stvarnost. Komunikacija je bila odlična, a projekat je završen u roku. Definitivno ga preporučujem!", avatar: "https://i.pravatar.cc/50?u=2" },
+        { name: "Nevena Simonović", handle: "", text: "Naš stari sajt je bio zastareo i spor. Luka je uspeo da mu udahne novi život. Ne samo da izgleda fantastično, već je i mnogo jednostavniji za korišćenje. Klijenti nam stalno govore kako im se sviđa novi izgled..", avatar: "https://i.pravatar.cc/50?u=3" },
+        { name: "Jelena Jovanović", handle: "", text: "Pristup redizajnu našeg sajta bio je izuzetno profesionalan. Pažljivo je analizirao naše potrebe, predložio poboljšanja i implementirao ih sa velikom preciznošću. Naš brend sada deluje mnogo ozbiljnije i modernije.", avatar: "https://i.pravatar.cc/50?u=4" },
+        { name: "Petar Marković", handle: "", text: "Luka je je razvio rešenje koje je intuitivno, stabilno i u potpunosti funkcioniše. Ovo nam je značajno olakšalo rad i uštedelo vreme.", avatar: "https://i.pravatar.cc/50?u=5" },
+        { name: "Kristina Pindović", handle: "", text: "Imali smo ideju za aplikaciju, ali nismo znali kako da je realizujemo. Luka nas je vodio kroz ceo proces, od planiranja do razvoja, i rezultat je impresivan. Njegovo tehničko znanje i posvećenost projektu su na visokom nivou..", avatar: "https://i.pravatar.cc/50?u=6" }
+        
+    ];
+
+    const createTestimonialCard = (testimonial) => {
+        const card = document.createElement("div");
+        card.className = "testimonial-card-reviews";
+        card.innerHTML = `
+            <div class="testimonial-header-reviews">
+                <img src="${testimonial.avatar}" alt="${testimonial.name}" class="avatar-reviews">
+                <div>
+                    <p class="author-name-reviews">${testimonial.name}</p>
+                    <p class="author-handle-reviews">${testimonial.handle}</p>
+                </div>
+            </div>
+            <p class="testimonial-text-reviews">${testimonial.text}</p>
+        `;
+        return card;
+    };
+
+    const scroller = document.querySelector(".testimonials-scroller-reviews");
+    const columns = Array.from(document.querySelectorAll(".testimonial-column-reviews"));
+
+    // Ne pokreći animaciju na mobilnim uređajima ili ako korisnik preferira smanjeno kretanje
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isMobile && !prefersReducedMotion) {
+        // 1. Inicijalno popunjavanje kolona
+        const initialCards = [];
+        testimonialsData.forEach(data => {
+            const card = createTestimonialCard(data);
+            initialCards.push(card);
+        });
+        
+        // Raspodeli originalne kartice po kolonama
+        initialCards.forEach((card, index) => {
+            columns[index % columns.length].appendChild(card);
+        });
+
+        // 2. Dinamičko dupliranje dok se ne popuni visina
+        columns.forEach(column => {
+            const originalContent = Array.from(column.children); // Sačuvaj originalne kartice u koloni
+            
+            // Dupliraj sadržaj dok god visina kolone nije bar 2x veća od visine vidljivog dela
+            // Ovo osigurava da nikada nema praznog prostora
+            while (column.scrollHeight < scroller.clientHeight * 2) {
+                originalContent.forEach(card => {
+                    column.appendChild(card.cloneNode(true));
+                });
+            }
+        });
+    } else {
+        // Za mobilne uređaje, samo popuni prvu kolonu, bez dupliranja i animacije
+        testimonialsData.forEach(data => {
+            columns[0].appendChild(createTestimonialCard(data));
+        });
+    }
+});
+
+
+
+
+
+
+
+
+// Čekamo da se ceo prozor (uključujući slike, stilove, itd.) učita
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const pageContent = document.getElementById('page-content');
+
+    // PROMENJENO: Čekamo da se animacija završi (5000ms = 5s)
+    setTimeout(() => {
+        // Započinjemo tranziciju nestajanja
+        loadingScreen.style.opacity = '0';
+
+        // Nakon tranzicije, u potpunosti sakrivamo element
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            // Prikazujemo glavni sadržaj
+            pageContent.classList.remove('hidden');
+        }, 500); // 500ms se poklapa sa `transition` duuracijom u CSS-u
+
+    }, 5000); // Čekamo 5 sekundi pre nego što sve nestane
 });
