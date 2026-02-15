@@ -353,15 +353,15 @@ const translations = {
         'about_p1': 'Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.',
         'about_p2': 'Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.',
         'about_p3': 'Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.',
-        'info_birthdate_label': '<strong>Datum Rođenja:</strong> 4 Nov 2001',
-        'info_degree_label': '<strong>Diploma:</strong>',
+        'info_birthdate_label': 'Datum Rođenja',
+        'info_degree_label': 'Diploma',
         'info_degree_value': 'Student Mastera',
-        'info_city_label': '<strong>Grad:</strong>',
+        'info_city_label': 'Grad',
         'info_city_value': 'Beograd',
-        'info_freelance_label': '<strong>Freelance:</strong>',
+        'info_freelance_label': 'Freelance',
         'info_freelance_value': 'Dostupan',
-        'info_age_label': '<strong>Godine:</strong> 24',
-        'info_phone_label': '<strong>Telefon:</strong> +381677411001',
+        'info_age_label': 'Godine',
+        'info_phone_label': 'Telefon',
         'contact_me_btn': 'Kontaktirajte me',
         'services_title': 'Moje Usluge',
         'services_intro': 'Usluge koje pomažu da ideja postane kvalitetan digitalni proizvod.',
@@ -454,7 +454,7 @@ const translations = {
         'contact_leave_message': 'Ostavite poruku',
         'contact_description': '"Imate pitanja, predloge ili želite da sarađujemo? <br> Slobodno mi se javite! <br> Pošaljite mi poruku i javiću Vam se u najkraćem roku."',
         'contact_location': 'Beograd, Srbija',
-        'contact_form_title': 'Kontaktirajte Me',
+        'contact_form_title': 'Kontakt Forma',
         'form_placeholder_name': 'Ime',
         'form_placeholder_email': 'Email',
         'form_placeholder_phone': 'Broj Telefona',
@@ -504,6 +504,22 @@ const translations = {
         'modal6_point2': 'On-Page SEO',
         'modal6_point3': 'Tehnički SEO',
         'modal6_point4': 'Link Building',
+        'typing_prefix': 'Ja sam&nbsp;',
+        'status_available': 'Dostupan za saradnju',
+        'status_location': 'Beograd',
+        // FAQ
+        'faq_title': 'Često Postavljana Pitanja',
+        'faq_intro': 'Odgovori na najčešća pitanja o saradnji i procesu rada.',
+        'faq_q1': 'Kako teče proces saradnje?',
+        'faq_a1': 'Proces počinje besplatnom konsultacijom gde razgovaramo o vašim potrebama i ciljevima. Nakon toga, kreiram detaljan plan i dizajn predlog. Rad se odvija u fazama uz redovne povratne informacije, a finalni proizvod se isporučuje nakon vaše potvrde.',
+        'faq_q2': 'Koje tehnologije koristite?',
+        'faq_a2': 'Koristim moderne tehnologije kao što su HTML, CSS, JavaScript, Angular, Vue.js, React, GoLang, PostgreSQL i mnoge druge. Izbor tehnologije zavisi od specifičnih zahteva vašeg projekta.',
+        'faq_q3': 'Koliko vremena traje izrada sajta?',
+        'faq_a3': 'Vreme izrade zavisi od kompleksnosti projekta. Jednostavniji sajtovi mogu biti gotovi za 1-2 nedelje, dok kompleksniji projekti sa prilagođenim funkcionalnostima mogu trajati 4-8 nedelja.',
+        'faq_q4': 'Da li nudite održavanje sajta?',
+        'faq_a4': 'Da, nudim pakete za redovno održavanje koji uključuju ažuriranje sadržaja, sigurnosne zakrpe, tehničku podršku i optimizaciju performansi.',
+        'faq_q5': 'Koji su vaši načini plaćanja?',
+        'faq_a5': 'Plaćanje se vrši u fazama — obično 50% unapred i 50% po završetku. Prihvatam bankarski transfer i PayPal. Za veće projekte moguće je dogovoriti plaćanje u ratama.',
     },
     'en': {
         'nav_home': 'Home',
@@ -525,15 +541,15 @@ const translations = {
         'about_p1': 'Hello, I am Luka Đurić, a passionate web developer with over 5 years of experience in creating modern and functional websites. I specialize in front-end development, but I also have experience with back-end technologies.',
         'about_p2': 'My projects include e-commerce platforms, corporate websites, and web applications for various industries. I am always up to date with the latest trends in web development and continuously improve my skills.',
         'about_p3': 'I believe in creating websites that are not only visually appealing but also intuitive to use and optimized for performance.',
-        'info_birthdate_label': '<strong>Birthdate:</strong> 4 Nov 2001',
-        'info_degree_label': '<strong>Degree:</strong>',
+        'info_birthdate_label': 'Birthdate',
+        'info_degree_label': 'Degree',
         'info_degree_value': "Master's Student",
-        'info_city_label': '<strong>City:</strong>',
+        'info_city_label': 'City',
         'info_city_value': 'Belgrade',
-        'info_freelance_label': '<strong>Freelance:</strong>',
+        'info_freelance_label': 'Freelance',
         'info_freelance_value': 'Available',
-        'info_age_label': '<strong>Age:</strong> 24',
-        'info_phone_label': '<strong>Phone:</strong> +381677411001',
+        'info_age_label': 'Age',
+        'info_phone_label': 'Phone',
         'contact_me_btn': 'Contact Me',
         'services_title': 'My Services',
         'services_intro': 'Services that turn ideas into polished digital products.',
@@ -595,15 +611,29 @@ const translations = {
         'category_website': 'Website',
         'category_design': 'Design',
         'project1_title': 'Personal Portfolio',
-        'project1_desc': 'Modern portfolio website with interactive animations, network background and fully responsive design.',
-        'project2_title': 'BGDCARS Detailing Website',
-        'project2_desc': 'Professional website for a car detailing company.',
-        'project3_title': 'Inno Build Group Website',
-        'project3_desc': 'Professional website for an apartment renovation company.',
+        'project1_desc': 'Modern portfolio site with interactive animations, network background and fully responsive design.',
+        'project2_title': 'BGDCARS Detailing Site',
+        'project2_desc': 'Professional website for car detailing business.',
+        'project3_title': 'Inno Build Group Site',
+        'project3_desc': 'Professional website for apartment renovation business.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Complete visual identity for a startup including logo, typography and brand guidelines.',
         'project5_title': 'Habit Tracker',
-        'project5_desc': 'Modern UI design for a fitness app with dark theme and interactive prototype.',
+        'project5_desc': 'Modern UI design for fitness app with dark theme and interactive prototype.',
+        // FAQ
+        'faq_title': 'Frequently Asked Questions',
+        'faq_intro': 'Answers to common questions about cooperation and work process.',
+        'faq_q1': 'How does the cooperation process work?',
+        'faq_a1': 'The process starts with a free consultation where we discuss your needs and goals. After that, I create a detailed plan and design proposal. Work proceeds in phases with regular feedback, and the final product is delivered upon your approval.',
+        'faq_q2': 'What technologies do you use?',
+        'faq_a2': 'I use modern technologies such as HTML, CSS, JavaScript, Angular, Vue.js, React, GoLang, PostgreSQL, and many others. The choice of technology depends on the specific requirements of your project.',
+        'faq_q3': 'How long does it build a website?',
+        'faq_a3': 'The development time depends on the project complexity. Simpler websites can be finished in 1-2 weeks, while more complex projects with custom functionalities can take 4-8 weeks.',
+        'faq_q4': 'Do you offer website maintenance?',
+        'faq_a4': 'Yes, I offer regular maintenance packages that include content updates, security patches, technical support, and performance optimization.',
+        'faq_q5': 'What are your payment methods?',
+        'faq_a5': 'Payment is made in stages — usually 50% upfront and 50% upon completion. I accept bank transfer and PayPal. For larger projects, installment payments can be arranged.',
+
         'btn_live_demo': 'Live Demo',
         'btn_github': 'GitHub',
         'testimonials_title': 'What Clients Say',
@@ -626,7 +656,7 @@ const translations = {
         'contact_leave_message': 'Leave a message',
         'contact_description': '"Have questions, suggestions, or want to collaborate? <br> Feel free to contact me! <br> Send me a message and I will get back to you as soon as possible."',
         'contact_location': 'Belgrade, Serbia',
-        'contact_form_title': 'Contact Me',
+        'contact_form_title': 'Contact Form',
         'form_placeholder_name': 'Name',
         'form_placeholder_email': 'Email',
         'form_placeholder_phone': 'Phone Number',
@@ -676,6 +706,9 @@ const translations = {
         'modal6_point2': 'On-Page SEO',
         'modal6_point3': 'Technical SEO',
         'modal6_point4': 'Link Building',
+        'typing_prefix': 'I am&nbsp;',
+        'status_available': 'Available for hire',
+        'status_location': 'Belgrade',
     }
 };
 
@@ -775,6 +808,24 @@ document.addEventListener('DOMContentLoaded', function () {
             card.style.transition = `opacity 0.6s ease-out, transform 0.6s ease-out`;
             card.style.transitionDelay = `${index * 100}ms`;
             observer.observe(card);
+        });
+    }
+
+    // Timeline scroll animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (timelineItems.length > 0) {
+        const timelineObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        timelineItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 100}ms`;
+            timelineObserver.observe(item);
         });
     }
 
@@ -957,4 +1008,270 @@ window.addEventListener('load', function () {
         }, 500); // 500ms se poklapa sa `transition` duuracijom u CSS-u
 
     }, 5000); // Čekamo 5 sekundi pre nego što sve nestane
+});
+
+
+//=================================================//
+//============ SCROLL PROGRESS BAR ================//
+//=================================================//
+(function () {
+    const progressBar = document.querySelector('.scroll-progress-bar');
+    if (!progressBar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+})();
+
+
+//=================================================//
+//============== FAQ ACCORDION ====================//
+//=================================================//
+(function () {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length === 0) return;
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            faqItems.forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('active');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active', !isActive);
+        });
+    });
+})();
+
+
+//=================================================//
+//============ MAGNETIC BUTTONS ===================//
+//=================================================//
+(function () {
+    const magneticBtns = document.querySelectorAll('.hire-me, .download-cv, .contact-form button[type="submit"]');
+    const maxPull = 12;
+    const pullRadius = 80;
+
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distX = e.clientX - centerX;
+            const distY = e.clientY - centerY;
+            const dist = Math.sqrt(distX * distX + distY * distY);
+
+            if (dist < pullRadius) {
+                const pullX = (distX / pullRadius) * maxPull;
+                const pullY = (distY / pullRadius) * maxPull;
+                btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
+            }
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+})();
+
+
+//=================================================//
+//============= TYPING EFFECT =====================//
+//=================================================//
+(function () {
+    const typingEl = document.getElementById('typingText');
+    if (!typingEl) return;
+
+    const words = ['Web Developer', 'UI/UX Designer', 'Problem Solver', 'Creative Thinker', 'Freelancer'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+
+        if (!isDeleting) {
+            typingEl.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, 1500); // pause before deleting
+                return;
+            }
+            setTimeout(type, 80);
+        } else {
+            typingEl.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 500); // pause before next word
+                return;
+            }
+            setTimeout(type, 40);
+        }
+    }
+
+    // Start after a brief delay
+    setTimeout(type, 1000);
+})();
+
+
+//=================================================//
+//========== COPY TO CLIPBOARD ====================//
+//=================================================//
+(function () {
+    const copyBtns = document.querySelectorAll('.copy-btn');
+
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const value = btn.getAttribute('data-copy');
+            try {
+                await navigator.clipboard.writeText(value);
+            } catch {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = value;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+
+            // Visual feedback
+            const icon = btn.querySelector('i');
+            icon.classList.remove('far', 'fa-copy');
+            icon.classList.add('fas', 'fa-check');
+            btn.classList.add('copied');
+
+            setTimeout(() => {
+                icon.classList.remove('fas', 'fa-check');
+                icon.classList.add('far', 'fa-copy');
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    });
+})();
+
+
+//=================================================//
+//======== GLASSMORPHISM PAGE TRANSITIONS ==========//
+//=================================================//
+(function () {
+    const overlay = document.getElementById('pageTransitionOverlay');
+    if (!overlay) return;
+
+    const navLinks = document.querySelectorAll('nav a[href^="#"], .footer-nav a[href^="#"], .hire-me');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            e.preventDefault();
+            overlay.classList.add('active');
+
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                if (href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }, 300);
+        });
+    });
+})();
+
+
+//=================================================//
+//========= REAL-TIME STATUS BADGE =================//
+//=================================================//
+(function () {
+    const timeEl = document.getElementById('localTime');
+    if (!timeEl) return;
+
+    function updateTime() {
+        const now = new Date();
+        const options = {
+            timeZone: 'Europe/Belgrade',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        };
+        timeEl.textContent = now.toLocaleTimeString('sr-RS', options);
+    }
+
+    updateTime();
+    setInterval(updateTime, 60000);
+})();
+
+//=================================================//
+//============== EMAIL JS FUNCTIONALITY ===========//
+//=================================================//
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize EmailJS public key
+    // ZAMENI 'YOUR_PUBLIC_KEY' SA TVOJIM PRAVIM JAVNIM KLJUČEM SA EMAILJS SAJTA
+    emailjs.init("DTxyUne1CSS-b3raN");
+
+    const contactForm = document.querySelector('.contact-form form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Set sending state
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Slanje...';
+            btn.disabled = true;
+
+            // ZAMENI 'YOUR_SERVICE_ID' I 'YOUR_TEMPLATE_ID' SA TVOJIM PRAVIM PODACIMA
+            const serviceID = 'service_iek5e46';
+            const templateID = 'template_i73skfh';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    btn.innerText = 'Poslato!';
+                    btn.style.backgroundColor = '#00ff9d';
+                    btn.style.color = '#000';
+                    alert('Hvala! Vaša poruka je uspešno poslata.');
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '';
+                    }, 3000);
+                }, (err) => {
+                    btn.innerText = 'Greška';
+                    btn.style.backgroundColor = '#ff4d4d';
+                    alert('Došlo je do greške prilikom slanja. Proverite konzolu za detalje.');
+                    console.error('EmailJS Error:', err);
+
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                        btn.style.backgroundColor = '';
+                    }, 3000);
+                });
+        });
+    }
 });

@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
 
     <!-- Particles Container  -->
     <div id="particles-js"></div>
@@ -19,12 +23,7 @@
 
 
 
-    <!-- Loading Screen 
-    <div id="loading-screen">
-        <div class="loader-text" data-text="Djurke23.">Djurke23.</div>
-    </div>
 
-    -->
 
     <header>
 
@@ -67,7 +66,7 @@
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
-            <a href="#kontakt" class="hire-me" data-translate-key="hire_me">Kontaktirajte Me</a>
+            <a href="#contact" class="hire-me" data-translate-key="hire_me">Kontaktirajte Me</a>
 
 
         </div>
@@ -81,6 +80,11 @@
                 <h1 data-translate-key="hero_greeting">Zdravo, Zovem se
                     <br> Luka Đurić
                 </h1>
+                <div class="typing-wrapper">
+                    <span class="typing-prefix" data-translate-key="typing_prefix">Ja sam&nbsp;</span>
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
 
                 <p data-translate-key="hero_description">
                     Odličan sam u stvaranju elegantnih digitalnih iskustava <br>
@@ -144,38 +148,58 @@
                 <h2 data-translate-key="about_title">O meni</h2>
                 <p class="section-divider-text" data-translate-key="about_intro">Kratko o mom iskustvu, pristupu i
                     načinu rada.</p>
-                <p data-translate-key="about_p1">Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina
-                    iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali
-                    imam iskustva i sa back-end tehnologijama.</p>
-                <p data-translate-key="about_p2">Moji projekti uključuju e-commerce platforme, korporativne sajtove i
-                    web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i
-                    kontinuirano unapređujem svoje veštine.</p>
-                <p data-translate-key="about_p3">Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već
-                    i intuitivni za korišćenje i optimizovani za performanse.</p>
 
+                <div class="about-bio">
+                    <p data-translate-key="about_p1">Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5
+                        godina
+                        iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj,
+                        ali
+                        imam iskustva i sa back-end tehnologijama.</p>
+                    <p data-translate-key="about_p2">Moji projekti uključuju e-commerce platforme, korporativne sajtove
+                        i
+                        web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu
+                        i
+                        kontinuirano unapređujem svoje veštine.</p>
+                    <p data-translate-key="about_p3">Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni,
+                        već
+                        i intuitivni za korišćenje i optimizovani za performanse.</p>
+                </div>
 
-
-                <div class="info-section">
-                    <div class="info-column">
-                        <p><strong data-translate-key="info_birthdate_label">Datum Rođenja:</strong> </p>
-                        <p><strong data-translate-key="info_degree_label">Diploma:</strong> <span
-                                data-translate-key="info_degree_value">Student Mastera</span></p>
-                        <p><strong data-translate-key="info_city_label">Grad:</strong> <span
-                                data-translate-key="info_city_value">Beograd</span></p>
-                        <p><strong data-translate-key="info_freelance_label">Freelance:</strong> <span
-                                data-translate-key="info_freelance_value">Dostupan</span></p>
+                <div class="about-info-grid">
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-cake-candles"></i></div>
+                        <div class="about-info-label" data-translate-key="info_birthdate_label">Datum Rođenja</div>
+                        <div class="about-info-value">4 Nov 2001</div>
                     </div>
-                    <div class="info-column">
-                        <p><strong data-translate-key="info_age_label">Godine:</strong> </p>
-                        <p><strong>E-mail:</strong> <a href="mailto:info@gmail.com">lukadjuricdjurke@pm.me</a></p>
-                        <p><strong data-translate-key="info_phone_label">Telefon:</strong> </p>
-
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="about-info-label" data-translate-key="info_degree_label">Diploma</div>
+                        <div class="about-info-value" data-translate-key="info_degree_value">Student Mastera</div>
+                    </div>
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-city"></i></div>
+                        <div class="about-info-label" data-translate-key="info_city_label">Grad</div>
+                        <div class="about-info-value" data-translate-key="info_city_value">Beograd</div>
+                    </div>
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-calendar-days"></i></div>
+                        <div class="about-info-label" data-translate-key="info_age_label">Godine</div>
+                        <div class="about-info-value">24</div>
+                    </div>
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="about-info-label">E-mail</div>
+                        <div class="about-info-value"><a href="mailto:lukadjuricdjurke@pm.me">lukadjuricdjurke@pm.me</a>
+                        </div>
+                    </div>
+                    <div class="about-info-card">
+                        <div class="about-info-icon"><i class="fas fa-phone"></i></div>
+                        <div class="about-info-label" data-translate-key="info_phone_label">Telefon</div>
+                        <div class="about-info-value"><a href="tel:+381677411001">+381677411001</a></div>
                     </div>
                 </div>
 
-                <br>
 
-                <a href="#contact" class="contact-btn" data-translate-key="contact_me_btn">Kontaktirajte me</a>
             </div>
         </section>
     </div>
@@ -185,106 +209,84 @@
 
 
 
-    <!DOCTYPE html>
-    <html lang="sr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Moje Usluge</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
 
-    <body>
-
-        <section class="services-section-ms" id="usluge">
-            <h2 class="section-title-ms" data-translate-key="services_title">Moje Usluge</h2>
-            <p class="section-divider-text" data-translate-key="services_intro">Usluge koje pomažu da ideja postane
-                kvalitetan digitalni proizvod.</p>
-            <div class="services-grid-ms">
-                <!-- Web Development Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-code"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service1_title">Web Development</h3>
-                    <p class="service-description-ms" data-translate-key="service1_desc">Izrada prilagođenih veb rešenja
-                        po vašoj meri. Od responzivnog dizajna do kompleksnih veb aplikacija.</p>
-                    <button class="btn-read-more-ms" data-modal="1" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
-
-                <!-- UI/UX Design Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-paint-brush"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service2_title">UI/UX Dizajn</h3>
-                    <p class="service-description-ms" data-translate-key="service2_desc">Kreiranje intuitivnih i
-                        vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
-                    <button class="btn-read-more-ms" data-modal="2" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
-
-                <!-- Digital Marketing Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-rocket"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service3_title">Digitalni Marketing</h3>
-                    <p class="service-description-ms" data-translate-key="service3_desc">Korišćenje analitičkih alata
-                        kako bi se osigurala maksimalna efikasnost vaših marketinških kampanja.</p>
-                    <button class="btn-read-more-ms" data-modal="3" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
-
-                <!-- E-commerce Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-shopping-cart"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service4_title">E-commerce Rešenja</h3>
-                    <p class="service-description-ms" data-translate-key="service4_desc">Razvoj prilagođenih e-commerce
-                        rešenja sa integracijom plaćanja i upravljanjem proizvodima.</p>
-                    <button class="btn-read-more-ms" data-modal="4" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
-
-                <!-- App Development Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-mobile-alt"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service5_title">Razvoj Aplikacija</h3>
-                    <p class="service-description-ms" data-translate-key="service5_desc">Izrada robusnih i skalabilnih
-                        mobilnih aplikacija za iOS i Android platforme. Brz i efikasan razvoj.</p>
-                    <button class="btn-read-more-ms" data-modal="5" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
-
-                <!-- SEO Card -->
-                <div class="service-card-ms">
-                    <div class="service-icon-ms"><i class="fas fa-search"></i></div>
-                    <h3 class="service-title-ms" data-translate-key="service6_title">SEO Optimizacija</h3>
-                    <p class="service-description-ms" data-translate-key="service6_desc">Poboljšanje vidljivosti vašeg
-                        sajta na pretraživačima kroz optimizaciju sadržaja i tehnički SEO.</p>
-                    <button class="btn-read-more-ms" data-modal="6" data-translate-key="read_more">
-                        Saznaj Više
-                    </button>
-                </div>
+    <section class="services-section-ms" id="usluge">
+        <h2 class="section-title-ms" data-translate-key="services_title">Moje Usluge</h2>
+        <p class="section-divider-text" data-translate-key="services_intro">Usluge koje pomažu da ideja postane
+            kvalitetan digitalni proizvod.</p>
+        <div class="services-grid-ms">
+            <!-- Web Development Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-code"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service1_title">Web Development</h3>
+                <p class="service-description-ms" data-translate-key="service1_desc">Izrada prilagođenih veb rešenja
+                    po vašoj meri. Od responzivnog dizajna do kompleksnih veb aplikacija.</p>
+                <button class="btn-read-more-ms" data-modal="1" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
             </div>
-        </section>
 
-        <!-- Modal Structure -->
-        <div class="modal-overlay-ms" id="service-modal-ms">
-            <div class="modal-content-ms">
-                <button class="modal-close-ms">&times;</button>
-                <h2 id="modal-title-ms"></h2>
-                <p id="modal-description-ms"></p>
-                <ul id="modal-points-ms"></ul>
+            <!-- UI/UX Design Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-paint-brush"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service2_title">UI/UX Dizajn</h3>
+                <p class="service-description-ms" data-translate-key="service2_desc">Kreiranje intuitivnih i
+                    vizuelno privlačnih korisničkih interfejsa za poboljšano korisničko iskustvo.</p>
+                <button class="btn-read-more-ms" data-modal="2" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
+            </div>
+
+            <!-- Digital Marketing Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-rocket"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service3_title">Digitalni Marketing</h3>
+                <p class="service-description-ms" data-translate-key="service3_desc">Korišćenje analitičkih alata
+                    kako bi se osigurala maksimalna efikasnost vaših marketinških kampanja.</p>
+                <button class="btn-read-more-ms" data-modal="3" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
+            </div>
+
+            <!-- E-commerce Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-shopping-cart"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service4_title">E-commerce Rešenja</h3>
+                <p class="service-description-ms" data-translate-key="service4_desc">Razvoj prilagođenih e-commerce
+                    rešenja sa integracijom plaćanja i upravljanjem proizvodima.</p>
+                <button class="btn-read-more-ms" data-modal="4" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
+            </div>
+
+            <!-- App Development Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service5_title">Razvoj Aplikacija</h3>
+                <p class="service-description-ms" data-translate-key="service5_desc">Izrada robusnih i skalabilnih
+                    mobilnih aplikacija za iOS i Android platforme. Brz i efikasan razvoj.</p>
+                <button class="btn-read-more-ms" data-modal="5" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
+            </div>
+
+            <!-- SEO Card -->
+            <div class="service-card-ms">
+                <div class="service-icon-ms"><i class="fas fa-search"></i></div>
+                <h3 class="service-title-ms" data-translate-key="service6_title">SEO Optimizacija</h3>
+                <p class="service-description-ms" data-translate-key="service6_desc">Poboljšanje vidljivosti vašeg
+                    sajta na pretraživačima kroz optimizaciju sadržaja i tehnički SEO.</p>
+                <button class="btn-read-more-ms" data-modal="6" data-translate-key="read_more">
+                    Saznaj Više
+                </button>
             </div>
         </div>
+    </section>
 
-        <script src="script.js"></script>
-    </body>
 
-    </html>
+
+
 
 
 
@@ -377,14 +379,13 @@
                 <p class="section-divider-text" data-translate-key="work_intro">Najvažnije pozicije i projekti na kojima
                     sam gradio iskustvo.</p>
 
-                <div class="experience-grid">
+                <div class="timeline">
                     <!-- Iskustvo 1: Web Developer (Freelance) -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp1_date">2020 - 2026</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_freelance">Freelance</span>
-                            <p class="date" data-translate-key="exp1_date">2020 - 2026</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp1_title">Web Developer</h3>
                             <p class="company" data-translate-key="exp1_company">Djurke23.</p>
                             <p class="description" data-translate-key="exp1_desc">Kao freelancer, radio sam na brojnim
@@ -394,12 +395,11 @@
                     </div>
 
                     <!-- Iskustvo 2: Web Developer (Remote) -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp2_date">2024 - 2025</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_remote">Remote</span>
-                            <p class="date" data-translate-key="exp2_date">2024 - 2025</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp2_title">Web Developer</h3>
                             <p class="company" data-translate-key="exp2_company">Digital Media Sistem</p>
                             <p class="description" data-translate-key="exp2_desc">Radio sam na različitim projektima
@@ -409,12 +409,11 @@
                     </div>
 
                     <!-- Iskustvo 3: Video Mixer -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp3_date">2023 - 2024</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_parttime">Part Time</span>
-                            <p class="date" data-translate-key="exp3_date">2023 - 2024</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp3_title">Video Mixer</h3>
                             <p class="company" data-translate-key="exp3_company">Pink Media Group</p>
                             <p class="description" data-translate-key="exp3_desc">Na reality show-ovima "Zadruga" i
@@ -424,12 +423,11 @@
                     </div>
 
                     <!-- Iskustvo 4: RCO -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp4_date">2022 - 2023</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_parttime">Part Time</span>
-                            <p class="date" data-translate-key="exp4_date">2022 - 2023</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp4_title">Remote Control Operator - RCO</h3>
                             <p class="company" data-translate-key="exp4_company">Pink Media Group</p>
                             <p class="description" data-translate-key="exp4_desc">Upravljao sam kamerama i tehničkim
@@ -439,12 +437,11 @@
                     </div>
 
                     <!-- Iskustvo 5: Video Editor -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp5_date">2021 - 2022</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_parttime">Part Time</span>
-                            <p class="date" data-translate-key="exp5_date">2021 - 2022</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp5_title">Video Editor</h3>
                             <p class="company" data-translate-key="exp5_company">Pink Media Group</p>
                             <p class="description" data-translate-key="exp5_desc">Koristio sam Adobe After Effects i
@@ -454,12 +451,11 @@
                     </div>
 
                     <!-- Iskustvo 6: Computer Operator -->
-                    <div class="experience-card">
-                        <div class="card-header">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date" data-translate-key="exp6_date">2020 - 2021</div>
+                        <div class="timeline-content">
                             <span class="job-type" data-translate-key="job_type_parttime">Part Time</span>
-                            <p class="date" data-translate-key="exp6_date">2020 - 2021</p>
-                        </div>
-                        <div class="card-body">
                             <h3 data-translate-key="exp6_title">Computer Operator</h3>
                             <p class="company" data-translate-key="exp6_company">Pink Media Group</p>
                             <p class="description" data-translate-key="exp6_desc">Bio sam odgovoran za kreiranje
@@ -532,7 +528,7 @@
 
         <div class="network-bg-projekti"></div>
 
-        <section class="sekcija-projekti">
+        <section class="sekcija-projekti" id="moji-projekti">
             <div class="dots-decoration-projekti dots-1-projekti"></div>
             <div class="dots-decoration-projekti dots-2-projekti"></div>
 
@@ -961,9 +957,80 @@
 -->
 
 
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <h2 class="section-title-ms" data-translate-key="faq_title">Često Postavljana Pitanja</h2>
+            <p class="section-divider-text" data-translate-key="faq_intro">Odgovori na najčešća pitanja o saradnji i
+                procesu rada.</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" data-translate-key="faq_q1">
+                        Kako teče proces saradnje?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-translate-key="faq_a1">Proces počinje besplatnom konsultacijom gde razgovaramo o vašim
+                            potrebama i ciljevima. Nakon toga, kreiram detaljan plan i dizajn predlog. Rad se odvija u
+                            fazama uz redovne povratne informacije, a finalni proizvod se isporučuje nakon vaše potvrde.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-translate-key="faq_q2">
+                        Koje tehnologije koristite?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-translate-key="faq_a2">Koristim moderne tehnologije kao što su HTML, CSS, JavaScript,
+                            Angular, Vue.js, React, GoLang, PostgreSQL i mnoge druge. Izbor tehnologije zavisi od
+                            specifičnih zahteva vašeg projekta.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-translate-key="faq_q3">
+                        Koliko vremena traje izrada sajta?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-translate-key="faq_a3">Vreme izrade zavisi od kompleksnosti projekta. Jednostavniji
+                            sajtovi mogu biti gotovi za 1-2 nedelje, dok kompleksniji projekti sa prilagođenim
+                            funkcionalnostima mogu trajati 4-8 nedelja.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-translate-key="faq_q4">
+                        Da li nudite održavanje sajta?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-translate-key="faq_a4">Da, nudim pakete za redovno održavanje koji uključuju ažuriranje
+                            sadržaja, sigurnosne zakrpe, tehničku podršku i optimizaciju performansi.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-translate-key="faq_q5">
+                        Koji su vaši načini plaćanja?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-translate-key="faq_a5">Plaćanje se vrši u fazama — obično 50% unapred i 50% po
+                            završetku. Prihvatam bankarski transfer i PayPal. Za veće projekte moguće je dogovoriti
+                            plaćanje u ratama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br><br>
+
         <!-- kontakt -->
 
-        <h2 data-translate-key="contact_title">Kontaktirajte Me</h2>
+        <h2 class="section-title-contact" data-translate-key="contact_title">Kontaktirajte Me</h2>
         <p class="section-divider-text" data-translate-key="contact_intro">Pošaljite poruku i dobićete odgovor u
             najkraćem roku.</p>
 
@@ -974,25 +1041,36 @@
                     <br> Slobodno mi se javite!
                     <br> Pošaljite mi poruku i javiću Vam se u najkraćem roku."
                 </p>
-                <div class="contact-info">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p data-translate-key="contact_location">Beograd, Srbija</p>
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d181155.4158095289!2d20.3281515!3d44.8152481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aa3d7b53fbd%3A0x1db8645cf2177ee4!2sBelgrade!5e0!3m2!1sen!2srs!4v1700000000000"
+                        width="100%" height="200"
+                        style="border:0; border-radius: 12px; filter: invert(90%) hue-rotate(180deg) brightness(0.95) contrast(1.1);"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p data-translate-key="contact_location">Beograd, Srbija</p>
+                    </div>
                 </div>
-                <div class="contact-info">
+                <div class="contact-info copyable">
                     <i class="fas fa-envelope"></i>
                     <p>lukadjuricdjurke@pm.me</p>
+                    <button class="copy-btn" data-copy="lukadjuricdjurke@pm.me" aria-label="Copy email">
+                        <i class="far fa-copy"></i>
+                    </button>
                 </div>
-                <div class="contact-info">
+                <div class="contact-info copyable">
                     <i class="fas fa-phone"></i>
                     <p>067/741-1001</p>
+                    <button class="copy-btn" data-copy="067/741-1001" aria-label="Copy phone">
+                        <i class="far fa-copy"></i>
+                    </button>
                 </div>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/djurke23/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/djurke23/"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+
             </div>
             <div class="contact-form">
-                <h2 data-translate-key="contact_form_title">Kontaktirajte Me</h2>
+                <h2 data-translate-key="contact_form_title">Kontakt Forma</h2>
                 <form>
                     <input type="text" id="username" name="username" placeholder="Ime"
                         data-translate-key="form_placeholder_name" required>
@@ -1027,7 +1105,7 @@
             <br>
 
             <nav class="footer-nav">
-                <a href="#pocetna" data-translate-key="footer_home">Početna</a>
+                <a href="#" data-translate-key="footer_home">Početna</a>
                 <a href="#o-meni" data-translate-key="footer_about">O Meni</a>
                 <a href="#usluge" data-translate-key="footer_services">Usluge</a>
                 <a href="#vestine" data-translate-key="footer_skills">Veštine</a>
@@ -1035,10 +1113,31 @@
                 <a href="#contact" data-translate-key="footer_contact">Kontakt</a>
             </nav>
 
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span class="status-text" data-translate-key="status_available">Dostupan za saradnju</span>
+                <span class="status-divider">|</span>
+                <span class="status-location" data-translate-key="status_location">Beograd</span>
+                <span class="status-time" id="localTime"></span>
+            </div>
+
             <p class="copyright" data-translate-key="footer_copyright">Copyright © 2026 Made by Djurke23. Sva prava
                 zadržana.</p>
         </footer>
 
+
+        <!-- Modal Structure - Moved to root for proper positioning -->
+        <div class="modal-overlay-ms" id="service-modal-ms">
+            <div class="modal-content-ms">
+                <button class="modal-close-ms">&times;</button>
+                <h2 id="modal-title-ms"></h2>
+                <p id="modal-description-ms"></p>
+                <ul id="modal-points-ms"></ul>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Page Transition Overlay -->
+        <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
 
         <script src="scripts.js"></script>
 

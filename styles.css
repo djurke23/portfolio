@@ -258,6 +258,21 @@ nav ul li a:hover::after {
 
 .stat-item {
     text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+.stat-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 70%;
+    background-color: #00ff9d;
+    border-radius: 99px;
+    opacity: 0.8;
 }
 
 .stat-number {
@@ -449,23 +464,7 @@ nav ul li a:hover::after {
     text-align: center;
 }
 
-.about-text h2::before,
-.about-text h2::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 25%;
-    height: 2px;
-    background-color: #00ff9d;
-}
-
-.about-text h2::before {
-    left: 0;
-}
-
-.about-text h2::after {
-    right: 0;
-}
+/* Removed lines as requested */
 
 .about-image {
     width: 40%;
@@ -507,35 +506,150 @@ nav ul li a:hover::after {
 
 /* godina mejl itd  */
 
-.info-section {
+/* ================================================= */
+/* =========== ABOUT ME — BIO ACCENT ============== */
+/* ================================================= */
+
+.about-text h2 {
+    text-align: center;
+    color: #00ff9d;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.about-bio {
+    /* border-left removed */
+    /* padding-left removed */
+    margin-bottom: 36px;
+    text-align: center;
+    /* Generally centering the text looks better without the border */
+}
+
+.about-bio p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 16px;
+}
+
+.about-bio p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ================================================= */
+/* ======== ABOUT ME — INFO CARD GRID ============= */
+/* ================================================= */
+
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Fixed 3 columns as requested */
+    gap: 16px;
+    margin-bottom: 36px;
+}
+
+@media (max-width: 768px) {
+    .about-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 22px 18px;
     display: flex;
-    justify-content: space-between;
-    background-color: #121212;
-    /* Boja pozadine */
-    color: #ffffff;
-    /* Boja teksta */
-    padding: 20px;
-    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
-.info-column {
-    width: 45%;
+.about-info-card:hover {
+    transform: translateY(-6px);
+    background: rgba(0, 255, 157, 0.04);
+    border-color: rgba(0, 255, 157, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 255, 157, 0.1), 0 0 0 1px rgba(0, 255, 157, 0.08);
 }
 
-.info-column p {
-    margin: 5px 0;
+.about-info-icon {
+    font-size: 24px;
+    color: #00ff9d;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(0, 255, 157, 0.08);
+    margin-bottom: 4px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.info-column a {
+.about-info-card:hover .about-info-icon {
+    background: rgba(0, 255, 157, 0.14);
+    transform: scale(1.1);
+}
+
+.about-info-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+}
+
+.about-info-value {
+    font-size: 15px;
+    font-weight: 600;
     color: #fff;
-    /* Boja linkova */
-    text-decoration: none;
 }
 
-.info-column a:hover {
-    text-decoration: underline;
-    /* Efekat pri hover-u */
+.about-info-value a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
+
+.about-info-value a:hover {
+    color: #00ff9d;
+}
+
+.about-info-available {
+    color: #00ff9d;
+}
+
+
+/* ================================================= */
+/* ========= ABOUT ME — CTA BUTTON ================ */
+/* ================================================= */
+
+.about-cta {
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.15), 0 0 60px rgba(0, 255, 157, 0.05);
+    transition: all 0.35s ease;
+}
+
+.about-cta:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.3), 0 0 80px rgba(0, 255, 157, 0.1);
+}
+
 
 
 
@@ -791,6 +905,14 @@ footer {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    padding: 10px 15px;
+    /* Added padding to fix spacing */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.contact-info:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .contact-info i {
@@ -806,37 +928,74 @@ footer {
 }
 
 /* Stil za formu */
+/* Stil za formu - Glassmorphism */
 .contact-form {
     flex: 1;
-    background-color: #fff;
-    color: #333;
-    padding: 20px;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #000000;
+    margin-bottom: 25px;
+    color: #00ff9d;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
     box-sizing: border-box;
+    /* Fix for width + padding calculation */
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00ff9d;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+    transform: translateY(-2px);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .contact-form button {
-    background-color: #1abc9c;
-    color: white;
-    padding: 12px 20px;
+    background-color: #00ff9d;
+    color: #000;
+    padding: 15px 30px;
     border: none;
-    border-radius: 3px;
+    border-radius: 50px;
     cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
 }
 
 
@@ -855,6 +1014,13 @@ footer {
         flex: 1;
         width: 100%;
         margin: 0;
+        box-sizing: border-box;
+        /* Ensure proper width calculation */
+    }
+
+    .contact-form {
+        padding: 20px;
+        /* Reduce padding on mobile */
     }
 
     .contact-content {
@@ -1351,7 +1517,7 @@ button:hover,
     pointer-events: none;
 }
 
-body>*:not(#particles-js) {
+body>*:not(#particles-js):not(.scroll-progress-bar):not(.page-transition-overlay) {
     position: relative;
     z-index: 1;
 }
@@ -1992,8 +2158,9 @@ body>header {
     max-height: 50px;
     /* Ograničena visina da svi budu slične veličine */
     /* Inicijalno su logotipi manje primetni da bi se bolje uklopili */
-    filter: grayscale(1) brightness(2);
-    opacity: 0.7;
+    /* filter: grayscale(1) brightness(2); REMOVED per user request */
+    filter: none;
+    opacity: 1;
     transition: all 0.3s ease;
 }
 
@@ -2194,85 +2361,174 @@ header>.container {
     color: var(--primary-accent);
 }
 
-/* --- GRID KONTEJNER --- */
-#work-experience-wrapper .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+/* --- TIMELINE KONTEJNER --- */
+#work-experience-wrapper .timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-/* --- KARTICA SA ISKUSTVOM --- */
-#work-experience-wrapper .experience-card {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+/* Vertikalna linija */
+#work-experience-wrapper .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #00ff9d 10%, #00ff9d 90%, transparent);
+    transform: translateX(-50%);
 }
 
-#work-experience-wrapper .experience-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-accent);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+/* --- TIMELINE STAVKA --- */
+#work-experience-wrapper .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 50px 50px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-#work-experience-wrapper .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 20px;
+/* Neparne stavke - leva strana */
+#work-experience-wrapper .timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 50px;
+    padding-left: 0;
 }
 
-#work-experience-wrapper .job-type {
-    font-size: 0.9rem;
+/* Parne stavke - desna strana */
+#work-experience-wrapper .timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 0;
+}
+
+/* Animacija - vidljivo stanje */
+#work-experience-wrapper .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- TAČKA NA LINIJI --- */
+#work-experience-wrapper .timeline-dot {
+    position: absolute;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: #0a0a0a;
+    border: 3px solid #00ff9d;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#work-experience-wrapper .timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+#work-experience-wrapper .timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+#work-experience-wrapper .timeline-item:hover .timeline-dot {
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
+    transform: scale(1.3);
+}
+
+/* --- DATUM BEDŽ --- */
+#work-experience-wrapper .timeline-date {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #00ff9d;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* --- SADRŽAJ KARTICE --- */
+#work-experience-wrapper .timeline-content {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+#work-experience-wrapper .timeline-content:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 255, 157, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.1);
+}
+
+#work-experience-wrapper .timeline-content .job-type {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #00ff9d;
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.25);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#work-experience-wrapper .timeline-content h3 {
+    margin: 0 0 5px;
+    font-size: 1.3rem;
     color: #ffffff;
 }
 
-#work-experience-wrapper .date {
+#work-experience-wrapper .timeline-content .company {
+    color: #00ff9d;
+    font-weight: 600;
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+}
+
+#work-experience-wrapper .timeline-content .description {
     font-size: 0.9rem;
-    color: #ffffff;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
 }
 
-#work-experience-wrapper .card-body h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.5rem;
-    color: #00ff9d;
-}
-
-#work-experience-wrapper .card-body .company {
-    color: var(--primary-accent);
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-#work-experience-wrapper .card-body .description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-    flex-grow: 1;
-}
-
-.light-mode #work-experience-wrapper .experience-card {
+/* Light mode */
+.light-mode #work-experience-wrapper .timeline-content {
     background-color: rgba(26, 26, 26, 0.9);
     color: #fff;
 }
 
 /* --- RESPONSIVNOST --- */
-@media (max-width: 1024px) {
-    #work-experience-wrapper .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    #work-experience-wrapper .timeline::before {
+        left: 20px;
     }
-}
 
-@media (max-width: 767px) {
-    #work-experience-wrapper .experience-grid {
-        grid-template-columns: 1fr;
+    #work-experience-wrapper .timeline-item {
+        width: 100%;
+        padding-left: 55px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    #work-experience-wrapper .timeline-item:nth-child(odd),
+    #work-experience-wrapper .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+        padding-left: 55px;
+        padding-right: 0;
+    }
+
+    #work-experience-wrapper .timeline-item:nth-child(odd) .timeline-dot,
+    #work-experience-wrapper .timeline-item:nth-child(even) .timeline-dot {
+        left: 12px;
+        right: auto;
     }
 
     #work-experience-wrapper .section-title {
@@ -2400,14 +2656,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
+    z-index: 100002;
 }
 
 .modal-overlay-ms.active {
@@ -2512,6 +2770,8 @@ body {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #00ff9d;
+    /* Added green color */
 }
 
 .section-subtitle-reviews {
@@ -2769,6 +3029,13 @@ body {
     padding: 20px;
     text-align: left;
     backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff9d;
+    box-shadow: 0 10px 30px rgba(0, 255, 157, 0.15);
 }
 
 .skills-category-card h3 {
@@ -2792,7 +3059,16 @@ body {
     background: rgba(0, 255, 157, 0.08);
     color: #f4f4f4;
     font-size: 0.92rem;
-    line-height: 1;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skills-chip:hover {
+    background: rgba(0, 255, 157, 0.2);
+    border-color: #00ff9d;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 255, 157, 0.2);
+    color: #ffffff;
 }
 
 @media (max-width: 900px) {
@@ -2826,6 +3102,15 @@ body {
     flex-shrink: 0;
 }
 
+/* New styling for Contact title */
+.section-title-contact {
+    color: #00ff9d;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 640px) {
     .section-divider-text {
         font-size: 0.9rem;
@@ -2847,4 +3132,362 @@ body {
 
 .dropdown.show .arrow-icon {
     transform: rotate(180deg);
+}
+
+
+/* ================================================= */
+/* ============= SCROLL PROGRESS BAR =============== */
+/* ================================================= */
+
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #00ff9d, #00cc7d);
+    z-index: 100001;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
+}
+
+
+/* ================================================= */
+/* ============== FAQ SECTION ====================== */
+/* ================================================= */
+
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.faq-container {
+    margin-top: 30px;
+}
+
+.faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.faq-item:hover {
+    border-color: rgba(0, 255, 157, 0.3);
+}
+
+.faq-item.active {
+    border-color: rgba(0, 255, 157, 0.5);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #00ff9d;
+}
+
+.faq-icon {
+    font-size: 1.4rem;
+    color: #00ff9d;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 24px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 0 24px 20px;
+}
+
+.faq-answer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Light mode */
+.light-mode .faq-item {
+    background: rgba(26, 26, 26, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-question {
+        font-size: 0.9rem;
+        padding: 15px 18px;
+    }
+
+    .faq-answer {
+        padding: 0 18px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 18px 16px;
+    }
+}
+
+
+/* ================================================= */
+/* ============= MAGNETIC BUTTONS ================== */
+/* ================================================= */
+
+.hire-me,
+.download-cv,
+.contact-form button[type="submit"] {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* ================================================= */
+/* ============= TYPING EFFECT ===================== */
+/* ================================================= */
+
+.typing-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.typing-text {
+    color: #00ff9d;
+    font-weight: 700;
+    min-width: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-cursor {
+    color: #00ff9d;
+    font-weight: 300;
+    animation: blink 0.8s step-end infinite;
+    margin-left: 2px;
+}
+
+@media (max-width: 768px) {
+    .typing-wrapper {
+        font-size: 1rem;
+    }
+}
+
+
+/* ================================================= */
+/* ============ COPY TO CLIPBOARD ================== */
+/* ================================================= */
+
+.contact-info.copyable {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.copy-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-size: 0.85rem;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    position: relative;
+}
+
+.copy-btn:hover {
+    color: #00ff9d;
+    border-color: rgba(0, 255, 157, 0.3);
+    background: rgba(0, 255, 157, 0.05);
+}
+
+.copy-btn.copied {
+    color: #00ff9d;
+    border-color: #00ff9d;
+    background: rgba(0, 255, 157, 0.1);
+}
+
+.copy-btn.copied::after {
+    content: 'Kopirano!';
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00ff9d;
+    color: #0a0a0a;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    animation: tooltipFadeIn 0.3s ease forwards;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* ================================================= */
+/* ============= CONTACT MAP ======================= */
+/* ================================================= */
+
+.contact-map {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.contact-map iframe {
+    display: block;
+}
+
+.contact-map .contact-info {
+    padding-top: 10px;
+}
+
+
+/* ================================================= */
+/* ========= GLASSMORPHISM TRANSITIONS ============= */
+/* ================================================= */
+
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99998;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+.page-transition-overlay.active {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ================================================= */
+/* =========== STATUS BADGE ======================== */
+/* ================================================= */
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(0, 255, 157, 0);
+    }
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff9d;
+    animation: statusPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.status-text {
+    color: #00ff9d;
+    font-weight: 500;
+}
+
+.status-divider {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.status-location {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.status-time {
+    font-family: 'Courier New', monospace;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .status-badge {
+        font-size: 0.7rem;
+        gap: 6px;
+        padding: 6px 14px;
+    }
 }
