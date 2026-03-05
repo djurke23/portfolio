@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
 
 
-        animateValue("years", 0, 5, 2000, function () {
+        animateValue("years", 0, 6, 2000, function () {
             animateValue("projects", 0, 30, 2000, function () {
                 animateValue("technologies", 0, 12, 2000, function () {
                     animateValue("commits", 0, 10, 2000, function () {
@@ -350,7 +350,7 @@ const translations = {
         'stats_clients': 'Zadovoljnih klijenata',
         'about_title': 'O meni',
         'about_intro': 'Kratko o mom iskustvu, pristupu i načinu rada.',
-        'about_p1': 'Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 5 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.',
+        'about_p1': 'Zdravo, ja sam Luka Đurić, strastveni web developer sa preko 6 godina iskustva u izradi modernih i funkcionalnih web sajtova. Specijalizovan sam za front-end razvoj, ali imam iskustva i sa back-end tehnologijama.',
         'about_p2': 'Moji projekti uključuju e-commerce platforme, korporativne sajtove i web aplikacije za razne industrije. Uvek sam u toku sa najnovijim trendovima u web developmentu i kontinuirano unapređujem svoje veštine.',
         'about_p3': 'Verujem u stvaranje web sajtova koji nisu samo vizuelno privlačni, već i intuitivni za korišćenje i optimizovani za performanse.',
         'info_birthdate_label': 'Datum Rođenja',
@@ -428,6 +428,8 @@ const translations = {
         'project2_desc': 'Profesionalan sajt firme za detailing automobila.',
         'project3_title': 'Inno Build Group Sajt',
         'project3_desc': 'Profesionalan sajt firme za adaptaciju stanova.',
+        'project6_title': 'FluffyFlowers.rs',
+        'project6_desc': 'E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Kompletan vizuelni identitet startup-a uključujući logo, tipografiju i brand guidelines.',
         'project5_title': 'Habit Tracker',
@@ -532,13 +534,13 @@ const translations = {
         'hero_greeting': 'Hello, My name is<br> Luka Đurić',
         'hero_description': 'I excel at creating elegant digital experiences and am skilled in various programming languages and technologies.',
         'download_cv': 'Download CV',
-        'stats_experience': 'Years of experience',
+        'stats_experience': 'years of experiance',
         'stats_projects': 'Completed projects',
         'stats_technologies': 'Technologies mastered',
         'stats_clients': 'Satisfied clients',
         'about_title': 'About Me',
         'about_intro': 'A short overview of my background, approach, and work style.',
-        'about_p1': 'Hello, I am Luka Đurić, a passionate web developer with over 5 years of experience in creating modern and functional websites. I specialize in front-end development, but I also have experience with back-end technologies.',
+        'about_p1': 'Hello, I am Luka Đurić, a passionate web developer with 6 years of experiance in creating modern and functional websites. I specialize in front-end development, but I also have experience with back-end technologies.',
         'about_p2': 'My projects include e-commerce platforms, corporate websites, and web applications for various industries. I am always up to date with the latest trends in web development and continuously improve my skills.',
         'about_p3': 'I believe in creating websites that are not only visually appealing but also intuitive to use and optimized for performance.',
         'info_birthdate_label': 'Birthdate',
@@ -616,6 +618,8 @@ const translations = {
         'project2_desc': 'Professional website for car detailing business.',
         'project3_title': 'Inno Build Group Site',
         'project3_desc': 'Professional website for apartment renovation business.',
+        'project6_title': 'FluffyFlowers.rs',
+        'project6_desc': 'E-commerce website and shop for selling plush handmade wire flowers, built in a modern React ecosystem.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Complete visual identity for a startup including logo, typography and brand guidelines.',
         'project5_title': 'Habit Tracker',
