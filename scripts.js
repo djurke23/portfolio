@@ -4,6 +4,7 @@ function animateValue(id, start, end, duration, callback) {
     let increment = end > start ? 1 : -1;
     let stepTime = Math.abs(Math.floor(duration / range));
     let obj = document.getElementById(id);
+    if (!obj) return;
     let timer = setInterval(function () {
         current += increment;
         obj.innerHTML = current;
@@ -15,7 +16,6 @@ function animateValue(id, start, end, duration, callback) {
 }
 
 function typeWriter(text, i, fnCallback) {
-    // Proveravamo da li element postoji pre nego što pokušamo da ga koristimo
     const typedNameElement = document.getElementById("typed-name");
     if (typedNameElement && i < (text.length)) {
         typedNameElement.innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
@@ -27,9 +27,8 @@ function typeWriter(text, i, fnCallback) {
     }
 }
 
-
 function startTextAnimation(i) {
-    const dataText = ["Luka Đurić", ""]; // Definisano unutar funkcije radi preglednosti
+    const dataText = ["Luka Đurić", ""];
     if (typeof dataText[i] == 'undefined') {
         setTimeout(function () {
             startTextAnimation(0);
@@ -42,154 +41,53 @@ function startTextAnimation(i) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    //=================================================//
-    //============== LANGUAGE INITIALIZATION ==========//
-    //=================================================//
-    // Prvo inicijalizujemo jezik kako bi se tekst ispravno prikazao
-    const savedLang = localStorage.getItem('language') || 'sr-cyrillic';
+    const savedLang = localStorage.getItem('language') || 'sr-latin';
     setLanguage(savedLang);
 
-
-    //=================================================//
-    //============== LOADING & ANIMATIONS =============//
-    //=================================================//
     setTimeout(function () {
-
-
         animateValue("years", 0, 6, 2000, function () {
-            animateValue("projects", 0, 30, 2000, function () {
+            animateValue("projects", 0, 31, 2000, function () {
                 animateValue("technologies", 0, 12, 2000, function () {
-                    animateValue("commits", 0, 10, 2000, function () {
-                        // Nema potrebe za startTextAnimation jer nemamo element "typed-name"
-                        // Ako ga dodate nazad, odkomentarišite sledeću liniju
-                        // startTextAnimation(0);
-                    });
+                    animateValue("commits", 0, 10, 2000);
                 });
             });
         });
     }, 2000);
-
-
-    //=================================================//
-    //============== TESTIMONIALS SLIDER ==============//
-    //=================================================//
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const prevArrow = document.querySelector('.slider-arrow.prev');
-    const nextArrow = document.querySelector('.slider-arrow.next');
-    let currentSlide = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function startSlideShow() {
-        slideInterval = setInterval(nextSlide, 7000);
-    }
-
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlideShow();
-    }
-
-    if (nextArrow && prevArrow) {
-        nextArrow.addEventListener('click', () => {
-            nextSlide();
-            resetInterval();
-        });
-
-        prevArrow.addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-    }
-
-    if (slides.length > 0) {
-        showSlide(currentSlide);
-        startSlideShow();
-    }
 });
-
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav ul li');
 
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active');
-
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
+    if (burger) {
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+            burger.classList.toggle('toggle');
         });
+    }
 
-        burger.classList.toggle('toggle');
-    });
-
-    // Close menu when a link is clicked
     navLinks.forEach((link) => {
         link.addEventListener('click', () => {
             nav.classList.remove('nav-active');
             burger.classList.remove('toggle');
-
             navLinks.forEach((link) => {
                 link.style.animation = '';
             });
         });
     });
 }
-
 navSlide();
 
-
-// prozorcic
-function openModal(id) {
-    var modal = document.getElementById(id + '-modal');
-    modal.style.display = 'block';
-    setTimeout(function () {
-        modal.classList.add('show');
-    }, 10);
-}
-
-function closeModal(id) {
-    var modal = document.getElementById(id + '-modal');
-    modal.classList.remove('show');
-    setTimeout(function () {
-        modal.style.display = 'none';
-    }, 300);
-}
-
-window.onclick = function (event) {
-    if (event.target.classList.contains('modal')) {
-        closeModal(event.target.id.replace('-modal', ''));
-    }
-}
-
-
-// back to top
 const backToTopButton = document.getElementById('backToTop');
-
 function toggleBackToTopButton() {
     if (window.pageYOffset > 300) {
         backToTopButton.classList.add('show');
@@ -197,44 +95,29 @@ function toggleBackToTopButton() {
         backToTopButton.classList.remove('show');
     }
 }
-
 function scrollToTop(e) {
     e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+if (backToTopButton) {
+    window.addEventListener('scroll', toggleBackToTopButton);
+    backToTopButton.addEventListener('click', scrollToTop);
 }
 
-window.addEventListener('scroll', toggleBackToTopButton);
-backToTopButton.addEventListener('click', scrollToTop);
-
-
-// o meni kopoiranje linkova
 document.querySelectorAll('.info-column a').forEach(item => {
     item.addEventListener('click', event => {
         event.preventDefault();
         const textToCopy = event.target.innerText;
-        navigator.clipboard.writeText(textToCopy)
-            .then(() => {
-                alert(`${textToCopy} Uspešno kopirano!`);
-            })
-            .catch(err => {
-                console.error('Kopiranje je neuspešno: ', err);
-            });
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert(`${textToCopy} Uspešno kopirano!`);
+        });
     });
 });
 
-
-// dark mode
-//=================================================//
-//================== THEME TOGGLE =================//
-//=================================================//
 const modeToggle = document.getElementById('modeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const body = document.body;
 
-// Funkcija za ažuriranje ikonice
 const updateThemeIcon = () => {
     if (themeIcon) {
         if (body.classList.contains('light-mode')) {
@@ -247,37 +130,22 @@ const updateThemeIcon = () => {
     }
 };
 
-// Funkcija koja primenjuje temu - uvek dark mode po defaultu
 const applyTheme = () => {
-    // Uvek ukloni light-mode da bi dark bio default
-    body.classList.remove('light-mode');
-    localStorage.setItem('theme', 'dark');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') body.classList.add('light-mode');
+    else body.classList.remove('light-mode');
     updateThemeIcon();
 };
 
-// Funkcija koja se poziva na klik
 const toggleTheme = () => {
     body.classList.toggle('light-mode');
-
-    // Sačuvaj izbor u localStorage
-    if (body.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
-    } else {
-        localStorage.setItem('theme', 'dark');
-    }
+    localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
     updateThemeIcon();
 };
 
-// Postavi temu odmah pri učitavanju stranice
 applyTheme();
+if (modeToggle) modeToggle.addEventListener('click', toggleTheme);
 
-// Dodaj event listener na dugme
-if (modeToggle) {
-    modeToggle.addEventListener('click', toggleTheme);
-}
-
-
-// projekti
 const filterBtns = document.querySelectorAll('.filter-btn-projekti');
 const projekti = document.querySelectorAll('.kartica-projekti');
 
@@ -285,12 +153,9 @@ filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('aktivan-projekti'));
         btn.classList.add('aktivan-projekti');
-
         const filter = btn.getAttribute('data-filter');
-
         projekti.forEach((projekat, index) => {
             projekat.style.animation = 'none';
-
             setTimeout(() => {
                 if (filter === 'sve' || projekat.getAttribute('data-category') === filter) {
                     projekat.classList.remove('sakriveno-projekti');
@@ -304,8 +169,6 @@ filterBtns.forEach(btn => {
     });
 });
 
-
-// infinite logo scroller
 const scrollerInnerLogos = document.querySelector(".logos__inner-infinite");
 if (scrollerInnerLogos && !scrollerInnerLogos.getAttribute('data-cloned')) {
     const scrollerContent = Array.from(scrollerInnerLogos.children);
@@ -317,21 +180,14 @@ if (scrollerInnerLogos && !scrollerInnerLogos.getAttribute('data-cloned')) {
     scrollerInnerLogos.setAttribute('data-cloned', 'true');
 }
 
-
-// header scroll effect
 window.addEventListener('scroll', function () {
     const header = document.querySelector('header');
-    if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+    if (header) {
+        if (window.scrollY > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
     }
 });
 
-
-//=================================================//
-//============== LANGUAGE SWITCHER ==============//
-//=================================================//
 const translations = {
     'sr-latin': {
         'nav_home': 'Početna',
@@ -419,8 +275,10 @@ const translations = {
         'my_projects_subtitle': 'Istražite kolekciju mojih radova iz različitih oblasti digitalne kreacije',
         'filter_all': 'Sve',
         'filter_websites': 'Web Sajtovi',
+        'filter_webapps': 'Web Aplikacije',
         'filter_design': 'Dizajn',
         'category_website': 'Web Sajt',
+        'category_webapp': 'Web Aplikacija',
         'category_design': 'Dizajn',
         'project1_title': 'Lični Portfolio',
         'project1_desc': 'Moderni portfolio sajt sa interaktivnim animacijama, network pozadinom i potpuno responzivnim dizajnom.',
@@ -430,6 +288,10 @@ const translations = {
         'project3_desc': 'Profesionalan sajt firme za adaptaciju stanova.',
         'project6_title': 'FluffyFlowers.rs',
         'project6_desc': 'E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.',
+        'project7_title': 'Rev&Chill',
+        'project7_desc': 'Kompletan sistem za registraciju i prijavu automobila za auto skupove, sa bazom podataka i skladištenjem slika.',
+        'project8_title': 'CarFlo',
+        'project8_desc': 'Ultimate vehicle logbook app. Logujte gorivo, održavanje, troškove i putovanja — sve na jednom mestu.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Kompletan vizuelni identitet startup-a uključujući logo, tipografiju i brand guidelines.',
         'project5_title': 'Habit Tracker',
@@ -509,19 +371,6 @@ const translations = {
         'typing_prefix': 'Ja sam&nbsp;',
         'status_available': 'Dostupan za saradnju',
         'status_location': 'Beograd',
-        // FAQ
-        'faq_title': 'Često Postavljana Pitanja',
-        'faq_intro': 'Odgovori na najčešća pitanja o saradnji i procesu rada.',
-        'faq_q1': 'Kako teče proces saradnje?',
-        'faq_a1': 'Proces počinje besplatnom konsultacijom gde razgovaramo o vašim potrebama i ciljevima. Nakon toga, kreiram detaljan plan i dizajn predlog. Rad se odvija u fazama uz redovne povratne informacije, a finalni proizvod se isporučuje nakon vaše potvrde.',
-        'faq_q2': 'Koje tehnologije koristite?',
-        'faq_a2': 'Koristim moderne tehnologije kao što su HTML, CSS, JavaScript, Angular, Vue.js, React, GoLang, PostgreSQL i mnoge druge. Izbor tehnologije zavisi od specifičnih zahteva vašeg projekta.',
-        'faq_q3': 'Koliko vremena traje izrada sajta?',
-        'faq_a3': 'Vreme izrade zavisi od kompleksnosti projekta. Jednostavniji sajtovi mogu biti gotovi za 1-2 nedelje, dok kompleksniji projekti sa prilagođenim funkcionalnostima mogu trajati 4-8 nedelja.',
-        'faq_q4': 'Da li nudite održavanje sajta?',
-        'faq_a4': 'Da, nudim pakete za redovno održavanje koji uključuju ažuriranje sadržaja, sigurnosne zakrpe, tehničku podršku i optimizaciju performansi.',
-        'faq_q5': 'Koji su vaši načini plaćanja?',
-        'faq_a5': 'Plaćanje se vrši u fazama — obično 50% unapred i 50% po završetku. Prihvatam bankarski transfer i PayPal. Za veće projekte moguće je dogovoriti plaćanje u ratama.',
     },
     'en': {
         'nav_home': 'Home',
@@ -609,8 +458,10 @@ const translations = {
         'my_projects_subtitle': 'Explore a collection of my works from various fields of digital creation',
         'filter_all': 'All',
         'filter_websites': 'Websites',
+        'filter_webapps': 'Web Apps',
         'filter_design': 'Design',
         'category_website': 'Website',
+        'category_webapp': 'Web App',
         'category_design': 'Design',
         'project1_title': 'Personal Portfolio',
         'project1_desc': 'Modern portfolio site with interactive animations, network background and fully responsive design.',
@@ -620,6 +471,10 @@ const translations = {
         'project3_desc': 'Professional website for apartment renovation business.',
         'project6_title': 'FluffyFlowers.rs',
         'project6_desc': 'E-commerce website and shop for selling plush handmade wire flowers, built in a modern React ecosystem.',
+        'project7_title': 'Rev&Chill',
+        'project7_desc': 'Full-stack registration system for car events, featuring a database and cloud image storage.',
+        'project8_title': 'CarFlo',
+        'project8_desc': 'The ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Complete visual identity for a startup including logo, typography and brand guidelines.',
         'project5_title': 'Habit Tracker',
@@ -637,7 +492,6 @@ const translations = {
         'faq_a4': 'Yes, I offer regular maintenance packages that include content updates, security patches, technical support, and performance optimization.',
         'faq_q5': 'What are your payment methods?',
         'faq_a5': 'Payment is made in stages — usually 50% upfront and 50% upon completion. I accept bank transfer and PayPal. For larger projects, installment payments can be arranged.',
-
         'btn_live_demo': 'Live Demo',
         'btn_github': 'GitHub',
         'testimonials_title': 'What Clients Say',
@@ -726,11 +580,7 @@ const languageMenu = document.getElementById('language-menu');
 const dropdown = document.querySelector('.dropdown');
 
 if (languageToggle && languageMenu && dropdown) {
-    languageToggle.addEventListener('click', () => {
-        dropdown.classList.toggle('show');
-    });
-
-    // Delegacija događaja za dinamički kreirane elemente
+    languageToggle.addEventListener('click', () => { dropdown.classList.toggle('show'); });
     languageMenu.addEventListener('click', (e) => {
         e.preventDefault();
         const langOption = e.target.closest('.lang-option');
@@ -740,37 +590,26 @@ if (languageToggle && languageMenu && dropdown) {
             dropdown.classList.remove('show');
         }
     });
-
     window.addEventListener('click', function (e) {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('show');
-        }
+        if (!dropdown.contains(e.target)) dropdown.classList.remove('show');
     });
 }
 
 function setLanguage(lang) {
-    if (!translations[lang] || !languageMenu) {
-        return;
-    }
+    if (!translations[lang] || !languageMenu) return;
     localStorage.setItem('language', lang);
-
     document.querySelectorAll('[data-translate-key]').forEach(el => {
         const key = el.dataset.translateKey;
         const translation = translations[lang][key];
         if (translation) {
-            if (el.placeholder) {
-                el.placeholder = translation;
-            } else {
-                el.innerHTML = translation;
-            }
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = translation;
+            else el.innerHTML = translation;
         }
     });
-
     const currentLangOption = languageOptions[lang];
     if (languageToggle && currentLangOption) {
         languageToggle.innerHTML = `<span class="flag-icon flag-icon-${currentLangOption.flag}"></span><span class="lang-text">${currentLangOption.text}</span><i class="fas fa-chevron-down arrow-icon"></i>`;
     }
-
     languageMenu.innerHTML = '';
     for (const key in languageOptions) {
         if (key !== lang) {
@@ -785,15 +624,7 @@ function setLanguage(lang) {
     }
 }
 
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Animation for service cards
     const cards = document.querySelectorAll('.service-card-ms');
     if (cards.length > 0) {
         const observer = new IntersectionObserver(entries => {
@@ -805,7 +636,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }, { threshold: 0.1 });
-
         cards.forEach((card, index) => {
             card.style.opacity = 0;
             card.style.transform = 'translateY(30px)';
@@ -815,7 +645,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Timeline scroll animation
     const timelineItems = document.querySelectorAll('.timeline-item');
     if (timelineItems.length > 0) {
         const timelineObserver = new IntersectionObserver(entries => {
@@ -826,29 +655,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }, { threshold: 0.15 });
-
         timelineItems.forEach((item, index) => {
             item.style.transitionDelay = `${index * 100}ms`;
             timelineObserver.observe(item);
         });
     }
 
-    // Modal functionality
     const readMoreButtons = document.querySelectorAll('.btn-read-more-ms');
     const modalOverlay = document.getElementById('service-modal-ms');
-    const modalCloseButton = modalOverlay.querySelector('.modal-close-ms');
+    const modalCloseButton = modalOverlay ? modalOverlay.querySelector('.modal-close-ms') : null;
     const modalTitle = document.getElementById('modal-title-ms');
     const modalDescription = document.getElementById('modal-description-ms');
     const modalPoints = document.getElementById('modal-points-ms');
-    const body = document.body;
 
-    // Helper function to get translation
     const getModalTranslation = (key) => {
         const lang = localStorage.getItem('language') || 'sr-latin';
         return translations[lang][key] || key;
     };
 
-    function openModal(modalIndex) {
+    function openModalMs(modalIndex) {
         const title = getModalTranslation(`modal${modalIndex}_title`);
         const description = getModalTranslation(`modal${modalIndex}_desc`);
         const points = [
@@ -857,58 +682,39 @@ document.addEventListener('DOMContentLoaded', function () {
             getModalTranslation(`modal${modalIndex}_point3`),
             getModalTranslation(`modal${modalIndex}_point4`)
         ];
-
-        modalTitle.textContent = title;
-        modalDescription.textContent = description;
-
-        modalPoints.innerHTML = '';
-
-        points.forEach(point => {
-            if (point.trim() !== '') {
-                const li = document.createElement('li');
-                li.textContent = point;
-                modalPoints.appendChild(li);
-            }
-        });
-
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalDescription) modalDescription.textContent = description;
+        if (modalPoints) {
+            modalPoints.innerHTML = '';
+            points.forEach(point => {
+                if (point && point.trim() !== '') {
+                    const li = document.createElement('li');
+                    li.textContent = point;
+                    modalPoints.appendChild(li);
+                }
+            });
+        }
         modalOverlay.classList.add('active');
-        body.classList.add('body-no-scroll-ms');
+        document.body.classList.add('body-no-scroll-ms');
     }
-
-    function closeModal() {
+    function closeModalMs() {
         modalOverlay.classList.remove('active');
-        body.classList.remove('body-no-scroll-ms');
+        document.body.classList.remove('body-no-scroll-ms');
     }
-
     readMoreButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const modalIndex = button.dataset.modal;
-            openModal(modalIndex);
+            openModalMs(button.dataset.modal);
         });
     });
-
-    modalCloseButton.addEventListener('click', closeModal);
-
-    modalOverlay.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
-            closeModal();
-        }
-    });
+    if (modalCloseButton) modalCloseButton.addEventListener('click', closeModalMs);
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) closeModalMs();
+        });
+    }
 });
 
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Testimonials data with translation keys
     const testimonialsData = [
         { nameKey: "testimonial1_name", textKey: "testimonial1_text", avatar: "https://i.pravatar.cc/50?u=1" },
         { nameKey: "testimonial2_name", textKey: "testimonial2_text", avatar: "https://i.pravatar.cc/50?u=2" },
@@ -917,13 +723,10 @@ document.addEventListener("DOMContentLoaded", () => {
         { nameKey: "testimonial5_name", textKey: "testimonial5_text", avatar: "https://i.pravatar.cc/50?u=5" },
         { nameKey: "testimonial6_name", textKey: "testimonial6_text", avatar: "https://i.pravatar.cc/50?u=6" }
     ];
-
-    // Helper function to get translation
     const getTranslation = (key) => {
         const lang = localStorage.getItem('language') || 'sr-latin';
         return translations[lang][key] || key;
     };
-
     const createTestimonialCard = (testimonial) => {
         const card = document.createElement("div");
         card.className = "testimonial-card-reviews";
@@ -932,96 +735,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${testimonial.avatar}" alt="${getTranslation(testimonial.nameKey)}" class="avatar-reviews">
                 <div>
                     <p class="author-name-reviews" data-translate-key="${testimonial.nameKey}">${getTranslation(testimonial.nameKey)}</p>
-                    <p class="author-handle-reviews"></p>
                 </div>
             </div>
             <p class="testimonial-text-reviews" data-translate-key="${testimonial.textKey}">${getTranslation(testimonial.textKey)}</p>
         `;
         return card;
     };
-
     const scroller = document.querySelector(".testimonials-scroller-reviews");
     const columns = Array.from(document.querySelectorAll(".testimonial-column-reviews"));
-
-    // Ne pokreći animaciju na mobilnim uređajima ili ako korisnik preferira smanjeno kretanje
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!isMobile && !prefersReducedMotion) {
-        // 1. Inicijalno popunjavanje kolona
-        const initialCards = [];
-        testimonialsData.forEach(data => {
-            const card = createTestimonialCard(data);
-            initialCards.push(card);
-        });
-
-        // Raspodeli originalne kartice po kolonama
-        initialCards.forEach((card, index) => {
-            columns[index % columns.length].appendChild(card);
-        });
-
-        // 2. Dinamičko dupliranje dok se ne popuni visina
-        columns.forEach(column => {
-            const originalContent = Array.from(column.children); // Sačuvaj originalne kartice u koloni
-
-            // Dupliraj sadržaj dok god visina kolone nije bar 2x veća od visine vidljivog dela
-            // Ovo osigurava da nikada nema praznog prostora
-            while (column.scrollHeight < scroller.clientHeight * 2) {
-                originalContent.forEach(card => {
-                    column.appendChild(card.cloneNode(true));
-                });
-            }
-        });
-
-        // Klik na recenziju pauzira/odpauzira animaciju kolona.
-        scroller.addEventListener("click", (event) => {
-            const clickedCard = event.target.closest(".testimonial-card-reviews");
-            if (!clickedCard) return;
-            scroller.classList.toggle("is-paused");
-        });
-    } else {
-        // Za mobilne uređaje, samo popuni prvu kolonu, bez dupliranja i animacije
-        testimonialsData.forEach(data => {
-            columns[0].appendChild(createTestimonialCard(data));
-        });
+    if (scroller && columns.length > 0) {
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        if (!isMobile) {
+            testimonialsData.forEach((data, index) => {
+                columns[index % columns.length].appendChild(createTestimonialCard(data));
+            });
+            columns.forEach(column => {
+                const originalContent = Array.from(column.children);
+                while (column.scrollHeight < scroller.clientHeight * 2) {
+                    originalContent.forEach(card => column.appendChild(card.cloneNode(true)));
+                }
+            });
+        } else {
+            testimonialsData.forEach(data => columns[0].appendChild(createTestimonialCard(data)));
+        }
     }
 });
 
-
-
-
-
-
-
-
-// Čekamo da se ceo prozor (uključujući slike, stilove, itd.) učita
 window.addEventListener('load', function () {
     const loadingScreen = document.getElementById('loading-screen');
     const pageContent = document.getElementById('page-content');
-
-    // PROMENJENO: Čekamo da se animacija završi (5000ms = 5s)
-    setTimeout(() => {
-        // Započinjemo tranziciju nestajanja
-        loadingScreen.style.opacity = '0';
-
-        // Nakon tranzicije, u potpunosti sakrivamo element
+    if (loadingScreen) {
         setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            // Prikazujemo glavni sadržaj
-            pageContent.classList.remove('hidden');
-        }, 500); // 500ms se poklapa sa `transition` duuracijom u CSS-u
-
-    }, 5000); // Čekamo 5 sekundi pre nego što sve nestane
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                if (pageContent) pageContent.classList.remove('hidden');
+            }, 500);
+        }, 5000);
+    }
 });
 
-
-//=================================================//
-//============ SCROLL PROGRESS BAR ================//
-//=================================================//
 (function () {
     const progressBar = document.querySelector('.scroll-progress-bar');
     if (!progressBar) return;
-
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1030,43 +786,22 @@ window.addEventListener('load', function () {
     });
 })();
 
-
-//=================================================//
-//============== FAQ ACCORDION ====================//
-//=================================================//
 (function () {
     const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems.length === 0) return;
-
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        if (!question) return;
-
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-
-            // Close all other items
-            faqItems.forEach(other => {
-                if (other !== item) {
-                    other.classList.remove('active');
-                }
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(other => other.classList.remove('active'));
+                item.classList.toggle('active', !isActive);
             });
-
-            // Toggle current item
-            item.classList.toggle('active', !isActive);
-        });
+        }
     });
 })();
 
-
-//=================================================//
-//============ MAGNETIC BUTTONS ===================//
-//=================================================//
 (function () {
     const magneticBtns = document.querySelectorAll('.hire-me, .download-cv, .contact-form button[type="submit"]');
-    const maxPull = 12;
-    const pullRadius = 80;
-
     magneticBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
@@ -1075,207 +810,113 @@ window.addEventListener('load', function () {
             const distX = e.clientX - centerX;
             const distY = e.clientY - centerY;
             const dist = Math.sqrt(distX * distX + distY * distY);
-
-            if (dist < pullRadius) {
-                const pullX = (distX / pullRadius) * maxPull;
-                const pullY = (distY / pullRadius) * maxPull;
-                btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
+            if (dist < 80) {
+                btn.style.transform = `translate(${(distX / 80) * 12}px, ${(distY / 80) * 12}px)`;
             }
         });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
-        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0, 0)'; });
     });
 })();
 
-
-//=================================================//
-//============= TYPING EFFECT =====================//
-//=================================================//
 (function () {
     const typingEl = document.getElementById('typingText');
     if (!typingEl) return;
-
     const words = ['Web Developer', 'UI/UX Designer', 'Problem Solver', 'Creative Thinker', 'Freelancer'];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
     function type() {
         const currentWord = words[wordIndex];
-
         if (!isDeleting) {
             typingEl.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
-
-            if (charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(type, 1500); // pause before deleting
-                return;
-            }
+            if (charIndex === currentWord.length) { isDeleting = true; setTimeout(type, 1500); return; }
             setTimeout(type, 80);
         } else {
             typingEl.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
-
-            if (charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(type, 500); // pause before next word
-                return;
-            }
+            if (charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); return; }
             setTimeout(type, 40);
         }
     }
-
-    // Start after a brief delay
     setTimeout(type, 1000);
 })();
 
-
-//=================================================//
-//========== COPY TO CLIPBOARD ====================//
-//=================================================//
 (function () {
     const copyBtns = document.querySelectorAll('.copy-btn');
-
     copyBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const value = btn.getAttribute('data-copy');
-            try {
-                await navigator.clipboard.writeText(value);
-            } catch {
-                // Fallback for older browsers
+            try { await navigator.clipboard.writeText(value); }
+            catch {
                 const textarea = document.createElement('textarea');
-                textarea.value = value;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
+                textarea.value = value; document.body.appendChild(textarea);
+                textarea.select(); document.execCommand('copy'); document.body.removeChild(textarea);
             }
-
-            // Visual feedback
             const icon = btn.querySelector('i');
-            icon.classList.remove('far', 'fa-copy');
-            icon.classList.add('fas', 'fa-check');
-            btn.classList.add('copied');
-
-            setTimeout(() => {
-                icon.classList.remove('fas', 'fa-check');
-                icon.classList.add('far', 'fa-copy');
-                btn.classList.remove('copied');
-            }, 2000);
+            if (icon) {
+                icon.classList.replace('fa-copy', 'fa-check');
+                btn.classList.add('copied');
+                setTimeout(() => { icon.classList.replace('fa-check', 'fa-copy'); btn.classList.remove('copied'); }, 2000);
+            }
         });
     });
 })();
 
-
-//=================================================//
-//======== GLASSMORPHISM PAGE TRANSITIONS ==========//
-//=================================================//
 (function () {
     const overlay = document.getElementById('pageTransitionOverlay');
-    if (!overlay) return;
-
     const navLinks = document.querySelectorAll('nav a[href^="#"], .footer-nav a[href^="#"], .hire-me');
-
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            if (!href) return;
-
+            if (!href || !overlay) return;
             e.preventDefault();
             overlay.classList.add('active');
-
             setTimeout(() => {
                 overlay.classList.remove('active');
-                if (href === '#') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
+                if (href === '#') window.scrollTo({ top: 0, behavior: 'smooth' });
+                else {
                     const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
                 }
             }, 300);
         });
     });
 })();
 
-
-//=================================================//
-//========= REAL-TIME STATUS BADGE =================//
-//=================================================//
 (function () {
     const timeEl = document.getElementById('localTime');
     if (!timeEl) return;
-
     function updateTime() {
         const now = new Date();
-        const options = {
-            timeZone: 'Europe/Belgrade',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        };
-        timeEl.textContent = now.toLocaleTimeString('sr-RS', options);
+        timeEl.textContent = now.toLocaleTimeString('sr-RS', { timeZone: 'Europe/Belgrade', hour: '2-digit', minute: '2-digit', hour12: false });
     }
-
     updateTime();
     setInterval(updateTime, 60000);
 })();
 
-//=================================================//
-//============== EMAIL JS FUNCTIONALITY ===========//
-//=================================================//
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize EmailJS public key
-    // ZAMENI 'YOUR_PUBLIC_KEY' SA TVOJIM PRAVIM JAVNIM KLJUČEM SA EMAILJS SAJTA
-    emailjs.init("DTxyUne1CSS-b3raN");
-
-    const contactForm = document.querySelector('.contact-form form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Set sending state
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
-            btn.innerText = 'Slanje...';
-            btn.disabled = true;
-
-            // ZAMENI 'YOUR_SERVICE_ID' I 'YOUR_TEMPLATE_ID' SA TVOJIM PRAVIM PODACIMA
-            const serviceID = 'service_iek5e46';
-            const templateID = 'template_i73skfh';
-
-            emailjs.sendForm(serviceID, templateID, this)
-                .then(() => {
-                    btn.innerText = 'Poslato!';
-                    btn.style.backgroundColor = '#00ff9d';
-                    btn.style.color = '#000';
-                    alert('Hvala! Vaša poruka je uspešno poslata.');
-                    contactForm.reset();
-
-                    setTimeout(() => {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        btn.style.backgroundColor = '';
-                        btn.style.color = '';
-                    }, 3000);
-                }, (err) => {
-                    btn.innerText = 'Greška';
-                    btn.style.backgroundColor = '#ff4d4d';
-                    alert('Došlo je do greške prilikom slanja. Proverite konzolu za detalje.');
-                    console.error('EmailJS Error:', err);
-
-                    setTimeout(() => {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        btn.style.backgroundColor = '';
-                    }, 3000);
-                });
-        });
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("DTxyUne1CSS-b3raN");
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerText;
+                btn.innerText = 'Slanje...';
+                btn.disabled = true;
+                emailjs.sendForm('service_iek5e46', 'template_i73skfh', this)
+                    .then(() => {
+                        btn.innerText = 'Poslato!';
+                        btn.style.backgroundColor = '#00ff9d';
+                        alert('Hvala! Vaša poruka je uspešno poslata.');
+                        contactForm.reset();
+                        setTimeout(() => { btn.innerText = originalText; btn.disabled = false; btn.style.backgroundColor = ''; }, 3000);
+                    }, (err) => {
+                        btn.innerText = 'Greška';
+                        alert('Došlo je do greške prilikom slanja.');
+                        setTimeout(() => { btn.innerText = originalText; btn.disabled = false; }, 3000);
+                    });
+            });
+        }
     }
 });
