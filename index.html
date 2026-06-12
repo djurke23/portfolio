@@ -545,26 +545,44 @@
                     Sajtovi</button>
                 <button class="filter-btn-projekti" data-filter="web-app" data-translate-key="filter_webapps">Web
                     Aplikacije</button>
+                <button class="filter-btn-projekti" data-filter="mobile-app" data-translate-key="filter_mobile_apps">Mobilne
+                    Aplikacije</button>
                 <button class="filter-btn-projekti" data-filter="dizajn"
                     data-translate-key="filter_design">Dizajn</button>
             </div>
 
+            <!-- Subcategory Filters -->
+            <div class="subfilter-container-projekti" id="subfilter-web-sajt" style="display: none;">
+                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all" data-translate-key="filter_all">Sve</button>
+                <button class="subfilter-btn-projekti" data-subfilter="html-css-js">html/css/js</button>
+                <button class="subfilter-btn-projekti" data-subfilter="react">react</button>
+                <button class="subfilter-btn-projekti" data-subfilter="next-js">next.js</button>
+                <button class="subfilter-btn-projekti" data-subfilter="wordpress">wordpress</button>
+            </div>
+
+            <div class="subfilter-container-projekti" id="subfilter-dizajn" style="display: none;">
+                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all" data-translate-key="filter_all">Sve</button>
+                <button class="subfilter-btn-projekti" data-subfilter="figma">figma</button>
+                <button class="subfilter-btn-projekti" data-subfilter="canva">canva</button>
+                <button class="subfilter-btn-projekti" data-subfilter="adobe-xd">adobe xd</button>
+            </div>
+
             <div class="grid-projekti">
-                <!-- CarFlo -->
-                <div class="kartica-projekti" data-category="web-sajt">
+                <!-- carFlo -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="html-css-js">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
-                            <img src="slike/projekti/carflo.png" alt="CarFlo App" width="600" height="400">
+                            <img src="slike/projekti/carflo.png" alt="carFlo App" width="600" height="400">
                         </div>
                         <div class="slika-overlay-projekti"></div>
                     </div>
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project8_title">CarFlo</h3>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project8_title">carFlo</h3>
                         <p class="opis-projekti" data-translate-key="project8_desc">Ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place.</p>
                         <div class="tehnologije-projekti">
-                            <span class="tech-tag-projekti">HTML</span>
-                            <span class="tech-tag-projekti">CSS</span>
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
                             <span class="tech-tag-projekti">JavaScript</span>
                         </div>
                         <div class="dugmici-projekti">
@@ -572,8 +590,144 @@
                         </div>
                     </div>
                 </div>
+                <!-- FluffyFlowers.rs -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="react">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/projekti/ffrs.png" alt="fluffyflowers-rs" width="600" height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project6_title">FluffyFlowers.rs</h3>
+                        <p class="opis-projekti" data-translate-key="project6_desc">E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">React</span>
+                            <span class="tech-tag-projekti">TypeScript</span>
+                            <span class="tech-tag-projekti">Vite</span>
+                            <span class="tech-tag-projekti">Tailwind</span>
+                            <span class="tech-tag-projekti">JavaScript</span>
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
+                            <span class="tech-tag-projekti">JSON</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://fluffyflowers.rs" class="link-projekti demo-link-projekti">Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BGDCARS Detailing Sajt -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="html-css-js">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/bgdcars-projekat.png" alt="bgd-cars-detailing" width="600" height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project2_title">BGDCARS Detailing Sajt</h3>
+                        <p class="opis-projekti" data-translate-key="project2_desc">Profesionalan sajt firme za detailing automobila.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
+                            <span class="tech-tag-projekti">JavaScript</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://djurke23.github.io/bgdcarsdetailing/"
+                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                                Demo</a>
+                            <a href="https://github.com/djurke23/bgdcarsdetailing"
+                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inno Build Group Sajt -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="html-css-js">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/ibg.png" alt="inno-build-group" width="600" height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project3_title">Inno Build Group Sajt</h3>
+                        <p class="opis-projekti" data-translate-key="project3_desc">Profesionalan sajt firme za adaptaciju stanova.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
+                            <span class="tech-tag-projekti">JavaScript</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://djurke23.github.io/Inno-Build-Group/"
+                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                                Demo</a>
+                            <a href="https://github.com/djurke23/Inno-Build-Group"
+                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monster Gym -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="wordpress">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/projekti/monster-gym.png" alt="Monster Gym" width="600" height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project9_title">Monster Gym</h3>
+                        <p class="opis-projekti" data-translate-key="project9_desc">Web sajt za teretanu sa modernim dizajnom i pregledom usluga.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">WordPress</span>
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://djurke23.github.io/monster-gym/"
+                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                                Demo</a>
+                            <a href="https://github.com/djurke23/monster-gym"
+                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dental Plus -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="wordpress">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/projekti/dental-plus.png" alt="Dental Plus" width="600" height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project10_title">Dental Plus</h3>
+                        <p class="opis-projekti" data-translate-key="project10_desc">Web sajt za stomatološku ordinaciju sa informacijama o uslugama.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">WordPress</span>
+                            <span class="tech-tag-projekti">HTML5</span>
+                            <span class="tech-tag-projekti">CSS3</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://djurke23.github.io/dental-plus/"
+                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                                Demo</a>
+                            <a href="https://github.com/djurke23/dental-plus"
+                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Rev&Chill -->
-                <div class="kartica-projekti" data-category="web-sajt">
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="next-js">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
                             <img src="slike/projekti/rev-and-chill.png" alt="rev-and-chill" width="600" height="400">
@@ -588,7 +742,7 @@
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">Next.js</span>
                             <span class="tech-tag-projekti">TypeScript</span>
-                            <span class="tech-tag-projekti">CSS</span>
+                            <span class="tech-tag-projekti">CSS3</span>
                             <span class="tech-tag-projekti">Cloudflare D1</span>
                             <span class="tech-tag-projekti">Cloudflare R2</span>
                         </div>
@@ -599,40 +753,11 @@
                     </div>
                 </div>
 
-                <!-- Web Sajtovi -->
-                <div class="kartica-projekti" data-category="web-sajt">
-                    <div class="slika-wrapper-projekti">
-                        <div class="slika-projekti">
-                            <img src="slike/projekti/ffrs.png" alt="fluffyflowers-rs" width="600" height="400">
-                        </div>
-                        <div class="slika-overlay-projekti"></div>
-                    </div>
-                    <div class="sadrzaj-projekti">
-                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project6_title">FluffyFlowers.rs</h3>
-                        <p class="opis-projekti" data-translate-key="project6_desc">E-commerce sajt i shop za prodaju
-                            plišanih handmade žica cveća, izrađen u modernom React ekosistemu.</p>
-                        <div class="tehnologije-projekti">
-                            <span class="tech-tag-projekti">React</span>
-                            <span class="tech-tag-projekti">TypeScript</span>
-                            <span class="tech-tag-projekti">Vite</span>
-                            <span class="tech-tag-projekti">Tailwind</span>
-                            <span class="tech-tag-projekti">JavaScript</span>
-                            <span class="tech-tag-projekti">HTML</span>
-                            <span class="tech-tag-projekti">CSS</span>
-                            <span class="tech-tag-projekti">JSON</span>
-                        </div>
-                        <div class="dugmici-projekti">
-                            <a href="https://fluffyflowers.rs" class="link-projekti demo-link-projekti">Live</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kartica-projekti" data-category="web-sajt">
+                <!-- Lični Portfolio -->
+                <div class="kartica-projekti" data-category="web-sajt" data-subcategory="html-css-js">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
                             <img src="slike/portfolija.png" alt="portfolio" width="700" height="400">
-                            </svg>
                         </div>
                         <div class="slika-overlay-projekti"></div>
                     </div>
@@ -656,257 +781,8 @@
                     </div>
                 </div>
 
-                <div class="kartica-projekti" data-category="web-sajt">
-                    <div class="slika-wrapper-projekti">
-                        <div class="slika-projekti">
-                            <img src="slike/bgdcars-projekat.png" alt="bgd-cars-detailing" width="600" height="400">
-                        </div>
-                        <div class="slika-overlay-projekti"></div>
-                    </div>
-                    <div class="sadrzaj-projekti">
-                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project2_title">BGDCARS Detailing Sajt
-                        </h3>
-                        <p class="opis-projekti" data-translate-key="project2_desc">Profesionalan sajt firme za
-                            detailing automobila.</p>
-                        <div class="tehnologije-projekti">
-                            <span class="tech-tag-projekti">HTML5</span>
-                            <span class="tech-tag-projekti">CSS3</span>
-                            <span class="tech-tag-projekti">JavaScript</span>
-                        </div>
-                        <div class="dugmici-projekti">
-                            <a href="https://djurke23.github.io/bgdcarsdetailing/"
-                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
-                                Demo</a>
-                            <a href="https://github.com/djurke23/bgdcarsdetailing"
-                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kartica-projekti" data-category="web-sajt">
-                    <div class="slika-wrapper-projekti">
-                        <div class="slika-projekti">
-                            <img src="slike/ibg.png" alt="inno-build-group" width="600" height="400">
-                        </div>
-                        <div class="slika-overlay-projekti"></div>
-                    </div>
-                    <div class="sadrzaj-projekti">
-                        <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project3_title">Inno Build Group Sajt
-                        </h3>
-                        <p class="opis-projekti" data-translate-key="project3_desc">Profesionalan sajt firme za
-                            adapptaciju stanova.</p>
-                        <div class="tehnologije-projekti">
-                            <span class="tech-tag-projekti">HTML5</span>
-                            <span class="tech-tag-projekti">CSS3</span>
-                            <span class="tech-tag-projekti">JavaScript</span>
-                        </div>
-                        <div class="dugmici-projekti">
-                            <a href="https://djurke23.github.io/Inno-Build-Group/"
-                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
-                                Demo</a>
-                            <a href="https://github.com/djurke23/Inno-Build-Group"
-                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web Aplikacije 
-            <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/rng.png" alt="random" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">Random Number Generator</h3>
-                    <p class="opis-projekti">Basic aplikacija generisanja nasumicnog broja.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/random_number_generator/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/random_number_generator" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/rqg.png" alt="random quote" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">Random Quote Generator</h3>
-                    <p class="opis-projekti">Basic random quote generator.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/random-quote-generator/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/random-quote-generator" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/quiz.png" alt="random quote" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">Quiz</h3>
-                    <p class="opis-projekti">Basic quiz.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/quiz/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/quiz" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/calc.png" alt="calculator" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">Calculator</h3>
-                    <p class="opis-projekti">Basic calculator.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/calculator/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/calculator" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-             <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/qr.png" alt="qr" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">QR Code Generator</h3>
-                    <p class="opis-projekti">Basic qr code generator.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/qr-code-generator/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/qr-code-generator" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kartica-projekti" data-category="web-app">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <img src="slike/todo.png" alt="todo" width="600" height="400">
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Web Aplikacija</span>
-                    <h3 class="naslov-kartice-projekti">To Do List </h3>
-                    <p class="opis-projekti">Basic to do list.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">HTML5</span>
-                        <span class="tech-tag-projekti">CSS3</span>
-                        <span class="tech-tag-projekti">JavaScript</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="https://djurke23.github.io/to_do_list/" class="link-projekti demo-link-projekti">Live Demo</a>
-                        <a href="https://github.com/djurke23/to_do_list" class="link-projekti github-link-projekti">GitHub</a>
-                    </div>
-                </div>
-            </div>
--->
-
-
-                <!-- Video Montaža 
-            <div class="kartica-projekti" data-category="video">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1" stroke-linecap="round">
-                            <polygon points="23 7 16 12 23 17 23 7"/>
-                            <rect x="1" y="5" width="15" height="14" rx="2"/>
-                        </svg>
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Video Montaža</span>
-                    <h3 class="naslov-kartice-projekti">Korporativni Video</h3>
-                    <p class="opis-projekti">Profesionalni promotivni video sa motion graphics elementima i color gradingom.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">Premiere Pro</span>
-                        <span class="tech-tag-projekti">After Effects</span>
-                        <span class="tech-tag-projekti">DaVinci</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="#" class="link-projekti demo-link-projekti">Pogledaj</a>
-                        <a href="#" class="link-projekti github-link-projekti">Vimeo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kartica-projekti" data-category="video">
-                <div class="slika-wrapper-projekti">
-                    <div class="slika-projekti">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1" stroke-linecap="round">
-                            <path d="M9 2v20l13-10z"/>
-                        </svg>
-                    </div>
-                    <div class="slika-overlay-projekti"></div>
-                </div>
-                <div class="sadrzaj-projekti">
-                    <span class="kategorija-tag-projekti">Video Montaža</span>
-                    <h3 class="naslov-kartice-projekti">YouTube Intro</h3>
-                    <p class="opis-projekti">Dinamični intro sa 3D elementima i profesionalnim sound designom za YouTube kanal.</p>
-                    <div class="tehnologije-projekti">
-                        <span class="tech-tag-projekti">After Effects</span>
-                        <span class="tech-tag-projekti">Cinema 4D</span>
-                        <span class="tech-tag-projekti">Audition</span>
-                    </div>
-                    <div class="dugmici-projekti">
-                        <a href="#" class="link-projekti demo-link-projekti">Pogledaj</a>
-                        <a href="#" class="link-projekti github-link-projekti">YouTube</a>
-                    </div>
-                </div>
-            </div>
--->
-                <!-- Dizajn -->
-                <div class="kartica-projekti" data-category="dizajn">
+                <!-- Dizajn: Finance Tracker -->
+                <div class="kartica-projekti" data-category="dizajn" data-subcategory="figma">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
                             <img src="slike/figma ft.png" alt="qr" width="600" height="400">
@@ -928,12 +804,12 @@
                             <a href="https://www.figma.com/make/pDJnGMgjp3XJGJ1i7eS8yC/Finance-Tracker-App?node-id=0-1&p=f&t=HUC5FjnMHuhoDLpB-0&fullscreen=1"
                                 class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
                                 Demo</a>
-
                         </div>
                     </div>
                 </div>
 
-                <div class="kartica-projekti" data-category="dizajn">
+                <!-- Dizajn: Habit Tracker -->
+                <div class="kartica-projekti" data-category="dizajn" data-subcategory="figma adobe-xd">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
                             <img src="slike/figma ht.png" alt="qr" width="600" height="400">
@@ -954,10 +830,37 @@
                         <div class="dugmici-projekti">
                             <a href="#" class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
                                 Demo</a>
-
                         </div>
                     </div>
                 </div>
+
+                <!-- carFlo - Mobile App -->
+                <div class="kartica-projekti" data-category="mobile-app">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti coming-soon-bg">
+                            <span class="coming-soon-badge" data-translate-key="coming_soon">Uskoro</span>
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_mobile_app">Mobilna Aplikacija</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project11_title">carFlo - Mobile App</h3>
+                        <p class="opis-projekti" data-translate-key="project11_desc">Uskoro... Mobilna aplikacija za jednostavno praćenje troškova vašeg vozila na iOS i Android uređajima.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">iOS</span>
+                            <span class="tech-tag-projekti">Android</span>
+                            <span class="tech-tag-projekti">Flutter</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <button class="link-projekti disabled-link-projekti" disabled data-translate-key="coming_soon">Uskoro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="prikazi-vise-wrapper">
+                <button id="prikazi-vise-btn" class="prikazi-vise-btn" data-translate-key="btn_load_more">Prikaži više</button>
             </div>
         </section>
 

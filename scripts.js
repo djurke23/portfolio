@@ -147,27 +147,141 @@ applyTheme();
 if (modeToggle) modeToggle.addEventListener('click', toggleTheme);
 
 const filterBtns = document.querySelectorAll('.filter-btn-projekti');
+const subfilterBtns = document.querySelectorAll('.subfilter-btn-projekti');
 const projekti = document.querySelectorAll('.kartica-projekti');
+const loadMoreBtn = document.getElementById('prikazi-vise-btn');
+const webSajtSubfilters = document.getElementById('subfilter-web-sajt');
+const dizajnSubfilters = document.getElementById('subfilter-dizajn');
+let currentLimit = 6;
+let activeFilter = 'sve';
+let activeSubfilter = 'all';
 
+function updateProjectsVisibility(isLoadMore = false) {
+    let visibleCount = 0;
+    let matchCount = 0;
+    let newlyRevealedCount = 0;
+
+    // Show or hide subfilter containers based on active main filter
+    if (activeFilter === 'web-sajt') {
+        if (webSajtSubfilters) webSajtSubfilters.style.display = 'flex';
+        if (dizajnSubfilters) dizajnSubfilters.style.display = 'none';
+    } else if (activeFilter === 'dizajn') {
+        if (webSajtSubfilters) webSajtSubfilters.style.display = 'none';
+        if (dizajnSubfilters) dizajnSubfilters.style.display = 'flex';
+    } else {
+        if (webSajtSubfilters) webSajtSubfilters.style.display = 'none';
+        if (dizajnSubfilters) dizajnSubfilters.style.display = 'none';
+    }
+
+    projekti.forEach((projekat) => {
+        const cat = projekat.getAttribute('data-category');
+        const subcatStr = projekat.getAttribute('data-subcategory') || '';
+        const subcats = subcatStr.split(' ');
+
+        const matchesCategory = (activeFilter === 'sve' || cat === activeFilter);
+        const matchesSubcategory = (activeSubfilter === 'all' || subcats.includes(activeSubfilter));
+
+        if (matchesCategory && matchesSubcategory) {
+            matchCount++;
+            if (visibleCount < currentLimit) {
+                if (projekat.classList.contains('sakriveno-projekti')) {
+                    projekat.classList.remove('sakriveno-projekti');
+                    projekat.style.animation = 'fadeInUp 0.6s ease forwards';
+                    projekat.style.animationDelay = `${newlyRevealedCount * 0.1}s`;
+                    newlyRevealedCount++;
+                } else if (!isLoadMore) {
+                    // Reset animation for a fresh start on category/subcategory switch
+                    projekat.style.animation = 'none';
+                    projekat.offsetHeight; // trigger reflow
+                    projekat.style.animation = 'fadeInUp 0.6s ease forwards';
+                    projekat.style.animationDelay = `${visibleCount * 0.1}s`;
+                }
+                visibleCount++;
+            } else {
+                projekat.classList.add('sakriveno-projekti');
+            }
+        } else {
+            projekat.classList.add('sakriveno-projekti');
+        }
+    });
+
+    // Handle the button text/action: "Prikaži više" (Show More) or "Prikaži manje" (Show Less)
+    if (loadMoreBtn) {
+        const lang = localStorage.getItem('language') || 'sr-latin';
+        if (matchCount > currentLimit) {
+            loadMoreBtn.style.display = 'inline-block';
+            loadMoreBtn.setAttribute('data-translate-key', 'btn_load_more');
+            loadMoreBtn.textContent = translations[lang]['btn_load_more'] || 'Prikaži više';
+            loadMoreBtn.setAttribute('data-action', 'show-more');
+        } else if (matchCount > 6) {
+            loadMoreBtn.style.display = 'inline-block';
+            loadMoreBtn.setAttribute('data-translate-key', 'btn_show_less');
+            loadMoreBtn.textContent = translations[lang]['btn_show_less'] || 'Prikaži manje';
+            loadMoreBtn.setAttribute('data-action', 'show-less');
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+}
+
+// Main Category Filters
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('aktivan-projekti'));
         btn.classList.add('aktivan-projekti');
-        const filter = btn.getAttribute('data-filter');
-        projekti.forEach((projekat, index) => {
-            projekat.style.animation = 'none';
-            setTimeout(() => {
-                if (filter === 'sve' || projekat.getAttribute('data-category') === filter) {
-                    projekat.classList.remove('sakriveno-projekti');
-                    projekat.style.animation = `fadeInUp 0.6s ease forwards`;
-                    projekat.style.animationDelay = `${index * 0.1}s`;
-                } else {
-                    projekat.classList.add('sakriveno-projekti');
-                }
-            }, 10);
+        activeFilter = btn.getAttribute('data-filter');
+        
+        // Reset subfilter when main category changes
+        activeSubfilter = 'all';
+        subfilterBtns.forEach(sb => {
+            if (sb.getAttribute('data-subfilter') === 'all') {
+                sb.classList.add('aktivan-subfilter');
+            } else {
+                sb.classList.remove('aktivan-subfilter');
+            }
         });
+
+        currentLimit = 6;
+        updateProjectsVisibility();
     });
 });
+
+// Subcategory Filters
+subfilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.subfilter-btn-projekti').forEach(b => b.classList.remove('aktivan-subfilter'));
+        btn.classList.add('aktivan-subfilter');
+        activeSubfilter = btn.getAttribute('data-subfilter');
+        currentLimit = 6;
+        updateProjectsVisibility();
+    });
+});
+
+// Load More / Show Less Button
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+        const action = loadMoreBtn.getAttribute('data-action');
+        if (action === 'show-less') {
+            currentLimit = 6;
+            updateProjectsVisibility();
+            // Scroll back smoothly
+            const target = document.getElementById('moji-projekti');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            currentLimit += 6;
+            updateProjectsVisibility(true);
+        }
+    });
+}
+
+// Initial update on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateProjectsVisibility();
+});
+
 
 const scrollerInnerLogos = document.querySelector(".logos__inner-infinite");
 if (scrollerInnerLogos && !scrollerInnerLogos.getAttribute('data-cloned')) {
@@ -290,14 +404,23 @@ const translations = {
         'project6_desc': 'E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.',
         'project7_title': 'Rev&Chill',
         'project7_desc': 'Kompletan sistem za registraciju i prijavu automobila za auto skupove, sa bazom podataka i skladištenjem slika.',
-        'project8_title': 'CarFlo',
+        'project8_title': 'carFlo',
         'project8_desc': 'Ultimate vehicle logbook app. Logujte gorivo, održavanje, troškove i putovanja — sve na jednom mestu.',
+        'project9_title': 'Monster Gym',
+        'project9_desc': 'Web sajt za teretanu sa modernim dizajnom i pregledom usluga.',
+        'project10_title': 'Dental Plus',
+        'project10_desc': 'Web sajt za stomatološku ordinaciju sa informacijama o uslugama.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Kompletan vizuelni identitet startup-a uključujući logo, tipografiju i brand guidelines.',
         'project5_title': 'Habit Tracker',
         'project5_desc': 'Moderni UI dizajn za fitness aplikaciju sa dark temom i interaktivnim prototipom.',
+        'project11_title': 'carFlo - Mobile App',
+        'project11_desc': 'Uskoro... Mobilna aplikacija za jednostavno praćenje troškova vašeg vozila na iOS i Android uređajima.',
         'btn_live_demo': 'Live Demo',
         'btn_github': 'GitHub',
+        'btn_load_more': 'Prikaži više',
+        'btn_show_less': 'Prikaži manje',
+        'coming_soon': 'Uskoro',
         'testimonials_title': 'Šta Kažu Klijenti',
         'testimonials_intro': 'Iskustva koja pokreću rast i inovacije.',
         'testimonials_subtitle': 'Iskustva koja pokreću rast i inovacije.',
@@ -473,12 +596,21 @@ const translations = {
         'project6_desc': 'E-commerce website and shop for selling plush handmade wire flowers, built in a modern React ecosystem.',
         'project7_title': 'Rev&Chill',
         'project7_desc': 'Full-stack registration system for car events, featuring a database and cloud image storage.',
-        'project8_title': 'CarFlo',
+        'project8_title': 'carFlo',
         'project8_desc': 'The ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place.',
+        'project9_title': 'Monster Gym',
+        'project9_desc': 'Gym website featuring a modern design and service overview.',
+        'project10_title': 'Dental Plus',
+        'project10_desc': 'Website for a dental clinic featuring services information.',
         'project4_title': 'Finance Tracker',
         'project4_desc': 'Complete visual identity for a startup including logo, typography and brand guidelines.',
         'project5_title': 'Habit Tracker',
         'project5_desc': 'Modern UI design for fitness app with dark theme and interactive prototype.',
+        'project11_title': 'carFlo - Mobile App',
+        'project11_desc': 'Coming soon... Mobile application for simple tracking of your vehicle expenses on iOS and Android devices.',
+        'btn_load_more': 'Show More',
+        'btn_show_less': 'Show Less',
+        'coming_soon': 'Coming Soon',
         // FAQ
         'faq_title': 'Frequently Asked Questions',
         'faq_intro': 'Answers to common questions about cooperation and work process.',
