@@ -1797,9 +1797,24 @@ body>header {
 
 .grid-projekti {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
 }
+
+@media (min-width: 768px) {
+    .grid-projekti {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-projekti {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 /* Subcategory Filters */
 .subfilter-container-projekti {
@@ -1885,6 +1900,9 @@ body>header {
 }
 
 .kartica-projekti {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -1985,6 +2003,9 @@ body>header {
 
 .sadrzaj-projekti {
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .kategorija-tag-projekti {
@@ -2011,12 +2032,15 @@ body>header {
     line-height: 1.7;
     margin-bottom: 25px;
     font-size: 0.95rem;
+    flex: 1;
 }
 
 .tehnologije-projekti {
+    min-height: 80px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    align-content: flex-start;
+    gap: 8px;
     margin-bottom: 25px;
 }
 
@@ -2039,6 +2063,7 @@ body>header {
 .dugmici-projekti {
     display: flex;
     gap: 15px;
+    margin-top: auto;
 }
 
 .link-projekti {
@@ -3613,4 +3638,232 @@ body {
         gap: 6px;
         padding: 6px 14px;
     }
+}
+
+/* ========================= */
+/* THEME TOGGLE BUTTON       */
+/* ========================= */
+.theme-toggle {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+.theme-toggle:hover {
+    background: rgba(0,255,157,0.15);
+    border-color: #00ff9d;
+    color: #00ff9d;
+    transform: scale(1.1);
+}
+.light-mode .theme-toggle {
+    background: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.15);
+    color: #333;
+}
+.light-mode .theme-toggle:hover {
+    background: rgba(0,180,120,0.12);
+    border-color: #00b478;
+    color: #00b478;
+}
+
+/* ========================= */
+/* EQUIPMENT SECTION         */
+/* ========================= */
+.equipment-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.equipment-grid {
+    column-count: 3;
+    column-gap: 28px;
+    margin-top: 48px;
+}
+
+.equipment-category {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 24px;
+    transition: all 0.35s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    break-inside: avoid;
+    margin-bottom: 28px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.equipment-category::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.equipment-category:hover {
+    border-color: rgba(0,255,157,0.25);
+    background: rgba(0,255,157,0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,255,157,0.08);
+}
+
+.equipment-category:hover::before {
+    opacity: 1;
+}
+
+.equipment-category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.equipment-category-header i {
+    color: #00ff9d;
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,255,157,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipment-category-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.equipment-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    margin-top: 10px;
+    transition: background 0.25s ease;
+}
+
+.equipment-card:hover {
+    background: rgba(0,255,157,0.06);
+}
+
+.equipment-icon-wrap {
+    width: 44px;
+    height: 44px;
+    background: rgba(0,255,157,0.1);
+    border: 1px solid rgba(0,255,157,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+    color: #00ff9d;
+    transition: all 0.25s ease;
+}
+
+.equipment-card:hover .equipment-icon-wrap {
+    background: rgba(0,255,157,0.18);
+    border-color: rgba(0,255,157,0.45);
+    transform: scale(1.05);
+}
+
+.equipment-info h4 {
+    margin: 0 0 3px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.equipment-info p {
+    margin: 0;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+}
+
+/* Light mode overrides for Equipment */
+.light-mode .equipment-category {
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.08);
+}
+.light-mode .equipment-category:hover {
+    border-color: rgba(0,180,120,0.3);
+    background: rgba(0,180,120,0.04);
+    box-shadow: 0 12px 40px rgba(0,180,120,0.08);
+}
+.light-mode .equipment-category-header {
+    border-color: rgba(0,0,0,0.07);
+}
+.light-mode .equipment-category-header i {
+    color: #00a86b;
+    background: rgba(0,168,107,0.1);
+}
+.light-mode .equipment-category-header h3 {
+    color: #222;
+}
+.light-mode .equipment-card {
+    background: rgba(0,0,0,0.02);
+}
+.light-mode .equipment-card:hover {
+    background: rgba(0,168,107,0.06);
+}
+.light-mode .equipment-icon-wrap {
+    background: rgba(0,168,107,0.1);
+    border-color: rgba(0,168,107,0.2);
+    color: #00a86b;
+}
+.light-mode .equipment-info h4 {
+    color: #1a1a1a;
+}
+.light-mode .equipment-info p {
+    color: rgba(0,0,0,0.5);
+}
+
+/* Equipment responsive */
+@media (max-width: 1024px) {
+    .equipment-grid {
+        column-count: 2;
+    }
+}
+@media (max-width: 768px) {
+    .equipment-grid {
+        column-count: 1;
+    }
+    .equipment-section {
+        padding: 50px 16px;
+    }
+}
+
+/* Hide comments section, oprema section, and theme toggle button completely */
+.testimonial-section-reviews,
+#oprema,
+#modeToggle {
+    display: none !important;
 }

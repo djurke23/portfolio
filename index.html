@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luka Đurić - Portfolija</title>
+    <title>Luka Đurić - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
@@ -39,6 +39,7 @@
                     <li><a href="#usluge" data-translate-key="nav_services">Usluge</a></li>
                     <li><a href="#vestine" data-translate-key="nav_skills">Veštine</a></li>
                     <li><a href="#moji-projekti" data-translate-key="nav_projects">Projekti</a></li>
+                    <!--      <li><a href="#oprema" data-translate-key="nav_equipment">Oprema</a></li> -->
                     <li><a href="#contact" data-translate-key="nav_contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -54,11 +55,10 @@
                         English</a>
                 </div>
             </div>
-            <!-- Theme toggle (dark/light mode) - HIDDEN FOR NOW
+            <!-- Theme toggle (dark/light mode) -->
             <button class="theme-toggle" id="modeToggle" title="Toggle theme" aria-label="Toggle theme">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
-            -->
 
             <!-- za telefon burger -->
             <div class="burger">
@@ -174,7 +174,8 @@
                     <div class="about-info-card">
                         <div class="about-info-icon"><i class="fas fa-graduation-cap"></i></div>
                         <div class="about-info-label" data-translate-key="info_degree_label">Diploma</div>
-                        <div class="about-info-value" data-translate-key="info_degree_value">Master studije (čeka se odbrana rada)</div>
+                        <div class="about-info-value" data-translate-key="info_degree_value">Master studije (čeka se
+                            odbrana rada)</div>
                     </div>
                     <div class="about-info-card">
                         <div class="about-info-icon"><i class="fas fa-city"></i></div>
@@ -502,19 +503,26 @@
                                 alt="Docker Logo"></a></li>
                     <li><a href="#" title="Git"><img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg"
                                 alt="Git Logo"></a></li>
-                    <li><a href="#" title="PostgreSQL"><img src="https://cdn.worldvectorlogo.com/logos/postgresql.svg"
-                                alt="PostgreSQL Logo"></a></li>
+
                     <li><a href="#" title="Zoom"><img
                                 src="https://cdn.worldvectorlogo.com/logos/zoom-communications-logo.svg"
                                 alt="Zoom Logo"></a></li>
-                    <li><a href="#" title="Git"><img src="https://cdn.worldvectorlogo.com/logos/git.svg"
-                                alt="Git Logo"></a></li>
+
                     <li><a href="#" title="DaVinci"><img
                                 src="https://cdn.worldvectorlogo.com/logos/davinci-resolve-12.svg"
                                 alt="DaVinci Logo"></a></li>
                     <li><a href="#" title="CapCut"><img
                                 src="https://cdn.worldvectorlogo.com/logos/capcut-symbol-logo-vector.svg"
                                 alt="CapCut Logo"></a></li>
+                    <li><a href="#" title="Microsoft Teams"><img
+                                src="https://cdn.worldvectorlogo.com/logos/microsoft-teams-1.svg"
+                                alt="Microsoft Teams Logo"></a></li>
+                    <li><a href="#" title="Supabase"><img
+                                src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg"
+                                alt="Supabase Logo"></a></li>
+                    <li><a href="#" title="Xcode"><img
+                                src="https://www.vectorlogo.zone/logos/apple_xcode/apple_xcode-icon.svg"
+                                alt="Xcode Logo"></a></li>
                 </ul>
                 </ul>
             </div>
@@ -523,7 +531,7 @@
 
 
 
-        <!-- projekti        <!-- projekti v2-->
+        <!-- projekti   projekti v2-->
 
 
 
@@ -545,7 +553,8 @@
                     Sajtovi</button>
                 <button class="filter-btn-projekti" data-filter="web-app" data-translate-key="filter_webapps">Web
                     Aplikacije</button>
-                <button class="filter-btn-projekti" data-filter="mobile-app" data-translate-key="filter_mobile_apps">Mobilne
+                <button class="filter-btn-projekti" data-filter="mobile-app"
+                    data-translate-key="filter_mobile_apps">Mobilne
                     Aplikacije</button>
                 <button class="filter-btn-projekti" data-filter="dizajn"
                     data-translate-key="filter_design">Dizajn</button>
@@ -553,7 +562,8 @@
 
             <!-- Subcategory Filters -->
             <div class="subfilter-container-projekti" id="subfilter-web-sajt" style="display: none;">
-                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all" data-translate-key="filter_all">Sve</button>
+                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all"
+                    data-translate-key="filter_all">Sve</button>
                 <button class="subfilter-btn-projekti" data-subfilter="html-css-js">html/css/js</button>
                 <button class="subfilter-btn-projekti" data-subfilter="react">react</button>
                 <button class="subfilter-btn-projekti" data-subfilter="next-js">next.js</button>
@@ -561,14 +571,47 @@
             </div>
 
             <div class="subfilter-container-projekti" id="subfilter-dizajn" style="display: none;">
-                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all" data-translate-key="filter_all">Sve</button>
+                <button class="subfilter-btn-projekti aktivan-subfilter" data-subfilter="all"
+                    data-translate-key="filter_all">Sve</button>
                 <button class="subfilter-btn-projekti" data-subfilter="figma">figma</button>
                 <button class="subfilter-btn-projekti" data-subfilter="canva">canva</button>
                 <button class="subfilter-btn-projekti" data-subfilter="adobe-xd">adobe xd</button>
             </div>
 
             <div class="grid-projekti">
-                <!-- carFlo -->
+                <!-- carFlo - Mobile App (FIRST) -->
+                <div class="kartica-projekti" data-category="mobile-app" style="order:-1">
+                    <div class="slika-wrapper-projekti">
+                        <div class="slika-projekti">
+                            <img src="slike/projekti/carflo-mobile.png" alt="carFlo Mobile App" width="600"
+                                height="400">
+                        </div>
+                        <div class="slika-overlay-projekti"></div>
+                    </div>
+                    <div class="sadrzaj-projekti">
+                        <span class="kategorija-tag-projekti" data-translate-key="category_mobile_app">Mobilna
+                            Aplikacija</span>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project11_title">carFlo - Mobile App
+                        </h3>
+                        <p class="opis-projekti" data-translate-key="project11_desc">Ultimativna mobilna aplikacija za
+                            praćenje troškova vozila — gorivo, servis, troškovi i putovanja na jednom mestu. Dostupna na
+                            App Store-u.</p>
+                        <div class="tehnologije-projekti">
+                            <span class="tech-tag-projekti">React Native</span>
+                            <span class="tech-tag-projekti">TypeScript</span>
+                            <span class="tech-tag-projekti">Capacitor</span>
+                            <span class="tech-tag-projekti">Supabase</span>
+                            <span class="tech-tag-projekti">RevenueCat</span>
+                            <span class="tech-tag-projekti">iOS</span>
+                        </div>
+                        <div class="dugmici-projekti">
+                            <a href="https://apps.apple.com/rs/app/carflo-car-expense-tracker/id6778638970"
+                                target="_blank" rel="noopener noreferrer" class="link-projekti demo-link-projekti">App
+                                Store</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- carFlo Web -->
                 <div class="kartica-projekti" data-category="web-sajt" data-subcategory="html-css-js">
                     <div class="slika-wrapper-projekti">
                         <div class="slika-projekti">
@@ -578,15 +621,17 @@
                     </div>
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project8_title">carFlo</h3>
-                        <p class="opis-projekti" data-translate-key="project8_desc">Ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place.</p>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project8_title">carFlo - Web Sajt</h3>
+                        <p class="opis-projekti" data-translate-key="project8_desc">Ultimate vehicle logbook app. Log
+                            fuel, maintenance, expenses, and trips — all in one place.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">HTML5</span>
                             <span class="tech-tag-projekti">CSS3</span>
                             <span class="tech-tag-projekti">JavaScript</span>
                         </div>
                         <div class="dugmici-projekti">
-                            <a href="https://djurke23.github.io/CarFlo/" class="link-projekti demo-link-projekti">Live</a>
+                            <a href="https://djurke23.github.io/CarFlo/"
+                                class="link-projekti demo-link-projekti">Live</a>
                         </div>
                     </div>
                 </div>
@@ -601,7 +646,8 @@
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
                         <h3 class="naslov-kartice-projekti" data-translate-key="project6_title">FluffyFlowers.rs</h3>
-                        <p class="opis-projekti" data-translate-key="project6_desc">E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.</p>
+                        <p class="opis-projekti" data-translate-key="project6_desc">E-commerce sajt i shop za prodaju
+                            plišanih handmade žica cveća, izrađen u modernom React ekosistemu.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">React</span>
                             <span class="tech-tag-projekti">TypeScript</span>
@@ -628,8 +674,10 @@
                     </div>
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project2_title">BGDCARS Detailing Sajt</h3>
-                        <p class="opis-projekti" data-translate-key="project2_desc">Profesionalan sajt firme za detailing automobila.</p>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project2_title">BGDCARS Detailing Sajt
+                        </h3>
+                        <p class="opis-projekti" data-translate-key="project2_desc">Profesionalan sajt firme za
+                            detailing automobila.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">HTML5</span>
                             <span class="tech-tag-projekti">CSS3</span>
@@ -655,8 +703,10 @@
                     </div>
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project3_title">Inno Build Group Sajt</h3>
-                        <p class="opis-projekti" data-translate-key="project3_desc">Profesionalan sajt firme za adaptaciju stanova.</p>
+                        <h3 class="naslov-kartice-projekti" data-translate-key="project3_title">Inno Build Group Sajt
+                        </h3>
+                        <p class="opis-projekti" data-translate-key="project3_desc">Profesionalan sajt firme za
+                            adaptaciju stanova.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">HTML5</span>
                             <span class="tech-tag-projekti">CSS3</span>
@@ -683,18 +733,19 @@
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
                         <h3 class="naslov-kartice-projekti" data-translate-key="project9_title">Monster Gym</h3>
-                        <p class="opis-projekti" data-translate-key="project9_desc">Web sajt za teretanu sa modernim dizajnom i pregledom usluga.</p>
+                        <p class="opis-projekti" data-translate-key="project9_desc">Web sajt za teretanu sa modernim
+                            dizajnom i pregledom usluga.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">WordPress</span>
                             <span class="tech-tag-projekti">HTML5</span>
                             <span class="tech-tag-projekti">CSS3</span>
                         </div>
                         <div class="dugmici-projekti">
-                            <a href="https://djurke23.github.io/monster-gym/"
-                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                            <a href="https://djurke23.github.io/monster-gym/" class="link-projekti demo-link-projekti"
+                                data-translate-key="btn_live_demo">Live
                                 Demo</a>
-                            <a href="https://github.com/djurke23/monster-gym"
-                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                            <a href="https://github.com/djurke23/monster-gym" class="link-projekti github-link-projekti"
+                                data-translate-key="btn_github">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -710,18 +761,19 @@
                     <div class="sadrzaj-projekti">
                         <span class="kategorija-tag-projekti" data-translate-key="category_website">Web Sajt</span>
                         <h3 class="naslov-kartice-projekti" data-translate-key="project10_title">Dental Plus</h3>
-                        <p class="opis-projekti" data-translate-key="project10_desc">Web sajt za stomatološku ordinaciju sa informacijama o uslugama.</p>
+                        <p class="opis-projekti" data-translate-key="project10_desc">Web sajt za stomatološku ordinaciju
+                            sa informacijama o uslugama.</p>
                         <div class="tehnologije-projekti">
                             <span class="tech-tag-projekti">WordPress</span>
                             <span class="tech-tag-projekti">HTML5</span>
                             <span class="tech-tag-projekti">CSS3</span>
                         </div>
                         <div class="dugmici-projekti">
-                            <a href="https://djurke23.github.io/dental-plus/"
-                                class="link-projekti demo-link-projekti" data-translate-key="btn_live_demo">Live
+                            <a href="https://djurke23.github.io/dental-plus/" class="link-projekti demo-link-projekti"
+                                data-translate-key="btn_live_demo">Live
                                 Demo</a>
-                            <a href="https://github.com/djurke23/dental-plus"
-                                class="link-projekti github-link-projekti" data-translate-key="btn_github">GitHub</a>
+                            <a href="https://github.com/djurke23/dental-plus" class="link-projekti github-link-projekti"
+                                data-translate-key="btn_github">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -834,37 +886,184 @@
                     </div>
                 </div>
 
-                <!-- carFlo - Mobile App -->
-                <div class="kartica-projekti" data-category="mobile-app">
-                    <div class="slika-wrapper-projekti">
-                        <div class="slika-projekti coming-soon-bg">
-                            <span class="coming-soon-badge" data-translate-key="coming_soon">Uskoro</span>
-                        </div>
-                        <div class="slika-overlay-projekti"></div>
-                    </div>
-                    <div class="sadrzaj-projekti">
-                        <span class="kategorija-tag-projekti" data-translate-key="category_mobile_app">Mobilna Aplikacija</span>
-                        <h3 class="naslov-kartice-projekti" data-translate-key="project11_title">carFlo - Mobile App</h3>
-                        <p class="opis-projekti" data-translate-key="project11_desc">Uskoro... Mobilna aplikacija za jednostavno praćenje troškova vašeg vozila na iOS i Android uređajima.</p>
-                        <div class="tehnologije-projekti">
-                            <span class="tech-tag-projekti">iOS</span>
-                            <span class="tech-tag-projekti">Android</span>
-                            <span class="tech-tag-projekti">Flutter</span>
-                        </div>
-                        <div class="dugmici-projekti">
-                            <button class="link-projekti disabled-link-projekti" disabled data-translate-key="coming_soon">Uskoro</button>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <!-- Load More Button -->
             <div class="prikazi-vise-wrapper">
-                <button id="prikazi-vise-btn" class="prikazi-vise-btn" data-translate-key="btn_load_more">Prikaži više</button>
+                <button id="prikazi-vise-btn" class="prikazi-vise-btn" data-translate-key="btn_load_more">Prikaži
+                    više</button>
             </div>
         </section>
 
 
+
+        <!-- Oprema / Equipment Section -->
+        <section class="equipment-section" id="oprema">
+            <h2 class="section-title-ms" data-translate-key="equipment_title">Moja Oprema</h2>
+            <p class="section-divider-text" data-translate-key="equipment_intro">Alati i uređaji koje svakodnevno
+                koristim u radu i hobijima.</p>
+
+            <div class="equipment-grid">
+
+                <!-- Telefon -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3 data-translate-key="eq_cat_phone">Telefon</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>iPhone 17 Pro Max</h4>
+                            <p>Apple Silicon · Titanium · 6.9"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laptop -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-laptop"></i>
+                        <h3 data-translate-key="eq_cat_laptop">Laptop</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>MacBook Pro M4 14"</h4>
+                            <p>Apple M4 · 14" Liquid Retina XDR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PC Desktop -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3 data-translate-key="eq_cat_pc">PC / Desktop</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Intel Core i5-13600KF</h4>
+                            <p>14 Cores · 20 Threads · up to 5.1GHz</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>32 GB DDR4 4133MHz</h4>
+                            <p>High Performance Memory</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Intel ARC A770 16GB</h4>
+                            <p>16GB GDDR6 · Ray Tracing</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-hdd"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>2x 1TB M.2 SSD</h4>
+                            <p>NVMe Storage</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Philips Evnia 34"</h4>
+                            <p>Ultra Wide · 180Hz</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Motherboard & PSU</h4>
+                            <p>[Placeholder] Pending update...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kamera -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-camera"></i>
+                        <h3 data-translate-key="eq_cat_camera">Kamera</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Canon EOS 90D</h4>
+                            <p>32.5MP DSLR · 4K Video · APS-C</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>DJI Action 4</h4>
+                            <p>4K/120fps · HorizonSteady · HDR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-microphone"></i>
+                        <h3 data-translate-key="eq_cat_audio">Audio</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>DJI Mic Mini 2</h4>
+                            <p>Wireless Lavalier · 18h Battery · 250m Range</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DJ Equipment -->
+                <div class="equipment-category">
+                    <div class="equipment-category-header">
+                        <i class="fas fa-headphones"></i>
+                        <h3 data-translate-key="eq_cat_dj">DJ Oprema</h3>
+                    </div>
+                    <div class="equipment-card">
+                        <div class="equipment-icon-wrap">
+                            <i class="fas fa-compact-disc"></i>
+                        </div>
+                        <div class="equipment-info">
+                            <h4>Hercules Inpulse 200 MK2</h4>
+                            <p>DJ Controller · 2 Decks · Built-in Soundcard</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- recenzije v2 -->
 
@@ -1091,6 +1290,7 @@
                 <a href="#usluge" data-translate-key="footer_services">Usluge</a>
                 <a href="#vestine" data-translate-key="footer_skills">Veštine</a>
                 <a href="#moji-projekti" data-translate-key="footer_projects">Projekti</a>
+                <!--  <a href="#oprema" data-translate-key="footer_equipment">Oprema</a>  -->
                 <a href="#contact" data-translate-key="footer_contact">Kontakt</a>
             </nav>
 

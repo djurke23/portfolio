@@ -42,7 +42,7 @@ function startTextAnimation(i) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const savedLang = localStorage.getItem('language') || 'sr-latin';
+    const savedLang = localStorage.getItem('language') || 'en';
     setLanguage(savedLang);
 
     setTimeout(function () {
@@ -309,6 +309,7 @@ const translations = {
         'nav_services': 'Usluge',
         'nav_skills': 'Veštine',
         'nav_projects': 'Projekti',
+        'nav_equipment': 'Oprema',
         'nav_contact': 'Kontakt',
         'hire_me': 'Kontaktirajte Me',
         'hero_greeting': 'Zdravo, Zovem se<br> Luka Đurić',
@@ -390,9 +391,11 @@ const translations = {
         'filter_all': 'Sve',
         'filter_websites': 'Web Sajtovi',
         'filter_webapps': 'Web Aplikacije',
+        'filter_mobile_apps': 'Mobilne Aplikacije',
         'filter_design': 'Dizajn',
         'category_website': 'Web Sajt',
         'category_webapp': 'Web Aplikacija',
+        'category_mobile_app': 'Mobilna Aplikacija',
         'category_design': 'Dizajn',
         'project1_title': 'Lični Portfolio',
         'project1_desc': 'Moderni portfolio sajt sa interaktivnim animacijama, network pozadinom i potpuno responzivnim dizajnom.',
@@ -404,7 +407,7 @@ const translations = {
         'project6_desc': 'E-commerce sajt i shop za prodaju plišanih handmade žica cveća, izrađen u modernom React ekosistemu.',
         'project7_title': 'Rev&Chill',
         'project7_desc': 'Kompletan sistem za registraciju i prijavu automobila za auto skupove, sa bazom podataka i skladištenjem slika.',
-        'project8_title': 'carFlo',
+        'project8_title': 'carFlo - Web Sajt',
         'project8_desc': 'Ultimate vehicle logbook app. Logujte gorivo, održavanje, troškove i putovanja — sve na jednom mestu.',
         'project9_title': 'Monster Gym',
         'project9_desc': 'Web sajt za teretanu sa modernim dizajnom i pregledom usluga.',
@@ -415,7 +418,7 @@ const translations = {
         'project5_title': 'Habit Tracker',
         'project5_desc': 'Moderni UI dizajn za fitness aplikaciju sa dark temom i interaktivnim prototipom.',
         'project11_title': 'carFlo - Mobile App',
-        'project11_desc': 'Uskoro... Mobilna aplikacija za jednostavno praćenje troškova vašeg vozila na iOS i Android uređajima.',
+        'project11_desc': 'Ultimativna mobilna aplikacija za praćenje troškova vozila — gorivo, servis, troškovi i putovanja na jednom mestu. Dostupna na App Store-u.',
         'btn_live_demo': 'Live Demo',
         'btn_github': 'GitHub',
         'btn_load_more': 'Prikaži više',
@@ -452,6 +455,7 @@ const translations = {
         'footer_services': 'Usluge',
         'footer_skills': 'Veštine',
         'footer_projects': 'Projekti',
+        'footer_equipment': 'Oprema',
         'footer_contact': 'Kontakt',
         'footer_copyright': 'Copyright © 2026 Made by Djurke23. Sva prava zadržana.',
         // Modal translations
@@ -494,6 +498,15 @@ const translations = {
         'typing_prefix': 'Ja sam&nbsp;',
         'status_available': 'Dostupan za saradnju',
         'status_location': 'Beograd',
+        // Oprema (Equipment)
+        'equipment_title': 'Moja Oprema',
+        'equipment_intro': 'Alati i uređaji koje svakodnevno koristim u radu i hobijima.',
+        'eq_cat_phone': 'Telefon',
+        'eq_cat_laptop': 'Laptop',
+        'eq_cat_pc': 'PC / Desktop',
+        'eq_cat_camera': 'Kamera',
+        'eq_cat_audio': 'Audio',
+        'eq_cat_dj': 'DJ Oprema'
     },
     'en': {
         'nav_home': 'Home',
@@ -501,6 +514,7 @@ const translations = {
         'nav_services': 'Services',
         'nav_skills': 'Skills',
         'nav_projects': 'Projects',
+        'nav_equipment': 'Equipment',
         'nav_contact': 'Contact',
         'hire_me': 'Hire Me',
         'hero_greeting': 'Hello, My name is<br> Luka Đurić',
@@ -582,9 +596,11 @@ const translations = {
         'filter_all': 'All',
         'filter_websites': 'Websites',
         'filter_webapps': 'Web Apps',
+        'filter_mobile_apps': 'Mobile Apps',
         'filter_design': 'Design',
         'category_website': 'Website',
         'category_webapp': 'Web App',
+        'category_mobile_app': 'Mobile App',
         'category_design': 'Design',
         'project1_title': 'Personal Portfolio',
         'project1_desc': 'Modern portfolio site with interactive animations, network background and fully responsive design.',
@@ -596,7 +612,7 @@ const translations = {
         'project6_desc': 'E-commerce website and shop for selling plush handmade wire flowers, built in a modern React ecosystem.',
         'project7_title': 'Rev&Chill',
         'project7_desc': 'Full-stack registration system for car events, featuring a database and cloud image storage.',
-        'project8_title': 'carFlo',
+        'project8_title': 'carFlo - Website',
         'project8_desc': 'The ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place.',
         'project9_title': 'Monster Gym',
         'project9_desc': 'Gym website featuring a modern design and service overview.',
@@ -607,7 +623,7 @@ const translations = {
         'project5_title': 'Habit Tracker',
         'project5_desc': 'Modern UI design for fitness app with dark theme and interactive prototype.',
         'project11_title': 'carFlo - Mobile App',
-        'project11_desc': 'Coming soon... Mobile application for simple tracking of your vehicle expenses on iOS and Android devices.',
+        'project11_desc': 'The ultimate vehicle logbook app. Log fuel, maintenance, expenses, and trips — all in one place. Available on the App Store.',
         'btn_load_more': 'Show More',
         'btn_show_less': 'Show Less',
         'coming_soon': 'Coming Soon',
@@ -657,6 +673,7 @@ const translations = {
         'footer_services': 'Services',
         'footer_skills': 'Skills',
         'footer_projects': 'Projects',
+        'footer_equipment': 'Equipment',
         'footer_contact': 'Contact',
         'footer_copyright': 'Copyright © 2026 Made by Djurke23. All rights reserved.',
         // Modal translations
@@ -699,6 +716,15 @@ const translations = {
         'typing_prefix': 'I am&nbsp;',
         'status_available': 'Available for hire',
         'status_location': 'Belgrade',
+        // Equipment
+        'equipment_title': 'My Equipment',
+        'equipment_intro': 'Tools and devices I use daily for work and hobbies.',
+        'eq_cat_phone': 'Phone',
+        'eq_cat_laptop': 'Laptop',
+        'eq_cat_pc': 'PC / Desktop',
+        'eq_cat_camera': 'Camera',
+        'eq_cat_audio': 'Audio',
+        'eq_cat_dj': 'DJ Equipment'
     }
 };
 
@@ -801,7 +827,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalPoints = document.getElementById('modal-points-ms');
 
     const getModalTranslation = (key) => {
-        const lang = localStorage.getItem('language') || 'sr-latin';
+        const lang = localStorage.getItem('language') || 'en';
         return translations[lang][key] || key;
     };
 
