@@ -7,6 +7,8 @@ html {
     padding: 0;
     scroll-behavior: smooth;
     /* Glatko skrolovanje za celu stranicu */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 
@@ -433,11 +435,37 @@ nav ul li a:hover::after {
         width: 50%;
         margin-bottom: 20px;
     }
+
+    /* Antigravity fixes for mobile header responsiveness and layout overflow */
+    body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 10px 15px !important;
+    }
+
+    header > .container {
+        padding: 0 !important;
+    }
+
+    .logo {
+        font-size: 20px !important;
+    }
+
+    .hire-me {
+        padding: 8px 14px !important;
+        font-size: 13px !important;
+        margin-top: 0 !important;
+        white-space: nowrap;
+    }
 }
 
 @media screen and (max-width: 480px) {
     header {
-        flex-direction: column;
+        flex-direction: row !important;
     }
 
     nav ul {
@@ -445,11 +473,16 @@ nav ul li a:hover::after {
     }
 
     .hire-me {
-        margin-top: 20px;
+        margin-top: 0 !important;
     }
 
     .stat-item {
         width: 100%;
+    }
+
+    .profile-image {
+        width: 240px !important;
+        height: 240px !important;
     }
 }
 
@@ -2260,7 +2293,7 @@ body>header {
     list-style: none;
     margin: 0;
     padding: 0;
-    animation: scroll-logos-infinite 80s linear infinite;
+    animation: scroll-logos-infinite 40s linear infinite;
 }
 
 /* Pauziranje animacije na hover */
@@ -2273,6 +2306,7 @@ body>header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: 120px;
     /* Fiksna širina */
     height: 80px;
@@ -3866,4 +3900,70 @@ body {
 #oprema,
 #modeToggle {
     display: none !important;
+}
+
+/* ================================================= */
+/* ===== GLOBAL MOBILE OVERFLOW & LAYOUT FIXES ===== */
+/* ================================================= */
+
+/* Prevent all elements from causing horizontal scroll */
+* {
+    max-width: 100%;
+}
+
+img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    /* Lock page to viewport width - no horizontal scroll */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Fix header items from going off-screen */
+    header {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px 12px !important;
+    }
+
+    header > .container {
+        width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        gap: 6px;
+    }
+
+    /* Keep Hire Me button from overflowing */
+    .hire-me {
+        font-size: 12px !important;
+        padding: 7px 12px !important;
+        margin-top: 0 !important;
+        white-space: nowrap !important;
+        flex-shrink: 0;
+    }
+
+    /* Shrink logo slightly so all header items fit */
+    .logo {
+        font-size: 18px !important;
+        flex-shrink: 0;
+    }
+
+    /* Shrink language toggle */
+    .language-toggle {
+        min-width: auto !important;
+        padding: 7px 8px !important;
+        flex-shrink: 0;
+    }
+
+    /* Ensure the main page container doesn't overflow */
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box !important;
+        max-width: 100vw !important;
+    }
 }
