@@ -215,6 +215,19 @@ nav ul li a:hover::after {
     width: 300px;
     height: 300px;
     flex-shrink: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2px dashed #00ff9d;
+    animation: rotate 8s linear infinite;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .profile-image img {
@@ -222,18 +235,13 @@ nav ul li a:hover::after {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    position: relative;
+    z-index: 1;
 }
 
 
 .rotating-circle {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    border: 2px dashed #00ff9d;
-    border-radius: 50%;
-    animation: rotate 20s linear infinite;
+    display: none;
 }
 
 @keyframes rotate {
